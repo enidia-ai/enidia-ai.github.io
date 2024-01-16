@@ -63,7 +63,7 @@
 
     <main id="main">
       
-      <section class="hero-section inner-page">
+      <section class="hero-section">
         <div class="wave">
           
           <svg width="1920px" height="265px" viewBox="0 0 1920 265" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -119,79 +119,64 @@
             <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
               
               <div>
-                <link rel="stylesheet" href="https://cdn.formbold.com/formbold.css" />
-                <br />
-                <div class="formbold-builder-form themeOne">
-                  <form
-                      enctype="multipart/form-data"
-                      action="https://formbold.com/s/6vv8e"
-                      method="POST"
-                      class="mx-auto w-full max-w-[570px] rounded-[10px] border border-stroke bg-white p-10 themeOne"
-                      >
-                      <div class="SortableItem fb-builder-item">
-                        <div class="mb-4">
-                          <label class="mb-2.5 block text-base text-black"><span></span></label
-                          ><input
-                               type="text"
-                               class="w-full rounded border border-stroke bg-white px-5 py-3 text-base text-black outline-none focus:border-primary"
-                               name="text_input_51F740BF-54A7-4A42-850B-CAB226B599E3"
-                               placeholder="Your Name"
-                               value=""
-                               />
-                        </div>
-                      </div>
-                      <div class="SortableItem fb-builder-item">
-                        <div class="mb-4">
-                          <label class="mb-2.5 block text-base text-black"><span></span></label
-                          ><input
-                               type="email"
-                               class="w-full rounded border border-stroke bg-white px-5 py-3 text-base text-black outline-none focus:border-primary"
-                               name="email_input_29D281F6-8F21-4D6F-8701-64F3A133442C"
-                               placeholder="Your Email"
-                               value=""
-                               />
-                        </div>
-                      </div>
-                      <div class="SortableItem fb-builder-item">
-                        <div class="mb-4">
-                          <label class="mb-2.5 block text-base text-black"><span></span></label
-                          ><input
-                               type="text"
-                               class="w-full rounded border border-stroke bg-white px-5 py-3 text-base text-black outline-none focus:border-primary"
-                               name="text_input_F1FEE3DF-238B-4097-A24E-08B18D5B3A4F"
-                               placeholder="Subject"
-                               value=""
-                               />
-                        </div>
-                      </div>
-                      <div class="SortableItem fb-builder-item">
-                        <div class="mb-4">
-                          <label class="mb-2.5 block text-base text-black"><span></span></label
-                          ><textarea
-                               class="w-full rounded border border-stroke bg-white px-5 py-3 text-base text-black outline-none focus:border-primary"
-                               name="text_area_9E086F10-BD62-481A-90D7-0BE90EECFAE5"
-                               placeholder="Message"
-                               ></textarea>
-                        </div>
-                      </div>
-                      <div class="btn-toolbar flex items-center justify-center  space-x-3">
+                <form
+                    enctype="multipart/form-data"
+                    action="https://formbold.com/s/6vv8e"
+                    method="POST"
+                    class="php-email-form"
+                    >
+                    
+                    <div class="row">
+                      <div class="col-md-6 form-group">
+                        <label for="name">Name</label>
                         <input
-                            type="submit"
-                            class="btn btn-primary inline-flex cursor-pointer rounded border border-primary  px-8 py-2 text-base font-medium hover:bg-opacity-90"
-                            value="Submit"
+                            type="text"
+                            class="form-control"
+                            name="Name"
+                            value=""
                             />
                       </div>
-                  </form>
-                  <p class="mt-8 flex items-center justify-center">
-                  Powered by<span class="pl-2"
-                                  ><a href="https://formbold.com" rel="nofollow noopener" target="_blank"
-                                                                                          ><img
-                                                                                               src="https://cdn.formbold.com/formbold-logo.svg"
-                                                                                               alt="Formbold Logo"
-                                                                                               style="max-width: 100px;" /></a
-                                                                                             ></span>
-                  </p>
-                </div>
+                      <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <label for="name">Email</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            name="Email"
+                            value=""
+                            />
+                      </div>
+                      <div class="col-md-12 form-group mt-3">
+                        <label for="name">Subject</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="Subject"
+                            value=""
+                            />
+                      </div>
+                      <div class="col-md-12 form-group mt-3">
+                        <label for="name">Message</label>
+                        <textarea
+                            class="form-control"
+                            name="Message"
+                            >
+                        </textarea>
+                      </div>
+                      
+                      <div class="col-md-12 mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message">Your message has been sent. Thank you!</div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                      </div>
+                      
+                      <div class="col-md-6 form-group">
+                        <input type="submit" class="btn btn-primary d-block w-100" value="Send Message">
+                      </div>
+                    </div>
+                    
+                </form>
+
+
               </div>
             </div>
 
