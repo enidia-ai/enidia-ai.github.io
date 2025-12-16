@@ -1,419 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
-  
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
-    <title>Enidia AI SARL-S</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Briefly | The AI Backoffice for Lawyers</title>
+    <meta content="AI tools for lawyers, legal semantic search, automated drafting" name="description">
     
-    <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
     
-    <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     
-    <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    
-    <!-- =======================================================
-      * Template Name: SoftLand
-      * Updated: Jan 09 2024 with Bootstrap v5.3.2
-      * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-      * Author: BootstrapMade.com
-      * License: https://bootstrapmade.com/license/
-      ======================================================== -->
+
+    <style>
+      /* Typography Upgrade */
+      h1, h2, h3 { font-family: 'Merriweather', serif; }
+      body, p, a { font-family: 'Roboto', sans-serif; }
+
+      /* Dark Legal Office Hero Theme */
+      .hero-section {
+        /* Tint adjusted to 0.7 for readability */
+        background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('assets/img/office-photo.png');
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        color: white;
+        padding: 160px 0 100px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Text Shadow to pop against background */
+      .hero-section h1, 
+      .hero-section p {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 8px 16px rgba(0,0,0,0.8);
+      }
+      .hero-section h1 { font-weight: 700; }
+      
+      /* Background Pattern */
+      .hero-bg-pattern {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        opacity: 0.1;
+        background-image: radial-gradient(#ffffff 1px, transparent 1px);
+        background-size: 30px 30px;
+        pointer-events: none;
+      }
+
+      /* --- NEW CHAT MOCKUP STYLES (Librarian/Researcher) --- */
+      .chat-interface {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        border: 1px solid #e9ecef;
+        overflow: hidden;
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .chat-header {
+        background: #f8f9fa;
+        padding: 12px 20px;
+        border-bottom: 1px solid #dee2e6;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .chat-header-dot { width: 10px; height: 10px; border-radius: 50%; }
+      .chat-header-text { font-size: 11px; font-weight: bold; color: #6c757d; text-transform: uppercase; letter-spacing: 1px; }
+      
+      .chat-body {
+        padding: 20px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .chat-bubble {
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-size: 13px; /* Slightly larger for readability */
+        line-height: 1.5;
+        max-width: 85%;
+        position: relative;
+      }
+      .chat-bubble.user {
+        background: #0d6efd; 
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 2px;
+      }
+      .chat-bubble.ai {
+        background: #f1f3f5;
+        color: #212529;
+        align-self: flex-start;
+        border-bottom-left-radius: 2px;
+        border: 1px solid #e9ecef;
+      }
+      .source-tag {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 2px 6px;
+        background: #e2e6ea;
+        color: #495057;
+        font-size: 10px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+      .chat-input-area {
+        padding: 15px;
+        border-top: 1px solid #e9ecef;
+        background: #f8f9fa;
+      }
+      .fake-input-bar {
+        height: 35px;
+        background: #fff;
+        border: 1px solid #ced4da;
+        border-radius: 20px;
+        width: 100%;
+      }
+
+      /* --- SPLIT SCREEN MOCKUP STYLES (Associate) --- */
+      .mockup-container {
+        background: #f8f9fa;
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        overflow: hidden;
+        border: 1px solid #e9ecef;
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .mockup-header {
+        background: #e9ecef;
+        padding: 10px 20px;
+        display: flex;
+        gap: 8px;
+        border-bottom: 1px solid #dee2e6;
+      }
+      .dot { width: 12px; height: 12px; border-radius: 50%; }
+      .dot.red { background: #ff5f57; }
+      .dot.yellow { background: #febc2e; }
+      .dot.green { background: #28c840; }
+      
+      .mockup-body { display: flex; height: 300px; }
+      .mockup-left {
+        width: 50%; padding: 20px; background: #fff;
+        border-right: 1px solid #dee2e6; overflow: hidden;
+      }
+      .mockup-right { width: 50%; padding: 20px; background: #f0f7ff; }
+      
+      .text-line { height: 6px; background: #e9ecef; margin-bottom: 8px; border-radius: 2px; }
+      .text-line.short { width: 60%; }
+      .text-line.highlight { background: #ffeeba; }
+
+      .form-field { margin-bottom: 12px; }
+      .form-label { font-size: 10px; font-weight: bold; color: #0d6efd; display: block; margin-bottom: 4px; }
+      .form-input { height: 24px; background: white; border: 1px solid #cbd5e1; border-radius: 4px; width: 100%; }
+
+      /* Layout Helpers */
+      .feature-row { padding: 60px 0; }
+      .feature-text { padding: 20px; }
+    </style>
   </head>
   
   <body>
     
-    <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center">
       <div class="container d-flex justify-content-between align-items-center">
         
-        <div class="logo">
-          <h1><a href="index.html"><a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a></a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <div class="logo d-flex align-items-center">
+  
+          <a href="index.html" style="text-decoration:none;">
+            <span style="font-family: 'Merriweather', serif; font-size: 26px; font-weight: 700; color: #1e293b;">
+              Briefly<span style="color:#0d6efd">.</span>
+            </span>
+          </a>
+        
+          <div style="width: 1px; height: 24px; background-color: #cbd5e1; margin: 0 15px;"></div>
+        
+          <a href="contact.html" class="d-flex align-items-center" style="text-decoration:none;">
+            <span style="font-size: 11px; color: #64748b; margin-right: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">
+              by
+            </span>
+            <img src="assets/img/logo.png" alt="Enidia AI" style="height: 24px; width: auto; opacity: 0.9;">
+          </a>
+        
         </div>
         
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="active " href="index.html">Trusted AI for Law Firms</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="media.html">Media Center</a></li>
-            <li><a href="contact.html">About Us</a></li>
+            <li><a class="active" href="index.html">Product</a></li>
+            <li><a href="contact.html">About Enidia</a></li>
+            <li><a href="#" class="btn btn-primary ms-3 text-white px-4" style="border-radius: 50px;">Book Demo</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+        </nav>
         
       </div>
-    </header><!-- End Header -->
+    </header>
     
-    <!-- ======= Hero Section ======= -->
     <section class="hero-section" id="hero">
-      
-      <div class="wave">
-        
-        <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
-          <path d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,757 L1017.15166,757 L0,757 L0,439.134243 Z" id="Path"></path>
-          </g>
-          </g>
-        </svg>
-        
-      </div>
-      
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12 hero-text-image">
-            <div class="row">
-              <div class="col-lg-8 text-center text-lg-start">
-                <h1 data-aos="fade-right">Empowering Law Firms with Trusted AI Consulting</h1>
-                <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="#overview" class="btn btn-outline-white">Discover How We Transform Legal Practices</a></p>
-              </div>
-              <div class="col-lg-4 iphone-wrap">
-              </div>
-            </div>
+      <div class="hero-bg-pattern"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-lg-10">
+            <h1 data-aos="fade-up" class="display-4 fw-bold mb-4">Draft Faster. Search Deeper.<br>Your Digital Legal Team.</h1>
+            <p data-aos="fade-up" data-aos-delay="100" class="lead mb-5 text-light opacity-75" style="max-width: 700px; margin: 0 auto;">
+              AI alone isn't enough. <strong>Briefly</strong> is the backoffice that structures your workflow—combining semantic search with verifiable drafting.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="200">
+              <a href="#" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg me-3">Book a Brief Demo</a>
+              <a href="#modules" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Meet the Digital Team</a>
+            </p>
           </div>
         </div>
       </div>
-      
-    </section><!-- End Hero -->
+    </section>
     
     <main id="main">
       
-      <!-- ======= Home Section ======= -->
-      <section id="overview" class="section">
+      <section id="modules" class="section bg-light">
         <div class="container">
           
           <div class="row justify-content-center text-center mb-5">
-            <div class="col-12" data-aos="fade-up">
-              <h2 class="section-heading">Leveraging Expertise from Hundreds of Legal Stakeholders to Address Your AI Concerns: Trust, Transparency, and Seamless Integration</h2>
+            <div class="col-md-8" data-aos="fade-up">
+              <span class="text-primary text-uppercase fw-bold ls-1">The Modules</span>
+              <h2 class="section-heading mt-2">Your New Backoffice Team</h2>
+              <p class="text-muted">Briefly hires three specialized AI agents to structure your workflow.</p>
             </div>
           </div>
-          
-          <div class="row">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="">
-              <div class="feature-1 text-center">
-                <div class="wrap-icon icon-1">
-                  <i class="bi bi-lightning"></i>
+
+          <div class="row align-items-center feature-row">
+            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+              <div class="feature-text">
+                <div class="module-icon mb-3" style="margin: 0; width: 48px; height: 48px;">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16"><path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/><path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/><path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/></svg>
                 </div>
-                <h3 class="mb-3">Expertise Backed by Extensive Engagement</h3>
-                <p>Our expertise is built on insights from meeting hundreds of stakeholders in the legal domain and analyzing dozens of use cases. This deep understanding ensures our solutions are tailored to your firm's unique needs.</p>
+                <h3>The Librarian</h3>
+                <h5 class="text-primary mb-3">Internal Knowledge Search</h5>
+                <p class="lead" style="font-size: 16px;">Stop wasting hours hunting for "that one clause" you wrote three years ago.</p>
+                <p>The Librarian indexes your firm's entire document history securely. It doesn't just match keywords; it understands legal concepts. Ask it to "Find a limitation of liability clause favorable to the vendor," and it retrieves the exact precedent you need.</p>
               </div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="feature-1 text-center">
-                <div class="wrap-icon icon-1">
-                  <i class="bi bi-shield-check"></i>
+            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+              <div class="chat-interface">
+                <div class="chat-header">
+                  <div class="chat-header-dot" style="background:#0d6efd;"></div>
+                  <span class="chat-header-text">LIBRARIAN AGENT</span>
                 </div>
-                <h3 class="mb-3">Alignment with Regulatory Standards</h3>
-                <p>Our solutions closely align with the latest regulations, including the new AI Act, ensuring your firm remains compliant while adopting cutting-edge AI technologies.</p>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="feature-1 text-center">
-                <div class="wrap-icon icon-1">
-                  <i class="bi bi-search"></i>
+                <div class="chat-body">
+                  <div class="chat-bubble user">
+                    Find standard indemnification clauses from our 2023 Real Estate contracts.
+                  </div>
+                  <div class="chat-bubble ai">
+                    I found 3 relevant clauses. Here is the most referenced one:
+                    <br><br>
+                    <em>"The Landlord shall indemnify Tenant against..."</em>
+                    <br>
+                    <span class="source-tag">Source: Lease_Agreement_v2.pdf (Pg 14)</span>
+                  </div>
                 </div>
-                <h3 class="mb-3">Dual-Skilled Professional Team</h3>
-                <p>Our team members bring dual skills in technology and law, enabling us to bridge the gap between legal expertise and technological innovation effectively.</p>
+                <div class="chat-input-area">
+                   <div class="fake-input-bar"></div>
+                </div>
               </div>
-              <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="#overview" class="btn btn-outline-white">Learn about Trusted AI for Law Firms</a></p>
             </div>
           </div>
-          
+
+          <div class="row align-items-center feature-row">
+            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+              <div class="feature-text">
+                <div class="module-icon mb-3" style="margin: 0; width: 48px; height: 48px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-globe-europe-africa" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M3.668 2.501l-.288.646a.847.847 0 0 0 1.479.815l.245-.55a.81.81 0 0 1 1.054-.344l.286.108a.8.8 0 0 1 .453.764v.382a.8.8 0 0 0 .584.779l.26.07a.8.8 0 0 1 .536.877l-.146.732a.8.8 0 0 0 .848.966l.307-.03a.8.8 0 0 1 .792.686l.128.64a.8.8 0 0 0 1.168.455l.06-.026a.8.8 0 0 1 1.055.45l.135.271a.8.8 0 0 0 1.196.296l.16-.13c.273-.223.33-.604.14-.903l-.206-.34a.8.8 0 0 1 .14-1.008l.178-.178a.8.8 0 0 0 .225-.713l-.066-.333a.8.8 0 0 1 .74-.96h.044a.8.8 0 0 0 .793-.72l.06-.33a.8.8 0 0 1 .632-.656l.349-.07a.808.808 0 0 0 .546-.622l.065-.264a.8.8 0 0 1 .6-.593l.23-.056A8 8 0 0 0 8 0"/></svg>
+                </div>
+                <h3>The Researcher</h3>
+                <h5 class="text-primary mb-3">Case Law & Precedent Analysis</h5>
+                <p class="lead" style="font-size: 16px;">Navigate external case law based on facts, not just keywords.</p>
+                <p>The Researcher module scans thousands of rulings to find the precedent that supports your specific argument. It digests complex judgments and provides summaries with direct links to the official Curia or national databases.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+               <div class="chat-interface">
+                <div class="chat-header">
+                  <div class="chat-header-dot" style="background:#ffc107;"></div>
+                  <span class="chat-header-text">RESEARCHER AGENT</span>
+                </div>
+                <div class="chat-body">
+                  <div class="chat-bubble user">
+                    Are there rulings on "GDPR fines for minor data breaches" in Luxembourg?
+                  </div>
+                  <div class="chat-bubble ai">
+                    Yes. In <em>Case 123/2023</em>, the court ruled that minor breaches do not automatically trigger maximum fines if reported immediately.
+                    <br><br>
+                    <span class="source-tag">Source: Court of Justice (Curia)</span>
+                  </div>
+                </div>
+                <div class="chat-input-area">
+                   <div class="fake-input-bar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-center feature-row">
+            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+              <div class="feature-text">
+                <div class="module-icon mb-3" style="margin: 0; width: 48px; height: 48px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16"><path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/></svg>
+                </div>
+                <h3>The Associate</h3>
+                <h5 class="text-primary mb-3">Drafting & Validation</h5>
+                <p class="lead" style="font-size: 16px;">Turn reading time into drafting time. Zero hallucinations.</p>
+                <p>The Associate extracts data from complex documents to fill your firm's templates automatically. We use a <strong>Split View</strong> interface: document on the left, data on the right. You can validate every single field before you copy it.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+              <div class="mockup-container">
+                  <div class="mockup-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                  </div>
+                  <div class="mockup-body">
+                    <div class="mockup-left">
+                      <div class="text-line short"></div>
+                      <div class="text-line"></div>
+                      <div class="text-line"></div>
+                      <div class="text-line highlight"></div>
+                      <div class="text-line"></div>
+                      <br>
+                      <div class="text-line"></div>
+                    </div>
+                    <div class="mockup-right">
+                      <div class="form-field">
+                        <span class="form-label">Party A Name</span>
+                        <div class="form-input"></div>
+                      </div>
+                      <div class="form-field">
+                        <span class="form-label">Jurisdiction</span>
+                        <div class="form-input" style="background-color: #e8f0fe; border-color: #0d6efd;"></div>
+                      </div>
+                      <div style="margin-top: 20px;">
+                          <button class="btn btn-sm btn-primary w-100">Validate & Copy</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
         </div>
       </section>
-<!--
-<section class="section">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-5" data-aos="fade-up">
-              <h2 class="section-heading">Video - GDPR Bot</h2>
-            </div>
-          </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://player.vimeo.com/video/892926754?h=9b6f497bc0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+      <section class="section">
+        <div class="container text-center">
+              <h2 class="mb-4" data-aos="fade-up">AI You Can Trust. Verify Everything.</h2>
+              <p class="mb-4" data-aos="fade-up" data-aos-delay="100">Most AI is a "Black Box." Briefly is a "Glass Box."</p>
+              <div class="row justify-content-center">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                   <i class="bi bi-check-circle-fill text-primary mb-2 display-6"></i>
+                   <h5>Split View</h5>
+                   <p class="small text-muted">Source document always visible.</p>
                 </div>
-                <p class="text-center mt-3">
-                    <a href="https://vimeo.com/892926754">Demo of the GDPR Bot</a> from
-                    <a href="https://vimeo.com/user141501900">The LegAi App</a>, a collaboration with the University of Luxembourg.
-                </p>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                   <i class="bi bi-check-circle-fill text-primary mb-2 display-6"></i>
+                   <h5>Instant Click</h5>
+                   <p class="small text-muted">Click a field to find its source.</p>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                   <i class="bi bi-check-circle-fill text-primary mb-2 display-6"></i>
+                   <h5>Zero Hallucinations</h5>
+                   <p class="small text-muted">You validate before you copy.</p>
+                </div>
+              </div>
+        </div>
+      </section>
+
+      <section class="section border-top">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12" data-aos="fade-up">
+                    <h2>Your Trade Secrets Stay Secret.</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <i class="bi bi-lock-fill display-4 text-muted mb-3"></i>
+                    <h5>Private Hosting</h5>
+                    <p class="small text-muted">We do not train our public models on your client data.</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <i class="bi bi-shield-check-fill display-4 text-muted mb-3"></i>
+                    <h5>GDPR Compliant</h5>
+                    <p class="small text-muted">Servers located in Europe with full data sovereignty.</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <i class="bi bi-hdd-network-fill display-4 text-muted mb-3"></i>
+                    <h5>Encrypted</h5>
+                    <p class="small text-muted">Enterprise-grade encryption for all documents in transit and at rest.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
--->
-
-
-      
-<!--
-      <section class="section">
-        
-
-          <div class="container">
-          <div class="row justify-content-center text-center mb-5" data-aos="fade">
-          <div class="col-md-6 mb-5">
-          <img src="assets/img/undraw_svg_1.svg" alt="Image" class="img-fluid">
-          </div>
-          </div>
-          
-          <div class="row">
-          <div class="col-md-4">
-          <div class="step">
-          <span class="number">01</span>
-          <h3>Sign Up</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-          </div>
-          </div>
-          <div class="col-md-4">
-          <div class="step">
-          <span class="number">02</span>
-          <h3>Create Profile</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-          </div>
-          </div>
-          <div class="col-md-4">
-          <div class="step">
-          <span class="number">03</span>
-          <h3>Enjoy the app</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-          </div>
-          </div>
-          </div>
-          </div>
-          
-          </section>
-          
--->
-          <section class="section">
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-md-6 me-auto">
-                  <h2 class="mb-4">Frequently Asked Questions</h2>
-                  <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                          Can AI be trusted in the legal profession?
-                        </button>
-                      </h2>
-                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Yes, with our extensive experience and compliance with the new AI Act, we ensure that the AI solutions we recommend are transparent, reliable, and align perfectly with your firm's requirements.</div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                          Will AI disrupt our current methodologies?
-                        </button>
-                      </h2>
-                      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Our consulting services focus on integrating AI into your existing processes seamlessly, so you can benefit from automation without altering your proven workflows.</div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                          How do you ensure data confidentiality and protection?
-                        </button>
-                      </h2>
-                      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">We prioritize data security by implementing AI tools designed with robust confidentiality measures, ensuring compliance with all legal data protection regulations.</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                          How do your solutions align with the new AI Act?
-                        </button>
-                      </h2>
-                      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Our solutions are developed in close alignment with the new AI Act, ensuring that all AI implementations are compliant with the latest regulations, promoting responsible and ethical AI usage in your firm.</div>
-                      </div>
-                    </div>
-                  </div>
-                  <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="research.html#technology" class="btn btn-primary">Learn About Our Consulting Services</a></p>
-                </div>
-                <div class="col-md-4" data-aos="fade-left">
-                  <img src="assets/img/undraw_svg_2.svg" alt="Image" class="img-fluid">
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Pricing section removed -->
-
-          <!--
-          <section class="section">
-          <div class="container">
-          <div class="row align-items-center">
-          <div class="col-md-4 ms-auto order-2">
-          <h2 class="mb-4">Gather Feedback</h2>
-          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur at reprehenderit optio,
-          laudantium eius quod, eum maxime molestiae porro omnis. Dolores aspernatur delectus impedit incidunt
-          dolore mollitia esse natus beatae.</p>
-          <p><a href="#" class="btn btn-primary">Download Now</a></p>
-          </div>
-          <div class="col-md-6" data-aos="fade-right">
-          <img src="assets/img/undraw_svg_3.svg" alt="Image" class="img-fluid">
-          </div>
-          </div>
-          </div>
-          </section>
-          
--->
-          <!-- ======= Testimonials Section ======= -->
-          <!--<section class="section border-top border-bottom">
-            <div class="container">
-            <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-4">
-            <h2 class="section-heading">Review From Our Users</h2>
-            </div>
-            </div>
-            <div class="row justify-content-center text-center">
-            <div class="col-md-7">
+      </section>
             
-            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper-wrapper">
-            
-            <div class="swiper-slide">
-            <div class="review text-center">
-            <p class="stars">
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill muted"></span>
-            </p>
-            <h3>Excellent App!</h3>
-            <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam
-            aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,
-            provident voluptates consectetur maiores quos.</p>
-            </blockquote>
-            
-            <p class="review-user">
-            <img src="assets/img/person_1.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-            <span class="d-block">
-            <span class="text-black">Jean Doe</span>, &mdash; App User
-            </span>
-            </p>
-            
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-            <div class="review text-center">
-            <p class="stars">
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill muted"></span>
-            </p>
-            <h3>This App is easy to use!</h3>
-            <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam
-            aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,
-            provident voluptates consectetur maiores quos.</p>
-            </blockquote>
-            
-            <p class="review-user">
-            <img src="assets/img/person_2.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-            <span class="d-block">
-            <span class="text-black">Johan Smith</span>, &mdash; App User
-            </span>
-            </p>
-            
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-            <div class="review text-center">
-            <p class="stars">
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill muted"></span>
-            </p>
-            <h3>Awesome functionality!</h3>
-            <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam
-            aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,
-            provident voluptates consectetur maiores quos.</p>
-            </blockquote>
-            
-            <p class="review-user">
-            <img src="assets/img/person_3.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-            <span class="d-block">
-            <span class="text-black">Jean Thunberg</span>, &mdash; App User
-            </span>
-            </p>
-            
-            </div>
-            </div>
-            
-            </div>
-            <div class="swiper-pagination"></div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </section><!-- End Testimonials Section -->
-            
-            <!-- ======= CTA Section ======= -->
-            <!--<section class="section cta-section">
-              <div class="container">
-                <div class="row align-items-center">
-                  <div class="col-md-6 me-auto text-center text-md-start mb-5 mb-md-0">
-                    <h2>Try out our Demo on GDPR Chapter V - Data Transfers</h2>
-                  </div>
-                  <div class="col-md-5 text-center text-md-end">
-                    <p><a href="https://legai.uni.lu/gdpr-bot" class="btn d-inline-flex align-items-center"><i class="bx bx-shield"></i><span>GDPR Bot</span></a></p>
-                  </div>
-                </div>
-              </div>
-            </section>--><!-- End CTA Section -->
-            
-    </main><!-- End #main -->
+    </main>
     
-    <!-- ======= Footer ======= -->
-    <footer class="footer" role="contentinfo">
+    <footer class="footer bg-light" role="contentinfo">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 mb-4 mb-md-0">
-            <h3>About Enidia AI</h3>
-            <p>Enidia AI was born out of a vision to bridge the gap between advanced technological innovation and practical legal applications. With a commitment to ethical AI, our goal is to empower legal professionals with tools that are not only technologically advanced but also align with the highest standards of reliability and responsibility.</p>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h3>Briefly by Enidia AI</h3>
+            <p>Empowering legal professionals with tools that are not only technologically advanced but also align with the highest standards of reliability.</p>
             <p class="social">
             <a href="https://www.linkedin.com/company/enidia-ai"><span class="bi bi-linkedin"></span></a>
             </p>
           </div>
-          <div class="col-md-4 me-auto">
+          <div class="col-md-4 ms-auto">
             <div class="row site-section pt-0">
               <div class="col-12 mb-4 mb-md-0">
                 <h3>Navigation</h3>
                 <ul class="list-unstyled">
-                  <li><a href="research.html">Research</a></li>
-                  <li><a href="media.html">Media Center</a></li>
+                  <li><a href="index.html">Product</a></li>
                   <li><a href="contact.html">About Us</a></li>
+                  <li><a href="#">Book a Demo</a></li>
                 </ul>
               </div>
             </div>
@@ -431,15 +447,12 @@
     
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     
-    <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
     
-    <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     
   </body>
-  
 </html>
