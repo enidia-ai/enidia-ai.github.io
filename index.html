@@ -1,419 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
-  
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
-    <title>Enidia AI SARL-S</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Briefly | The AI Backoffice for Lawyers</title>
+    <meta content="AI tools for lawyers, legal semantic search, automated drafting" name="description">
     
-    <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
     
-    <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     
-    <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-    
-    <!-- =======================================================
-      * Template Name: SoftLand
-      * Updated: Jan 09 2024 with Bootstrap v5.3.2
-      * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-      * Author: BootstrapMade.com
-      * License: https://bootstrapmade.com/license/
-      ======================================================== -->
+
+    <style>
+      /* Typography Upgrade */
+      h1, h2, h3 { font-family: 'Merriweather', serif; }
+      body, p, a { font-family: 'Roboto', sans-serif; }
+      
+      p {
+        color: #4b5563; 
+        font-size: 1.1rem;
+        line-height: 1.7; 
+      }
+      .feature-text h3 {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #1e293b;
+      }
+
+      /* Hero Section - Darker Professional Tint */
+      .hero-section {
+        background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('assets/img/office-photo.png');
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        color: white;
+        padding: 160px 0 100px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section h1, 
+      .hero-section p {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 8px 16px rgba(0,0,0,0.8);
+      }
+      .hero-section h1 { font-weight: 700; }
+      
+      .hero-bg-pattern {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        opacity: 0.1;
+        background-image: radial-gradient(#ffffff 1px, transparent 1px);
+        background-size: 30px 30px;
+        pointer-events: none;
+      }
+
+      /* --- CHAT & MOCKUP STYLES --- */
+      .chat-interface, .mockup-container {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        border: 1px solid #e9ecef;
+        overflow: hidden;
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      /* Chat Specifics */
+      .chat-header { background: #f8f9fa; padding: 12px 20px; border-bottom: 1px solid #dee2e6; display: flex; align-items: center; gap: 10px; }
+      .chat-header-dot { width: 10px; height: 10px; border-radius: 50%; }
+      .chat-header-text { font-size: 11px; font-weight: bold; color: #6c757d; text-transform: uppercase; letter-spacing: 1px; }
+      .chat-body { padding: 20px; background: #fff; display: flex; flex-direction: column; gap: 15px; }
+      .chat-bubble { padding: 12px 16px; border-radius: 12px; font-size: 13px; line-height: 1.5; max-width: 85%; position: relative; }
+      .chat-bubble.user { background: #0d6efd; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+      .chat-bubble.ai { background: #f1f3f5; color: #212529; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid #e9ecef; }
+      .source-tag { display: inline-block; margin-top: 6px; padding: 2px 6px; background: #e2e6ea; color: #495057; font-size: 10px; border-radius: 4px; font-weight: bold; }
+      .chat-input-area { padding: 15px; border-top: 1px solid #e9ecef; background: #f8f9fa; }
+      .fake-input-bar { height: 35px; background: #fff; border: 1px solid #ced4da; border-radius: 20px; width: 100%; }
+      
+      /* Mockup Specifics */
+      .mockup-header { background: #e9ecef; padding: 10px 20px; display: flex; gap: 8px; border-bottom: 1px solid #dee2e6; }
+      .dot { width: 12px; height: 12px; border-radius: 50%; }
+      .dot.red { background: #ff5f57; } .dot.yellow { background: #febc2e; } .dot.green { background: #28c840; }
+      .mockup-body { display: flex; height: 300px; }
+      .mockup-left { width: 50%; padding: 20px; background: #fff; border-right: 1px solid #dee2e6; overflow: hidden; }
+      .mockup-right { width: 50%; padding: 20px; background: #f0f7ff; }
+      .text-line { height: 6px; background: #e9ecef; margin-bottom: 8px; border-radius: 2px; }
+      .text-line.short { width: 60%; } .text-line.highlight { background: #ffeeba; }
+      .form-field { margin-bottom: 12px; }
+      .form-label { font-size: 10px; font-weight: bold; color: #0d6efd; display: block; margin-bottom: 4px; }
+      .form-input { height: 24px; background: white; border: 1px solid #cbd5e1; border-radius: 4px; width: 100%; }
+
+      /* Layout Helpers */
+      .feature-row { padding: 60px 0; }
+
+      /* --- LOGO PILL --- */
+      #header .logo {
+        background-color: #ffffff; 
+        padding: 8px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        display: flex;
+        align-items: center;
+      }
+      #header .logo span { color: #1e293b !important; }
+      #header .logo span span { color: #0d6efd !important; }
+      #header .logo div { background-color: #cbd5e1 !important; }
+      #header .logo img { filter: none !important; opacity: 1 !important; height: 24px; width: auto; }
+      @media (max-width: 768px) { #header .logo { padding: 6px 15px; } }
+    </style>
   </head>
   
   <body>
     
-    <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center">
       <div class="container d-flex justify-content-between align-items-center">
         
-        <div class="logo">
-          <h1><a href="index.html"><a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a></a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <div class="logo d-flex align-items-center">
+          <a href="index.html" style="text-decoration:none;">
+            <span style="font-family: 'Merriweather', serif; font-size: 26px; font-weight: 700; color: #1e293b;">
+              Briefly<span style="color:#0d6efd">.</span>
+            </span>
+          </a>
+          <div style="width: 1px; height: 24px; background-color: #cbd5e1; margin: 0 15px;"></div>
+          <a href="contact.html" class="d-flex align-items-center" style="text-decoration:none;">
+            <span style="font-size: 11px; color: #64748b; margin-right: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">by</span>
+            <img src="assets/img/logo.png" alt="Enidia AI" style="height: 24px; width: auto; opacity: 0.9;">
+          </a>
         </div>
         
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="active " href="index.html">Trusted AI for Law Firms</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="media.html">Media Center</a></li>
-            <li><a href="contact.html">About Us</a></li>
+            <li><a class="active" href="index.html">Solutions</a></li>
+            <li><a href="contact.html">About Enidia</a></li>
+            <li><a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank" class="btn btn-primary ms-3 text-white px-4" style="border-radius: 50px;">Book Demo</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+        </nav>
         
       </div>
-    </header><!-- End Header -->
+    </header>
     
-    <!-- ======= Hero Section ======= -->
     <section class="hero-section" id="hero">
-      
-      <div class="wave">
-        
-        <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
-          <path d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,757 L1017.15166,757 L0,757 L0,439.134243 Z" id="Path"></path>
-          </g>
-          </g>
-        </svg>
-        
-      </div>
-      
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12 hero-text-image">
-            <div class="row">
-              <div class="col-lg-8 text-center text-lg-start">
-                <h1 data-aos="fade-right">Empowering Law Firms with Trusted AI Consulting</h1>
-                <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="#overview" class="btn btn-outline-white">Discover How We Transform Legal Practices</a></p>
-              </div>
-              <div class="col-lg-4 iphone-wrap">
-              </div>
-            </div>
+      <div class="hero-bg-pattern"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-lg-10">
+            <h1 data-aos="fade-up" class="display-4 fw-bold mb-4">Draft Faster. Search Deeper.<br>Your Digital Legal Team.</h1>
+            <p data-aos="fade-up" data-aos-delay="100" class="lead mb-5 text-light opacity-75" style="max-width: 700px; margin: 0 auto;">
+              AI alone isn't enough. <strong>Briefly</strong> is the backoffice that structures your workflow—combining semantic search with verifiable drafting.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="200">
+              <a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg me-3">Book a Brief Demo</a>
+              <a href="#modules" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Meet the Digital Team</a>
+            </p>
           </div>
         </div>
       </div>
-      
-    </section><!-- End Hero -->
+    </section>
     
     <main id="main">
       
-      <!-- ======= Home Section ======= -->
-      <section id="overview" class="section">
+      <section class="section" style="padding-bottom: 0;">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-lg-8" data-aos="fade-up">
+              <h2 class="mb-3">One Chat. Three Experts. Zero Friction.</h2>
+              <p class="lead text-muted mb-5">
+                Don't toggle between apps. We unified the workflow. 
+                You chat with Briefly, and Briefly orchestrates the right agent for the job.
+              </p>
+            </div>
+          </div>
+      
+          <div class="row justify-content-center" data-aos="zoom-in">
+            <div class="col-lg-8">
+              <div class="p-4 bg-white rounded-4 shadow-sm border border-light text-center position-relative">
+                
+                <div class="d-flex justify-content-center gap-5 mb-4 opacity-75">
+                   <div class="d-flex flex-column align-items-center">
+                      <i class="bi bi-pen text-success fs-3"></i>
+                      <small class="fw-bold mt-2" style="font-size: 10px; letter-spacing:1px; color:#64748b;">ASSOCIATE</small>
+                   </div>
+                   <div class="d-flex flex-column align-items-center">
+                      <i class="bi bi-journal-text text-primary fs-3"></i>
+                      <small class="fw-bold mt-2" style="font-size: 10px; letter-spacing:1px; color:#64748b;">LIBRARIAN</small>
+                   </div>
+                   <div class="d-flex flex-column align-items-center">
+                      <div class="d-flex align-items-center text-warning fs-3">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <i class="bi bi-search" style="font-size: 0.6em; margin-left: -5px; margin-top: 5px;"></i>
+                      </div>
+                      <small class="fw-bold mt-2" style="font-size: 10px; letter-spacing:1px; color:#64748b;">RESEARCHER</small>
+                   </div>
+                </div>
+      
+                <div class="position-relative">
+                  <input type="text" class="form-control form-control-lg rounded-pill border-2 ps-4 pe-5" 
+                         value="Briefly, find the 2023 precedent and draft a new clause..." disabled 
+                         style="background: #f8f9fa; color: #1e293b; font-weight: 500; font-size: 16px;">
+                  
+                  <button class="btn btn-primary rounded-circle position-absolute top-50 end-0 translate-middle-y me-2 shadow-sm d-flex align-items-center justify-content-center p-0" 
+                          style="width: 40px; height: 40px; min-width: 40px; border: none;">
+                    <i class="bi bi-arrow-up" style="font-size: 18px; line-height: 0;"></i>
+                  </button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="modules" class="section bg-light">
         <div class="container">
           
           <div class="row justify-content-center text-center mb-5">
-            <div class="col-12" data-aos="fade-up">
-              <h2 class="section-heading">Leveraging Expertise from Hundreds of Legal Stakeholders to Address Your AI Concerns: Trust, Transparency, and Seamless Integration</h2>
+            <div class="col-md-8" data-aos="fade-up">
+              <span class="text-primary text-uppercase fw-bold ls-1">The Modules</span>
+              <h2 class="section-heading mt-2">Specialized Agents, Integrated Results</h2>
             </div>
           </div>
-          
-          <div class="row">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="">
-              <div class="feature-1 text-center">
-                <div class="wrap-icon icon-1">
-                  <i class="bi bi-lightning"></i>
+
+          <div class="row align-items-center feature-row">
+            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+              <div class="feature-text">
+                <div class="module-icon mb-3" style="margin: 0;">
+                  <i class="bi bi-pen text-success" style="font-size: 48px;"></i>
                 </div>
-                <h3 class="mb-3">Expertise Backed by Extensive Engagement</h3>
-                <p>Our expertise is built on insights from meeting hundreds of stakeholders in the legal domain and analyzing dozens of use cases. This deep understanding ensures our solutions are tailored to your firm's unique needs.</p>
+                <h3>The Associate</h3>
+                <h5 class="text-primary mb-3">Drafting & Validation</h5>
+                <p>Turn reading time into drafting time. The Associate extracts data from complex documents to fill your firm's templates automatically. Use the Split View to validate every field before you copy.</p>
               </div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="feature-1 text-center">
-                <div class="wrap-icon icon-1">
-                  <i class="bi bi-shield-check"></i>
+            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+              <div class="mockup-container">
+                  <div class="mockup-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                  <div class="mockup-body">
+                    <div class="mockup-left">
+                      <div class="text-line short"></div><div class="text-line"></div><div class="text-line"></div><div class="text-line highlight"></div><div class="text-line"></div><br><div class="text-line"></div>
+                    </div>
+                    <div class="mockup-right">
+                      <div class="form-field"><span class="form-label">Party A Name</span><div class="form-input"></div></div>
+                      <div class="form-field"><span class="form-label">Jurisdiction</span><div class="form-input" style="background-color: #e8f0fe; border-color: #0d6efd;"></div></div>
+                      <div style="margin-top: 20px;"><button class="btn btn-sm btn-primary w-100">Validate & Copy</button></div>
+                    </div>
+                  </div>
                 </div>
-                <h3 class="mb-3">Alignment with Regulatory Standards</h3>
-                <p>Our solutions closely align with the latest regulations, including the new AI Act, ensuring your firm remains compliant while adopting cutting-edge AI technologies.</p>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="feature-1 text-center">
-                <div class="wrap-icon icon-1">
-                  <i class="bi bi-search"></i>
-                </div>
-                <h3 class="mb-3">Dual-Skilled Professional Team</h3>
-                <p>Our team members bring dual skills in technology and law, enabling us to bridge the gap between legal expertise and technological innovation effectively.</p>
-              </div>
-              <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="#overview" class="btn btn-outline-white">Learn about Trusted AI for Law Firms</a></p>
             </div>
           </div>
-          
+
+          <div class="row align-items-center feature-row">
+            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+              <div class="feature-text">
+                <div class="module-icon mb-3" style="margin: 0;">
+                   <i class="bi bi-journal-text text-primary" style="font-size: 48px;"></i>
+                </div>
+                <h3>The Librarian</h3>
+                <h5 class="text-primary mb-3">Internal Knowledge Search</h5>
+                <p>Stop wasting hours hunting for "that one clause" you wrote three years ago. The Librarian indexes your firm's entire document history securely. It understands legal concepts, not just keywords.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+              <div class="chat-interface">
+                <div class="chat-header">
+                  <div class="chat-header-dot" style="background:#0d6efd;"></div>
+                  <span class="chat-header-text">LIBRARIAN AGENT</span>
+                </div>
+                <div class="chat-body">
+                  <div class="chat-bubble user">Find standard indemnification clauses from our 2023 Real Estate contracts.</div>
+                  <div class="chat-bubble ai">
+                    I found 3 relevant clauses. Here is the most referenced one:
+                    <br><br><em>"The Landlord shall indemnify Tenant against..."</em>
+                    <br><span class="source-tag">Source: Lease_Agreement_v2.pdf (Pg 14)</span>
+                  </div>
+                </div>
+                <div class="chat-input-area"><div class="fake-input-bar"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-center feature-row">
+            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+              <div class="feature-text">
+                <div class="module-icon mb-3" style="margin: 0;">
+                  <i class="bi bi-file-earmark-text text-warning" style="font-size: 48px;"></i>
+                  <i class="bi bi-search text-warning" style="font-size: 28px; margin-left: -15px;"></i>
+                </div>
+                <h3>The Researcher</h3>
+                <h5 class="text-primary mb-3">Case Law & Precedent Analysis</h5>
+                <p>Navigate external case law based on facts. The Researcher module scans thousands of rulings to find the precedent that supports your specific argument, providing summaries linked to official databases.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+               <div class="chat-interface">
+                <div class="chat-header">
+                  <div class="chat-header-dot" style="background:#ffc107;"></div>
+                  <span class="chat-header-text">RESEARCHER AGENT</span>
+                </div>
+                <div class="chat-body">
+                  <div class="chat-bubble user">Are there rulings on "GDPR fines for minor data breaches" in Luxembourg?</div>
+                  <div class="chat-bubble ai">
+                    Yes. In <em>Case 123/2023</em>, the court ruled that minor breaches do not automatically trigger maximum fines if reported immediately.
+                    <br><span class="source-tag">Source: Court of Justice (Curia)</span>
+                  </div>
+                </div>
+                <div class="chat-input-area"><div class="fake-input-bar"></div></div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
-<!--
-<section class="section">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-5" data-aos="fade-up">
-              <h2 class="section-heading">Video - GDPR Bot</h2>
-            </div>
-          </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://player.vimeo.com/video/892926754?h=9b6f497bc0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+      <section class="section border-top bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12" data-aos="fade-up">
+                    <h2>Uncompromised Data Sovereignty.</h2>
+                    <p class="text-muted">Built for firms where confidentiality is not optional.</p>
                 </div>
-                <p class="text-center mt-3">
-                    <a href="https://vimeo.com/892926754">Demo of the GDPR Bot</a> from
-                    <a href="https://vimeo.com/user141501900">The LegAi App</a>, a collaboration with the University of Luxembourg.
-                </p>
+            </div>
+            
+            <div class="row text-center g-4 justify-content-center">
+                <div class="col-md-5" data-aos="fade-up" data-aos-delay="0">
+                    <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
+                        <i class="bi bi-server display-5 text-primary mb-3"></i>
+                        <h5 class="fw-bold text-dark">On-Premise or Cloud</h5>
+                        <p class="small text-muted mb-0">
+                          Deploy Briefly on your own secure servers (Air-gapped ready) or use our cloud infrastructure. The choice is yours. No more concerns about the client's privilege or cloud flexibility for less confidential data.
+                        </p>
+                    </div>
+                </div>
+      
+                <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
+                        <i class="bi bi-robot display-5 text-primary mb-3"></i>
+                        <h5 class="fw-bold text-dark">No Public Training</h5>
+                        <p class="small text-muted mb-0">
+                          Your data is used <strong>only</strong> to serve your queries. We explicitly do not train our public models on your firm's inputs or outputs.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
--->
-
-
+      </section>
       
-<!--
-      <section class="section">
-        
-
-          <div class="container">
-          <div class="row justify-content-center text-center mb-5" data-aos="fade">
-          <div class="col-md-6 mb-5">
-          <img src="assets/img/undraw_svg_1.svg" alt="Image" class="img-fluid">
-          </div>
-          </div>
-          
-          <div class="row">
-          <div class="col-md-4">
-          <div class="step">
-          <span class="number">01</span>
-          <h3>Sign Up</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-          </div>
-          </div>
-          <div class="col-md-4">
-          <div class="step">
-          <span class="number">02</span>
-          <h3>Create Profile</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-          </div>
-          </div>
-          <div class="col-md-4">
-          <div class="step">
-          <span class="number">03</span>
-          <h3>Enjoy the app</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-          </div>
-          </div>
-          </div>
-          </div>
-          
-          </section>
-          
--->
-          <section class="section">
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-md-6 me-auto">
-                  <h2 class="mb-4">Frequently Asked Questions</h2>
-                  <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                          Can AI be trusted in the legal profession?
-                        </button>
-                      </h2>
-                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Yes, with our extensive experience and compliance with the new AI Act, we ensure that the AI solutions we recommend are transparent, reliable, and align perfectly with your firm's requirements.</div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                          Will AI disrupt our current methodologies?
-                        </button>
-                      </h2>
-                      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Our consulting services focus on integrating AI into your existing processes seamlessly, so you can benefit from automation without altering your proven workflows.</div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                          How do you ensure data confidentiality and protection?
-                        </button>
-                      </h2>
-                      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">We prioritize data security by implementing AI tools designed with robust confidentiality measures, ensuring compliance with all legal data protection regulations.</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                      <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                          How do your solutions align with the new AI Act?
-                        </button>
-                      </h2>
-                      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Our solutions are developed in close alignment with the new AI Act, ensuring that all AI implementations are compliant with the latest regulations, promoting responsible and ethical AI usage in your firm.</div>
-                      </div>
-                    </div>
-                  </div>
-                  <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="research.html#technology" class="btn btn-primary">Learn About Our Consulting Services</a></p>
-                </div>
-                <div class="col-md-4" data-aos="fade-left">
-                  <img src="assets/img/undraw_svg_2.svg" alt="Image" class="img-fluid">
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Pricing section removed -->
-
-          <!--
-          <section class="section">
-          <div class="container">
-          <div class="row align-items-center">
-          <div class="col-md-4 ms-auto order-2">
-          <h2 class="mb-4">Gather Feedback</h2>
-          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur at reprehenderit optio,
-          laudantium eius quod, eum maxime molestiae porro omnis. Dolores aspernatur delectus impedit incidunt
-          dolore mollitia esse natus beatae.</p>
-          <p><a href="#" class="btn btn-primary">Download Now</a></p>
-          </div>
-          <div class="col-md-6" data-aos="fade-right">
-          <img src="assets/img/undraw_svg_3.svg" alt="Image" class="img-fluid">
-          </div>
-          </div>
-          </div>
-          </section>
-          
--->
-          <!-- ======= Testimonials Section ======= -->
-          <!--<section class="section border-top border-bottom">
-            <div class="container">
-            <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-4">
-            <h2 class="section-heading">Review From Our Users</h2>
-            </div>
-            </div>
-            <div class="row justify-content-center text-center">
-            <div class="col-md-7">
-            
-            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-            <div class="swiper-wrapper">
-            
-            <div class="swiper-slide">
-            <div class="review text-center">
-            <p class="stars">
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill muted"></span>
-            </p>
-            <h3>Excellent App!</h3>
-            <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam
-            aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,
-            provident voluptates consectetur maiores quos.</p>
-            </blockquote>
-            
-            <p class="review-user">
-            <img src="assets/img/person_1.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-            <span class="d-block">
-            <span class="text-black">Jean Doe</span>, &mdash; App User
-            </span>
-            </p>
-            
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-            <div class="review text-center">
-            <p class="stars">
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill muted"></span>
-            </p>
-            <h3>This App is easy to use!</h3>
-            <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam
-            aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,
-            provident voluptates consectetur maiores quos.</p>
-            </blockquote>
-            
-            <p class="review-user">
-            <img src="assets/img/person_2.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-            <span class="d-block">
-            <span class="text-black">Johan Smith</span>, &mdash; App User
-            </span>
-            </p>
-            
-            </div>
-            </div>
-            
-            <div class="swiper-slide">
-            <div class="review text-center">
-            <p class="stars">
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill"></span>
-            <span class="bi bi-star-fill muted"></span>
-            </p>
-            <h3>Awesome functionality!</h3>
-            <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam
-            aperiam dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi,
-            provident voluptates consectetur maiores quos.</p>
-            </blockquote>
-            
-            <p class="review-user">
-            <img src="assets/img/person_3.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-            <span class="d-block">
-            <span class="text-black">Jean Thunberg</span>, &mdash; App User
-            </span>
-            </p>
-            
-            </div>
-            </div>
-            
-            </div>
-            <div class="swiper-pagination"></div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </section><!-- End Testimonials Section -->
-            
-            <!-- ======= CTA Section ======= -->
-            <!--<section class="section cta-section">
-              <div class="container">
-                <div class="row align-items-center">
-                  <div class="col-md-6 me-auto text-center text-md-start mb-5 mb-md-0">
-                    <h2>Try out our Demo on GDPR Chapter V - Data Transfers</h2>
-                  </div>
-                  <div class="col-md-5 text-center text-md-end">
-                    <p><a href="https://legai.uni.lu/gdpr-bot" class="btn d-inline-flex align-items-center"><i class="bx bx-shield"></i><span>GDPR Bot</span></a></p>
-                  </div>
-                </div>
-              </div>
-            </section>--><!-- End CTA Section -->
-            
-    </main><!-- End #main -->
+    </main>
     
-    <!-- ======= Footer ======= -->
-    <footer class="footer" role="contentinfo">
+    <footer class="footer bg-white border-top" role="contentinfo">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 mb-4 mb-md-0">
-            <h3>About Enidia AI</h3>
-            <p>Enidia AI was born out of a vision to bridge the gap between advanced technological innovation and practical legal applications. With a commitment to ethical AI, our goal is to empower legal professionals with tools that are not only technologically advanced but also align with the highest standards of reliability and responsibility.</p>
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h3>Briefly by Enidia AI</h3>
+            <p>Empowering legal professionals with tools that are not only technologically advanced but also align with the highest standards of reliability.</p>
             <p class="social">
             <a href="https://www.linkedin.com/company/enidia-ai"><span class="bi bi-linkedin"></span></a>
             </p>
           </div>
-          <div class="col-md-4 me-auto">
+          <div class="col-md-4 ms-auto">
             <div class="row site-section pt-0">
               <div class="col-12 mb-4 mb-md-0">
                 <h3>Navigation</h3>
                 <ul class="list-unstyled">
-                  <li><a href="research.html">Research</a></li>
-                  <li><a href="media.html">Media Center</a></li>
+                  <li><a href="index.html">Solutions</a></li>
                   <li><a href="contact.html">About Us</a></li>
+                  <li><a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank">Book a Demo</a></li>
                 </ul>
               </div>
             </div>
@@ -431,15 +390,12 @@
     
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     
-    <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
     
-    <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     
   </body>
-  
 </html>
