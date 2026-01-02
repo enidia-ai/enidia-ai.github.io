@@ -42,6 +42,55 @@
         background-size: 30px 30px;
         pointer-events: none;
       }
+
+      /* --- LOGO BACKGROUND FIX (The White Pill) --- */
+
+      /* 1. Target the Logo Container */
+      #header .logo {
+        /* Create the white background */
+        background-color: #ffffff; 
+        
+        /* Add shape and spacing */
+        padding: 8px 20px;
+        border-radius: 50px; /* Makes it a pill shape */
+        
+        /* Add a subtle shadow so it pops off the background */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        
+        /* Ensure layout remains centered */
+        display: flex;
+        align-items: center;
+      }
+
+      /* 2. Ensure the text inside is Dark (since background is now white) */
+      #header .logo span {
+        color: #1e293b !important; /* Dark Navy Text */
+      }
+
+      #header .logo span span {
+        color: #0d6efd !important; /* Keep the dot blue */
+      }
+
+      /* 3. The Vertical Divider Line (Dark Gray) */
+      #header .logo div {
+        background-color: #cbd5e1 !important;
+      }
+
+      /* 4. The "Enidia" Image - No Filters! */
+      #header .logo img {
+        filter: none !important;
+        opacity: 1 !important;
+        /* Ensure it fits nicely */
+        height: 24px;
+        width: auto;
+      }
+
+      /* 5. Mobile Adjustment (Optional: prevents it from being too wide on phone) */
+      @media (max-width: 768px) {
+        #header .logo {
+          padding: 6px 15px;
+        }
+      }
     </style>
   </head>
   
@@ -71,7 +120,7 @@
         
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a href="index.html">Product</a></li>
+            <li><a href="index.html">Solutions</a></li>
             <li><a class="active " href="contact.html">About Enidia</a></li>
             <li><a href="#" class="btn btn-primary ms-3 text-white px-4" style="border-radius: 50px;">Book Demo</a></li>
           </ul>
@@ -198,7 +247,7 @@
               <div class="col-12 mb-4 mb-md-0">
                 <h3>Navigation</h3>
                 <ul class="list-unstyled">
-                  <li><a href="index.html">Product</a></li>
+                  <li><a href="index.html">Solutions</a></li>
                   <li><a href="contact.html">About Us</a></li>
                 </ul>
               </div>
