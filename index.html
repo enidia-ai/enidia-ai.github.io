@@ -36,7 +36,7 @@
         color: #1e293b;
       }
 
-      /* Hero Section - Darker Professional Tint */
+      /* Hero Section */
       .hero-section {
         background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('assets/img/office-photo.png');
         background-size: cover; 
@@ -63,6 +63,31 @@
         pointer-events: none;
       }
 
+      /* Add to your <style> block */
+
+      .icon-square {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Card Hover Effect */
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+      }
+
+      /* Typography Tweaks for Dossier */
+      .display-6 {
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
       /* --- CHAT & MOCKUP STYLES --- */
       .chat-interface, .mockup-container {
         background: #ffffff;
@@ -72,6 +97,7 @@
         overflow: hidden;
         max-width: 450px;
         margin: 0 auto;
+        position: relative; /* For absolute positioning of connectors */
       }
       /* Chat Specifics */
       .chat-header { background: #f8f9fa; padding: 12px 20px; border-bottom: 1px solid #dee2e6; display: flex; align-items: center; gap: 10px; }
@@ -85,15 +111,30 @@
       .chat-input-area { padding: 15px; border-top: 1px solid #e9ecef; background: #f8f9fa; }
       .fake-input-bar { height: 35px; background: #fff; border: 1px solid #ced4da; border-radius: 20px; width: 100%; }
       
-      /* Mockup Specifics */
+      /* Mockup Specifics - UPDATED FOR VALIDATION LINES */
       .mockup-header { background: #e9ecef; padding: 10px 20px; display: flex; gap: 8px; border-bottom: 1px solid #dee2e6; }
       .dot { width: 12px; height: 12px; border-radius: 50%; }
       .dot.red { background: #ff5f57; } .dot.yellow { background: #febc2e; } .dot.green { background: #28c840; }
-      .mockup-body { display: flex; height: 300px; }
-      .mockup-left { width: 50%; padding: 20px; background: #fff; border-right: 1px solid #dee2e6; overflow: hidden; }
-      .mockup-right { width: 50%; padding: 20px; background: #f0f7ff; }
+      .mockup-body { display: flex; height: 300px; position: relative; }
+      .mockup-left { width: 50%; padding: 20px; background: #fff; border-right: 1px solid #dee2e6; overflow: hidden; z-index: 1; }
+      .mockup-right { width: 50%; padding: 20px; background: #f0f7ff; z-index: 1; }
+      
       .text-line { height: 6px; background: #e9ecef; margin-bottom: 8px; border-radius: 2px; }
-      .text-line.short { width: 60%; } .text-line.highlight { background: #ffeeba; }
+      .text-line.short { width: 60%; } 
+      
+      /* validation styles */
+      .text-line.source-highlight { background: #ffeeba; border: 1px solid #ffc107; }
+      .form-input.target-highlight { background-color: #e8f0fe; border-color: #0d6efd; box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.1); }
+      
+      /* The Connector Line (Visualizing Reliability) */
+      .validation-connector {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 2; /* On top of content */
+      }
+
       .form-field { margin-bottom: 12px; }
       .form-label { font-size: 10px; font-weight: bold; color: #0d6efd; display: block; margin-bottom: 4px; }
       .form-input { height: 24px; background: white; border: 1px solid #cbd5e1; border-radius: 4px; width: 100%; }
@@ -171,6 +212,219 @@
     </section>
     
     <main id="main">
+
+      <section class="section bg-white border-bottom pt-5 pb-5" id="evidence-dossier">
+        <div class="container">
+          
+          <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-9" data-aos="fade-up">
+              <span class="badge bg-danger bg-opacity-10 text-danger mb-3 px-3 py-2 rounded-pill text-uppercase fw-bold" style="letter-spacing: 1.5px; font-size: 11px;">
+                The Market Reality
+              </span>
+              
+              <h2 class="fw-bold mb-3 display-6" style="font-family: 'Merriweather', serif; color: #1e293b;">
+                Don't Rely on Probabilities. Rely on Proof.
+              </h2>
+              
+              <p class="text-muted lead mx-auto" style="max-width: 750px;">
+                The industry is chasing the illusion of a perfect model. <br>
+                Science proves that hallucination is inevitable. <br>
+                We don't ask for blind trust; we provide the framework to <strong>audit</strong> the output.
+              </p>
+            </div>
+          </div>
+      
+          <div class="row g-4 mb-5">
+            
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="0">
+              <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background: #fff;">
+                <div class="card-body p-4 p-lg-5 position-relative">
+                  <div class="d-flex align-items-center mb-4">
+                    <div class="icon-square bg-danger bg-opacity-10 text-danger rounded-3 p-2 me-3">
+                      <i class="bi bi-currency-dollar fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold mb-0 text-dark">The Financial Cost of "Trust"</h5>
+                  </div>
+                  
+                  <h3 class="fw-bold text-danger mb-3">$290,000 Refunded</h3>
+                  <p class="mb-4 text-secondary">
+                    Even the "Big Four" are not immune. Deloitte Australia was forced to refund a government client after delivering a report "littered with AI errors," including fabricated court judgments. Senators compared the output to the work of a "first-year student".
+                  </p>
+                  
+                  <div class="p-3 bg-light rounded-3 border border-light">
+                    <p class="small text-muted mb-2 fst-italic">
+                      <i class="bi bi-quote me-1"></i>
+                      Deloitte "misused AI and used it very inappropriately: misquoted a judge, used references that are non-existent."
+                    </p>
+                    <a href="https://apnews.com/article/australia-ai-errors-deloitte-ab54858680ffc4ae6555b31c8fb987f3" target="_blank" class="badge bg-white text-secondary border text-decoration-none">
+                      <i class="bi bi-box-arrow-up-right me-1"></i> Read AP News Report
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background: #fff;">
+                <div class="card-body p-4 p-lg-5 position-relative d-flex flex-column">
+                  
+                  <div class="d-flex align-items-center mb-4">
+                     <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-3 p-2 me-3">
+                      <i class="bi bi-calculator fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold mb-0 text-dark">The Mathematical Impossibility</h5>
+                  </div>
+      
+                  <h3 class="fw-bold text-primary mb-3">The "Impossibility Theorem"</h3>
+                  <p class="mb-4 text-secondary">
+                    Hallucination is not a bug; it is a feature of the architecture. A 2025 theorem proves that no LLM can simultaneously achieve truthfulness and knowledge-constrained optimality.
+                  </p>
+      
+                  <div class="mt-auto">
+                    <div class="p-3 bg-light rounded-3 border border-light">
+                       
+                       <div class="mb-2 d-flex align-items-center">
+                          <i class="bi bi-bookmark-check-fill text-secondary me-2" style="font-size: 10px;"></i>
+                          <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px; letter-spacing: 1px;">Scientific Evidence</span>
+                       </div>
+      
+                       <div class="mb-3">
+                          <span class="small text-muted fst-italic">
+                            <i class="bi bi-quote me-1"></i>
+                            "Hallucination is a manifestation of fundamental limitation of the inference process itself."
+                          </span>
+                       </div>
+      
+                       <div class="d-flex align-items-start pt-3 border-top border-secondary border-opacity-10">
+                          <i class="bi bi-file-earmark-pdf text-danger mt-1 me-3 fs-4"></i>
+                          <div>
+                            <h6 class="fw-bold text-dark mb-1" style="font-size: 0.85rem; line-height: 1.4;">
+                              <a href="https://arxiv.org/abs/2506.06382" target="_blank" class="text-dark text-decoration-underline">
+                                On the Fundamental Impossibility of Hallucination Control in Large Language Models
+                              </a>
+                            </h6>
+                            <p class="mb-0 text-muted" style="font-size: 0.75rem;">
+                              <span class="fw-bold text-dark">M. P. Karpowicz</span> &bull; Samsung AI Center Warsaw
+                            </p>
+                          </div>
+                       </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background: #fff;">
+                <div class="card-body p-4 p-lg-5 position-relative">
+                  <div class="d-flex align-items-center mb-4">
+                    <div class="icon-square bg-warning bg-opacity-10 text-warning rounded-3 p-2 me-3">
+                      <i class="bi bi-gavel fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold mb-0 text-dark">The Professional Liability</h5>
+                  </div>
+      
+                  <h5 class="fw-bold text-dark mb-3">"Blind Trust is Malpractice"</h5>
+                  <p class="mb-4 text-secondary">
+                    Courts have moved beyond warnings. Lawyers are being sanctioned for "fake citations" generated by general-purpose AI. Major firms now explicitly warn that using unverified AI in filings is grounds for termination.
+                  </p>
+                  
+                  <div class="p-3 bg-light rounded-3 border border-light">
+                    <p class="small text-muted mb-2 fst-italic">
+                       <i class="bi bi-quote me-1"></i>
+                       "Using made-up information in a court filing could get you fired."
+                    </p>
+                    <a href="https://www.reuters.com/technology/artificial-intelligence/ai-hallucinations-court-papers-spell-trouble-lawyers-2025-02-18/" target="_blank" class="badge bg-white text-secondary border text-decoration-none">
+                      <i class="bi bi-newspaper me-1"></i> Read Reuters Analysis
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background: #fff;">
+                <div class="card-body p-4 p-lg-5 position-relative">
+                  <div class="d-flex align-items-center mb-4">
+                    <div class="icon-square bg-dark bg-opacity-10 text-dark rounded-3 p-2 me-3">
+                      <i class="bi bi-shield-lock fs-4"></i>
+                    </div>
+                    <h5 class="fw-bold mb-0 text-dark">The Sovereign Imperative</h5>
+                  </div>
+            
+                  <h5 class="fw-bold text-dark mb-3">The "Unsolvable" Flaw</h5>
+                  <p class="mb-4 text-secondary">
+                    Anthropic admits that "prompt injection is far from solved". 
+                    This means "Zero-Click" attacks can bypass your firewalls to exfiltrate data.
+                    If the software cannot be secured, it must be <strong>isolated</strong>.
+                  </p>
+            
+                  <div class="p-3 bg-light rounded-3 border border-light">
+                      <p class="small text-muted mb-2 fst-italic">
+                      <i class="bi bi-quote me-1"></i>
+                      "Prompt injection is far from a solved problem..." <br>
+                      "No browser agent is immune..."
+                    </p>
+                    <a href="https://www.anthropic.com/research/prompt-injection-defenses" target="_blank" class="badge bg-white text-secondary border text-decoration-none">
+                      <i class="bi bi-cone-striped me-1"></i> Read Anthropic's Admission
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+      
+          <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="400">
+            <div class="col-lg-12">
+              <div class="p-5 rounded-5 position-relative overflow-hidden text-white shadow-lg" 
+                   style="background: linear-gradient(135deg, #3730a3 0%, #312e81 100%); border: 1px solid rgba(255,255,255,0.15);">
+                
+                <div class="row align-items-center position-relative" style="z-index: 2;">
+                  <div class="col-lg-8">
+                    <span class="badge bg-white bg-opacity-10 border border-white border-opacity-25 text-white mb-3 px-3 py-2 rounded-pill text-uppercase fw-bold" style="letter-spacing: 1px; font-size: 11px;">
+                      The Enidia Protocol
+                    </span>
+                    
+                    <h2 class="display-6 fw-bold mb-4">We Don't Ask You to Trust. <br>We Ask You to Verify.</h2>
+                    
+                    <p class="lead text-light opacity-90 mb-4" style="font-size: 1.1rem; line-height: 1.6;">
+                      The evidence above proves that structural risks are real. 
+                      We preserve the <strong>brilliant capabilities</strong> of Generative AI, but since hallucination is inevitable, our interface is designed to catch it.
+                      Enidia is the <strong>"Audit Layer"</strong> that sits securely between the AI model and your legal opinion.
+                    </p>
+                    
+                    <ul class="list-unstyled d-flex flex-wrap gap-3 gap-md-4 text-light opacity-100 mb-0" style="font-size: 0.95rem; font-weight: 500;">
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> Mandatory Verification
+                      </li>
+                      <li class="d-flex align-items-center">
+                         <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> On-Premise Air-Gap
+                      </li>
+                       <li class="d-flex align-items-center">
+                         <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> Citation Anchoring
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div class="col-lg-4 text-lg-end mt-5 mt-lg-0">
+                     <a href="#modules" class="btn btn-light btn-lg rounded-pill px-5 py-3 shadow-lg fw-bold text-primary">
+                       See The Solution <i class="bi bi-arrow-down-circle-fill ms-2"></i>
+                     </a>
+                  </div>
+                </div>
+                
+                <div class="position-absolute bottom-0 end-0 opacity-05 pe-none" style="margin-bottom: -40px; margin-right: -40px; opacity: 0.05;">
+                  <i class="bi bi-shield-check" style="font-size: 350px; color: white;"></i>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </section>
       
       <section class="section" style="padding-bottom: 0;">
         <div class="container">
@@ -241,7 +495,7 @@
                 </div>
                 <h3>The Associate</h3>
                 <h5 class="text-primary mb-3">Drafting & Validation</h5>
-                <p>Turn reading time into drafting time. The Associate extracts data from complex documents to fill your firm's templates automatically. Use the Split View to validate every field before you copy.</p>
+                <p>Trust, but Verify. The Associate extracts data from complex documents but forces a <strong>Split-View Validator</strong> workflow. Extracted data isn't just pasted; it is linked to the source paragraph. You validate the AI's "proposal" before it becomes your draft, eliminating the risk of silent errors.</p>
               </div>
             </div>
             <div class="col-lg-6 order-lg-2" data-aos="fade-left">
@@ -249,11 +503,22 @@
                   <div class="mockup-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
                   <div class="mockup-body">
                     <div class="mockup-left">
-                      <div class="text-line short"></div><div class="text-line"></div><div class="text-line"></div><div class="text-line highlight"></div><div class="text-line"></div><br><div class="text-line"></div>
+                      <div class="text-line short"></div><div class="text-line"></div><div class="text-line"></div>
+                      <div class="text-line source-highlight"></div>
+                      <div class="text-line"></div><br><div class="text-line"></div>
                     </div>
                     <div class="mockup-right">
                       <div class="form-field"><span class="form-label">Party A Name</span><div class="form-input"></div></div>
-                      <div class="form-field"><span class="form-label">Jurisdiction</span><div class="form-input" style="background-color: #e8f0fe; border-color: #0d6efd;"></div></div>
+                      <div class="form-field">
+                        <span class="form-label">Jurisdiction</span>
+                        <div class="form-input target-highlight"></div>
+                      </div>
+                      <svg class="validation-connector">
+                         <path d="M210 110 C 300 110, 300 160, 320 160" stroke="#0d6efd" stroke-width="2" fill="none" stroke-dasharray="4" opacity="0.6"/>
+                         <circle cx="210" cy="110" r="3" fill="#ffc107" />
+                         <circle cx="320" cy="160" r="3" fill="#0d6efd" />
+                      </svg>
+                      
                       <div style="margin-top: 20px;"><button class="btn btn-sm btn-primary w-100">Validate & Copy</button></div>
                     </div>
                   </div>
@@ -329,7 +594,7 @@
             <div class="row text-center mb-5">
                 <div class="col-12" data-aos="fade-up">
                     <h2>Uncompromised Data Sovereignty.</h2>
-                    <p class="text-muted">Built for firms where confidentiality is not optional.</p>
+                    <p class="text-muted">In the age of zero-click vulnerabilities, "Cloud" is a risk vector.</p>
                 </div>
             </div>
             
@@ -337,9 +602,9 @@
                 <div class="col-md-5" data-aos="fade-up" data-aos-delay="0">
                     <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
                         <i class="bi bi-server display-5 text-primary mb-3"></i>
-                        <h5 class="fw-bold text-dark">On-Premise or Cloud</h5>
+                        <h5 class="fw-bold text-dark">Defense Against "GeminiJack"</h5>
                         <p class="small text-muted mb-0">
-                          Deploy Enidia Legal Solution on your own secure servers (Air-gapped ready) or use our cloud infrastructure. The choice is yours. No more concerns about the client's privilege or cloud flexibility for less confidential data.
+                          Recent zero-click exploits like <strong>GeminiJack</strong> and persistent Prompt Injection attacks prove that public chatbots cannot guarantee confidentiality. Enidia is <strong>Air-Gap Ready</strong>—deployable on your secure servers where no external prompt can reach your data.
                         </p>
                     </div>
                 </div>
@@ -349,7 +614,7 @@
                         <i class="bi bi-robot display-5 text-primary mb-3"></i>
                         <h5 class="fw-bold text-dark">No Public Training</h5>
                         <p class="small text-muted mb-0">
-                          Your data is used <strong>only</strong> to serve your queries. We explicitly do not train our public models on your firm's inputs or outputs.
+                          Your data is used <strong>only</strong> to serve your queries. We explicitly do not train our public models on your firm's inputs or outputs. Your knowledge base remains your IP, not training fodder for the competition.
                         </p>
                     </div>
                 </div>
