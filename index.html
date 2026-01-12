@@ -142,12 +142,15 @@
       /* Layout Helpers */
       .feature-row { padding: 60px 0; }
 
-      /* --- LOGO PILL --- */
+      /* --- LOGO REDESIGN (Card Shape, not Pill) --- */
       #header .logo {
         background-color: #ffffff; 
-        padding: 8px 20px;
-        border-radius: 50px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding: 8px 16px;
+        /* CHANGE: From 50px (Pill) to 8px (Card/Tag) */
+        border-radius: 8px; 
+        /* CHANGE: Add a left border to signal "Brand Identity", not "Input" */
+        border-left: 4px solid #0d6efd; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         display: flex;
         align-items: center;
       }
@@ -155,10 +158,83 @@
       #header .logo span span { color: #0d6efd !important; }
       #header .logo div { background-color: #cbd5e1 !important; }
       #header .logo img { filter: none !important; opacity: 1 !important; height: 24px; width: auto; }
+      
       @media (max-width: 768px) { 
-        #header .logo { padding: 6px 15px; }
+        #header .logo { padding: 6px 12px; }
         /* Slightly reduce font size on mobile for longer name */
-        #header .logo span { font-size: 20px !important; }
+        #header .logo span { font-size: 18px !important; }
+      }
+
+      /* --- MOBILE OPTIMIZATIONS (Max-width 768px) --- */
+      @media (max-width: 768px) {
+
+        /* 1. HERO SECTION FIX */
+        .hero-section {
+          /* Switch to a mobile-specific portrait image */
+          background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('assets/img/office-photo-mobile.png') !important;
+          background-position: center top !important;
+          padding: 100px 0 60px 0 !important;
+          text-align: left !important;
+          min-height: auto !important;
+        }
+
+        .hero-section h1 {
+          font-size: 2rem !important; /* Much smaller */
+          line-height: 1.2 !important;
+        }
+        
+        .hero-section p.lead {
+          font-size: 1rem !important;
+          margin-bottom: 2rem !important;
+        }
+
+        /* Stack the buttons vertically with full width */
+        .hero-section .btn {
+          display: block;
+          width: 100%;
+          margin-bottom: 15px;
+          margin-right: 0 !important;
+        }
+
+        /* 2. FAKE INPUT FIX (Overlap & Wrapping) */
+        /* Changed from manipulating input to styling the container since we swapped to a DIV in HTML */
+        .p-4.bg-white.rounded-4 {
+          height: auto !important;
+          padding: 1.5rem !important;
+        }
+
+        /* 3. REDUCE "CLUNKY" CARD SIZES */
+        .card-body, .p-4, .p-5 {
+          padding: 1.5rem !important; 
+        }
+
+        /* 4. VERDICT CARD (The Blue One) */
+        .rounded-5.p-5 {
+          padding: 2rem !important;
+          border-radius: 1.5rem !important;
+        }
+
+        /* Hide the giant watermark shield on mobile */
+        .rounded-5 .bi-shield-check {
+          display: none !important;
+        }
+
+        /* 5. TYPOGRAPHY TIGHTENING */
+        .display-6 {
+          font-size: 1.8rem !important;
+        }
+        p.lead {
+          font-size: 1rem !important;
+        }
+
+        /* 6. ICON SIZES */
+        .icon-square {
+          width: 40px !important;
+          height: 40px !important;
+        }
+        .icon-square i {
+          font-size: 1.2rem !important; 
+        }
       }
     </style>
   </head>
@@ -170,14 +246,15 @@
         
         <div class="logo d-flex align-items-center">
           <a href="index.html" style="text-decoration:none;">
-            <span style="font-family: 'Merriweather', serif; font-size: 26px; font-weight: 700; color: #1e293b;">
-              Enidia Legal Solution<span style="color:#0d6efd">.</span>
+            <span style="font-family: 'Merriweather', serif; font-size: 22px; font-weight: 700; color: #1e293b;">
+              Enidia<span class="d-none d-sm-inline"> Legal Solution</span><span style="color:#0d6efd">.</span>
             </span>
           </a>
-          <div style="width: 1px; height: 24px; background-color: #cbd5e1; margin: 0 15px;"></div>
+          <div style="width: 1px; height: 18px; background-color: #cbd5e1; margin: 0 12px;"></div>
+          
           <a href="contact.html" class="d-flex align-items-center" style="text-decoration:none;">
-            <span style="font-size: 11px; color: #64748b; margin-right: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">by</span>
-            <img src="assets/img/logo.png" alt="Enidia AI" style="height: 24px; width: auto; opacity: 0.9;">
+            <span style="font-size: 10px; color: #64748b; margin-right: 6px; font-weight: 500; text-transform: uppercase;">by</span>
+            <img src="assets/img/logo.png" alt="Enidia AI" style="height: 20px; width: auto;">
           </a>
         </div>
         
@@ -460,14 +537,15 @@
                    </div>
                 </div>
       
-                <div class="position-relative">
-                  <input type="text" class="form-control form-control-lg rounded-pill border-2 ps-4 pe-5" 
-                         value="Enidia, find the 2023 precedent and draft a new clause..." disabled 
-                         style="background: #f8f9fa; color: #1e293b; font-weight: 500; font-size: 16px;">
+                <div class="position-relative text-start">
+                  <div class="d-flex align-items-center border border-2 ps-4" 
+                       style="background: #f8f9fa; color: #1e293b; font-weight: 500; font-size: 16px; border-radius: 2rem; min-height: 60px; padding-right: 60px; width: 100%;">
+                    Enidia, find the 2023 precedent and draft a new clause...
+                  </div>
                   
-                  <button class="btn btn-primary rounded-circle position-absolute top-50 end-0 translate-middle-y me-2 shadow-sm d-flex align-items-center justify-content-center p-0" 
-                          style="width: 40px; height: 40px; min-width: 40px; border: none;">
-                    <i class="bi bi-arrow-up" style="font-size: 18px; line-height: 0;"></i>
+                  <button class="btn btn-primary rounded-circle position-absolute top-50 translate-middle-y shadow-sm d-flex align-items-center justify-content-center" 
+                          style="width: 40px !important; height: 40px !important; min-width: 40px !important; max-width: 40px !important; min-height: 40px !important; max-height: 40px !important; padding: 0 !important; margin: 0 !important; border: none !important; box-sizing: border-box !important; line-height: 1 !important; aspect-ratio: 1 !important; flex-shrink: 0 !important; right: 12px !important;">
+                    <i class="bi bi-arrow-up" style="font-size: 18px; line-height: 1; display: block; margin: 0; padding: 0;"></i>
                   </button>
                 </div>
                 
