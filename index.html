@@ -254,7 +254,7 @@
                   <div class="p-3 bg-light rounded-3 border border-light">
                     <p class="small text-muted mb-2 fst-italic">
                       <i class="bi bi-quote me-1"></i>
-                      Deloitte "misused AI and used it very inappropriately: misquoted a judge, used references that are non-existent."
+                      "Deloitte &laquo;misused AI and used it very inappropriately: misquoted a judge, used references that are non-existent.&raquo;"
                     </p>
                     <a href="https://apnews.com/article/australia-ai-errors-deloitte-ab54858680ffc4ae6555b31c8fb987f3" target="_blank" class="badge bg-white text-secondary border text-decoration-none">
                       <i class="bi bi-box-arrow-up-right me-1"></i> Read AP News Report
@@ -299,7 +299,7 @@
                           <i class="bi bi-file-earmark-pdf text-danger mt-1 me-3 fs-4"></i>
                           <div>
                             <h6 class="fw-bold text-dark mb-1" style="font-size: 0.85rem; line-height: 1.4;">
-                              <a href="https://arxiv.org/abs/2506.06382" target="_blank" class="text-dark text-decoration-underline">
+                              <a href="https://arxiv.org/pdf/2506.06382" target="_blank" class="text-dark text-decoration-underline">
                                 On the Fundamental Impossibility of Hallucination Control in Large Language Models
                               </a>
                             </h6>
@@ -319,8 +319,8 @@
               <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background: #fff;">
                 <div class="card-body p-4 p-lg-5 position-relative">
                   <div class="d-flex align-items-center mb-4">
-                    <div class="icon-square bg-warning bg-opacity-10 text-warning rounded-3 p-2 me-3">
-                      <i class="bi bi-gavel fs-4"></i>
+                    <div class="icon-square bg-warning bg-opacity-10 rounded-3 p-2 me-3" style="color: #b45309;">
+                      <i class="bi bi-exclamation-triangle-fill fs-4"></i>
                     </div>
                     <h5 class="fw-bold mb-0 text-dark">The Professional Liability</h5>
                   </div>
@@ -397,7 +397,7 @@
                     
                     <ul class="list-unstyled d-flex flex-wrap gap-3 gap-md-4 text-light opacity-100 mb-0" style="font-size: 0.95rem; font-weight: 500;">
                       <li class="d-flex align-items-center">
-                        <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> Mandatory Verification
+                        <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> Integrated Verification
                       </li>
                       <li class="d-flex align-items-center">
                          <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> On-Premise Air-Gap
@@ -495,7 +495,11 @@
                 </div>
                 <h3>The Associate</h3>
                 <h5 class="text-primary mb-3">Drafting & Validation</h5>
-                <p>Trust, but Verify. The Associate extracts data from complex documents but forces a <strong>Split-View Validator</strong> workflow. Extracted data isn't just pasted; it is linked to the source paragraph. You validate the AI's "proposal" before it becomes your draft, eliminating the risk of silent errors.</p>
+                <p>
+                  Trust, but Verify. The Associate extracts data but <strong>instantly anchors it</strong>. 
+                  Extracted data isn't just pasted; it remains <strong>visually linked to the source</strong>, making verification 
+                  <strong>effortless and impossible to miss</strong>. You catch silent errors before they become drafts.
+                </p>
               </div>
             </div>
             <div class="col-lg-6 order-lg-2" data-aos="fade-left">
@@ -565,7 +569,7 @@
                 </div>
                 <h3>The Researcher</h3>
                 <h5 class="text-primary mb-3">Case Law & Precedent Analysis</h5>
-                <p>Navigate external case law based on facts. The Researcher module scans thousands of rulings to find the precedent that supports your specific argument, providing summaries linked to official databases.</p>
+                <p>Navigate external case law based on facts. The Researcher module scans thousands of rulings to find the precedent that supports your specific argument, providing summaries linked to official case law.</p>
               </div>
             </div>
             <div class="col-lg-6 order-lg-2" data-aos="fade-left">
@@ -599,25 +603,40 @@
             </div>
             
             <div class="row text-center g-4 justify-content-center">
-                <div class="col-md-5" data-aos="fade-up" data-aos-delay="0">
-                    <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
-                        <i class="bi bi-server display-5 text-primary mb-3"></i>
-                        <h5 class="fw-bold text-dark">Defense Against "GeminiJack"</h5>
+                
+                <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="0">
+                    <div class="p-4 bg-white rounded-3 shadow-sm w-100 border">
+                        <i class="bi bi-shield-x display-5 text-danger mb-3"></i>
+                        <h5 class="fw-bold text-dark">Immunized Against Exfiltration</h5>
                         <p class="small text-muted mb-0">
-                          Recent zero-click exploits like <strong>GeminiJack</strong> and persistent Prompt Injection attacks prove that public chatbots cannot guarantee confidentiality. Enidia is <strong>Air-Gap Ready</strong>—deployable on your secure servers where no external prompt can reach your data.
+                          New "Zero-Click" attacks allow hackers to steal data through public AI models without you ever clicking a link. 
+                          Enidia is <strong>Air-Gap Ready</strong>. We sever the connection to the public internet, meaning there is physically no path for data to leave your building.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-4 bg-white rounded-3 shadow-sm w-100 border">
+                        <i class="bi bi-building-lock display-5 text-success mb-3"></i>
+                        <h5 class="fw-bold text-dark">Privilege & GDPR Preserved</h5>
+                        <p class="small text-muted mb-0">
+                          Sending client data to a third-party cloud can endanger <strong>Legal Professional Privilege</strong> and violate GDPR transfer rules. 
+                          With our On-Premise solution, you remain the sole Data Controller. No third party ever processes your clients' secrets.
                         </p>
                     </div>
                 </div>
       
-                <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
-                        <i class="bi bi-robot display-5 text-primary mb-3"></i>
-                        <h5 class="fw-bold text-dark">No Public Training</h5>
+                <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-4 bg-white rounded-3 shadow-sm w-100 border">
+                        <i class="bi bi-hdd-network display-5 text-primary mb-3"></i>
+                        <h5 class="fw-bold text-dark">Your IP, Not Their Training</h5>
                         <p class="small text-muted mb-0">
-                          Your data is used <strong>only</strong> to serve your queries. We explicitly do not train our public models on your firm's inputs or outputs. Your knowledge base remains your IP, not training fodder for the competition.
+                          Public models learn from your prompts, effectively turning your firm's hard-won expertise into a commodity for your competitors. 
+                          We explicitly <strong>do not train</strong> on your inputs. Your knowledge base remains your exclusive intellectual property.
                         </p>
                     </div>
                 </div>
+
             </div>
         </div>
       </section>
