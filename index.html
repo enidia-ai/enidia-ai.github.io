@@ -21,6 +21,55 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <style>
+      /* --- UNIFIED COLOR PALETTE --- */
+      :root {
+        --enidia-blue: #0044CC;       /* New Royal Blue */
+        --enidia-dark: #0A1930;       /* Deep Navy */
+        --enidia-orange: #FF9900;     /* Friendly Tangerine */
+      }
+
+      /* 1. Friendly Backgrounds */
+      body, .bg-light {
+        background-color: #F4F7FB !important; /* Soft Blue-Grey instead of sad grey */
+      }
+      .bg-white {
+        background-color: #ffffff !important;
+      }
+
+      /* 2. Button Reskin (Round & Pill) */
+      .btn-primary {
+        background-color: var(--enidia-blue);
+        border-color: var(--enidia-blue);
+        box-shadow: 0 4px 14px rgba(0, 68, 204, 0.3); /* Soft Blue Glow */
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--enidia-orange) !important; /* Friendly "Pop" on hover */
+        border-color: var(--enidia-orange) !important;
+        transform: translateY(-2px);
+      }
+      
+      
+      /* 3. Typography & Accents */
+      h1, h2, h3, h4, h5 {
+        color: var(--enidia-dark);
+      }
+      .text-primary {
+        color: var(--enidia-blue) !important;
+      }
+      .text-accent {
+        color: var(--enidia-orange) !important;
+      }
+      .icon-square.bg-primary.bg-opacity-10 {
+        background-color: rgba(0, 68, 204, 0.1) !important;
+      }
+      .icon-square.bg-accent.bg-opacity-10 {
+        background-color: rgba(255, 153, 0, 0.15) !important;
+      }
+      .bg-accent { background-color: var(--enidia-orange) !important; }
+      
       /* Typography Upgrade */
       h1, h2, h3 { font-family: 'Merriweather', serif; }
       body, p, a { font-family: 'Roboto', sans-serif; }
@@ -33,12 +82,12 @@
       .feature-text h3 {
         font-weight: 700;
         margin-bottom: 0.5rem;
-        color: #1e293b;
+        color: var(--enidia-dark);
       }
 
       /* Hero Section */
       .hero-section {
-        background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('assets/img/office-photo.png');
+        background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), url('assets/img/office-photo.png');
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat;
@@ -63,8 +112,6 @@
         pointer-events: none;
       }
 
-      /* Add to your <style> block */
-
       .icon-square {
         width: 48px;
         height: 48px;
@@ -82,6 +129,32 @@
         box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
       }
 
+      /* --- PROTOCOL CARD FIXES --- */
+
+      /* 1. Force Text White (Overrides global Navy settings) */
+      .enidia-protocol-card h1,
+      .enidia-protocol-card h2,
+      .enidia-protocol-card h3,
+      .enidia-protocol-card p,
+      .enidia-protocol-card li,
+      .enidia-protocol-card i {
+        color: #ffffff !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2); /* mild shadow for readability */
+      }
+      /* --- FIX "SEE SOLUTION" BUTTON ARROW --- */
+      /* This overrides the "all icons white" rule just for the button */
+      .enidia-protocol-card .btn-light i {
+        color: var(--enidia-blue) !important;
+      }
+
+      /* 2. Fix the "Enidia Protocol" Badge */
+      /* (My previous global .bg-white fix made this solid white. This makes it see-through again.) */
+      .enidia-protocol-card .badge {
+        background-color: rgba(255, 255, 255, 0.15) !important; 
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: #ffffff !important;
+      }
+
       /* Typography Tweaks for Dossier */
       .display-6 {
         font-weight: 700;
@@ -97,7 +170,7 @@
         overflow: hidden;
         max-width: 450px;
         margin: 0 auto;
-        position: relative; /* For absolute positioning of connectors */
+        position: relative;
       }
       /* Chat Specifics */
       .chat-header { background: #f8f9fa; padding: 12px 20px; border-bottom: 1px solid #dee2e6; display: flex; align-items: center; gap: 10px; }
@@ -105,13 +178,13 @@
       .chat-header-text { font-size: 11px; font-weight: bold; color: #6c757d; text-transform: uppercase; letter-spacing: 1px; }
       .chat-body { padding: 20px; background: #fff; display: flex; flex-direction: column; gap: 15px; }
       .chat-bubble { padding: 12px 16px; border-radius: 12px; font-size: 13px; line-height: 1.5; max-width: 85%; position: relative; }
-      .chat-bubble.user { background: #0d6efd; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+      .chat-bubble.user { background: var(--enidia-blue); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
       .chat-bubble.ai { background: #f1f3f5; color: #212529; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid #e9ecef; }
       .source-tag { display: inline-block; margin-top: 6px; padding: 2px 6px; background: #e2e6ea; color: #495057; font-size: 10px; border-radius: 4px; font-weight: bold; }
       .chat-input-area { padding: 15px; border-top: 1px solid #e9ecef; background: #f8f9fa; }
       .fake-input-bar { height: 35px; background: #fff; border: 1px solid #ced4da; border-radius: 20px; width: 100%; }
       
-      /* Mockup Specifics - UPDATED FOR VALIDATION LINES */
+      /* Mockup Specifics */
       .mockup-header { background: #e9ecef; padding: 10px 20px; display: flex; gap: 8px; border-bottom: 1px solid #dee2e6; }
       .dot { width: 12px; height: 12px; border-radius: 50%; }
       .dot.red { background: #ff5f57; } .dot.yellow { background: #febc2e; } .dot.green { background: #28c840; }
@@ -122,119 +195,129 @@
       .text-line { height: 6px; background: #e9ecef; margin-bottom: 8px; border-radius: 2px; }
       .text-line.short { width: 60%; } 
       
-      /* validation styles */
-      .text-line.source-highlight { background: #ffeeba; border: 1px solid #ffc107; }
-      .form-input.target-highlight { background-color: #e8f0fe; border-color: #0d6efd; box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.1); }
+      /* validation styles - UNIFIED COLORS */
+      .text-line.source-highlight { background: #ffe8cc; border: 1px solid var(--enidia-orange); } /* Orange Tint */
+      .form-input.target-highlight { background-color: #e8f0fe; border-color: var(--enidia-blue); box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.1); }
       
-      /* The Connector Line (Visualizing Reliability) */
       .validation-connector {
         position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
         pointer-events: none;
-        z-index: 2; /* On top of content */
+        z-index: 2;
       }
 
       .form-field { margin-bottom: 12px; }
-      .form-label { font-size: 10px; font-weight: bold; color: #0d6efd; display: block; margin-bottom: 4px; }
+      .form-label { font-size: 10px; font-weight: bold; color: var(--enidia-blue); display: block; margin-bottom: 4px; }
       .form-input { height: 24px; background: white; border: 1px solid #cbd5e1; border-radius: 4px; width: 100%; }
 
-      /* Layout Helpers */
       .feature-row { padding: 60px 0; }
 
-      /* --- LOGO REDESIGN (Card Shape, not Pill) --- */
+      /* --- LOGO REDESIGN --- */
       #header .logo {
         background-color: #ffffff; 
         padding: 8px 16px;
-        /* CHANGE: From 50px (Pill) to 8px (Card/Tag) */
         border-radius: 8px; 
-        /* CHANGE: Add a left border to signal "Brand Identity", not "Input" */
-        border-left: 4px solid #0d6efd; 
+        border-left: 4px solid var(--enidia-blue); 
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         display: flex;
         align-items: center;
       }
-      #header .logo span { color: #1e293b !important; }
-      #header .logo span span { color: #0d6efd !important; }
+      #header .logo span { color: var(--enidia-dark) !important; }
+      #header .logo span span { color: var(--enidia-blue) !important; }
       #header .logo div { background-color: #cbd5e1 !important; }
       #header .logo img { filter: none !important; opacity: 1 !important; height: 24px; width: auto; }
       
       @media (max-width: 768px) { 
-        #header .logo { padding: 6px 12px; }
-        /* Slightly reduce font size on mobile for longer name */
-        #header .logo span { font-size: 18px !important; }
-      }
-
-      /* --- MOBILE OPTIMIZATIONS (Max-width 768px) --- */
-      @media (max-width: 768px) {
-
-        /* 1. HERO SECTION FIX */
+        #header .logo { padding: 6px 12px; flex-wrap: wrap; }
+        #header .logo span { font-size: 18px !important; line-height: 1.3 !important; }
+        #header .logo a { max-width: 100%; }
+        
         .hero-section {
-          /* Switch to a mobile-specific portrait image */
-          background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('assets/img/office-photo-mobile.png') !important;
+          background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.6)), url('assets/img/office-photo-mobile.png') !important;
           background-position: center top !important;
           padding: 100px 0 60px 0 !important;
           text-align: left !important;
           min-height: auto !important;
         }
 
-        .hero-section h1 {
-          font-size: 2rem !important; /* Much smaller */
-          line-height: 1.2 !important;
-        }
+        .hero-section h1 { font-size: 2rem !important; line-height: 1.2 !important; }
+        .hero-section p.lead { font-size: 1rem !important; margin-bottom: 2rem !important; }
+        .hero-section .btn { display: block; width: 100%; margin-bottom: 15px; margin-right: 0 !important; }
         
-        .hero-section p.lead {
-          font-size: 1rem !important;
-          margin-bottom: 2rem !important;
-        }
+        .p-4.bg-white.rounded-4 { height: auto !important; padding: 1.5rem !important; }
+        .card-body, .p-4, .p-5 { padding: 1.5rem !important; }
+        
+        .rounded-5.p-5 { padding: 2rem !important; border-radius: 1.5rem !important; }
+        .rounded-5 .bi-shield-check { display: none !important; }
+        
+        .display-6 { font-size: 1.8rem !important; }
+        p.lead { font-size: 1rem !important; }
+        
+        .icon-square { width: 40px !important; height: 40px !important; }
+        .icon-square i { font-size: 1.2rem !important; }
+      }
 
-        /* Stack the buttons vertically with full width */
-        .hero-section .btn {
-          display: block;
-          width: 100%;
-          margin-bottom: 15px;
-          margin-right: 0 !important;
-        }
+      /* --- FORCE OVERRIDES (Paste at the bottom of <style>) --- */
+      
+      /* 1. Kill the Default Gradient on ALL Primary Buttons */
+      .btn-primary, 
+      .btn-primary.rounded-pill,
+      .btn-primary.rounded-circle,
+      a.btn-primary {
+        background-image: none !important;       /* REMOVES TEAL GRADIENT */
+        background-color: var(--enidia-blue) !important; /* Forces Royal Blue */
+        border-color: var(--enidia-blue) !important;
+        color: white !important;
+        box-shadow: 0 4px 14px rgba(0, 68, 204, 0.4) !important; /* Blue Shadow */
+      }
 
-        /* 2. FAKE INPUT FIX (Overlap & Wrapping) */
-        /* Changed from manipulating input to styling the container since we swapped to a DIV in HTML */
-        .p-4.bg-white.rounded-4 {
-          height: auto !important;
-          padding: 1.5rem !important;
-        }
+      /* 2. Hover State (Tangerine Pop) */
+      .btn-primary:hover,
+      .btn-primary:active,
+      .btn-primary:focus {
+        background-image: none !important;
+        background-color: var(--enidia-orange) !important; /* Orange on Hover */
+        border-color: var(--enidia-orange) !important;
+        color: white !important;
+        transform: translateY(-2px);
+      }
 
-        /* 3. REDUCE "CLUNKY" CARD SIZES */
-        .card-body, .p-4, .p-5 {
-          padding: 1.5rem !important; 
-        }
+      /* 3. Heading Fixes */
+      /* Forces specific headings to use the correct Navy/Royal instead of default Grey/Teal */
+      h2.section-heading, 
+      .section-title h2 {
+        color: var(--enidia-dark) !important; /* Deep Navy */
+      }
+      
+      /* --- HEADER FIX --- */
+      h2.section-heading {
+        /* 1. Turn off the gradient background image */
+        background-image: none !important;
+        background: none !important;
 
-        /* 4. VERDICT CARD (The Blue One) */
-        .rounded-5.p-5 {
-          padding: 2rem !important;
-          border-radius: 1.5rem !important;
-        }
+        /* 2. Reset the "transparent text" effect so solid color shows */
+        -webkit-text-fill-color: initial !important;
+        -webkit-background-clip: border-box !important;
+        background-clip: border-box !important;
 
-        /* Hide the giant watermark shield on mobile */
-        .rounded-5 .bi-shield-check {
-          display: none !important;
-        }
+        /* 3. Force the Royal Blue */
+        color: var(--enidia-blue) !important;
+      }
 
-        /* 5. TYPOGRAPHY TIGHTENING */
-        .display-6 {
-          font-size: 1.8rem !important;
-        }
-        p.lead {
-          font-size: 1rem !important;
-        }
+      /* --- SCROLL TO TOP BUTTON FIX --- */
+      .back-to-top {
+        background-color: var(--enidia-blue) !important; /* Forces Royal Blue */
+        background-image: none !important;               /* Removes any default gradients */
+        border-radius: 50px !important;                  /* Optional: Ensures it stays round */
+      }
 
-        /* 6. ICON SIZES */
-        .icon-square {
-          width: 40px !important;
-          height: 40px !important;
-        }
-        .icon-square i {
-          font-size: 1.2rem !important; 
-        }
+      .back-to-top:hover {
+        background-color: var(--enidia-orange) !important; /* Friendly Tangerine on Hover */
+      }
+
+      .back-to-top i {
+        color: #ffffff !important; /* Ensures the arrow icon remains white */
       }
     </style>
   </head>
@@ -245,9 +328,9 @@
       <div class="container d-flex justify-content-between align-items-center">
         
         <div class="logo d-flex align-items-center">
-          <a href="index.html" style="text-decoration:none;">
-            <span style="font-family: 'Merriweather', serif; font-size: 22px; font-weight: 700; color: #1e293b;">
-              Enidia<span class="d-none d-sm-inline"> Legal Solution</span><span style="color:#0d6efd">.</span>
+          <a href="index.html" style="text-decoration:none; white-space: normal;">
+            <span style="font-family: 'Merriweather', serif; font-size: 22px; font-weight: 700; color: #1e293b; line-height: 1.2;">
+              Enidia<span style="color:var(--enidia-blue)"> Legal Solution</span><span style="color:var(--enidia-blue)">.</span>
             </span>
           </a>
           <div style="width: 1px; height: 18px; background-color: #cbd5e1; margin: 0 12px;"></div>
@@ -275,9 +358,9 @@
       <div class="container position-relative">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-lg-10">
-            <h1 data-aos="fade-up" class="display-4 fw-bold mb-4">Draft Faster. Search Deeper.<br>Your Digital Legal Team.</h1>
-            <p data-aos="fade-up" data-aos-delay="100" class="lead mb-5 text-light opacity-75" style="max-width: 700px; margin: 0 auto;">
-              AI alone isn't enough. <strong>Enidia Legal Solution</strong> is the backoffice that structures your workflow—combining semantic search with verifiable drafting.
+            <h1 data-aos="fade-up" class="display-4 fw-bold mb-4" style="text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); letter-spacing: -1px;">Draft Faster. Search Deeper.<br>Your Digital Legal Team.</h1>
+            <p data-aos="fade-up" data-aos-delay="100" class="lead mb-5 text-light" style="max-width: 800px; margin: 0 auto; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8); font-weight: 500; font-size: 1.25rem;">
+              AI alone isn't enough. <strong class="text-white">Enidia Legal Solution</strong> is the backoffice that structures your workflow—combining semantic search with verifiable drafting.
             </p>
             <p data-aos="fade-up" data-aos-delay="200">
               <a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg me-3">Book a Brief Demo</a>
@@ -295,7 +378,7 @@
           
           <div class="row justify-content-center text-center mb-5">
             <div class="col-lg-9" data-aos="fade-up">
-              <span class="badge bg-danger bg-opacity-10 text-danger mb-3 px-3 py-2 rounded-pill text-uppercase fw-bold" style="letter-spacing: 1.5px; font-size: 11px;">
+              <span class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill text-uppercase fw-bold" style="letter-spacing: 1.5px; font-size: 11px;">
                 The Market Reality
               </span>
               
@@ -317,13 +400,13 @@
               <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background: #fff;">
                 <div class="card-body p-4 p-lg-5 position-relative">
                   <div class="d-flex align-items-center mb-4">
-                    <div class="icon-square bg-danger bg-opacity-10 text-danger rounded-3 p-2 me-3">
+                    <div class="icon-square bg-accent bg-opacity-10 text-accent rounded-3 p-2 me-3">
                       <i class="bi bi-currency-dollar fs-4"></i>
                     </div>
                     <h5 class="fw-bold mb-0 text-dark">The Financial Cost of "Trust"</h5>
                   </div>
                   
-                  <h3 class="fw-bold text-danger mb-3">$290,000 Refunded</h3>
+                  <h3 class="fw-bold text-accent mb-3">$290,000 Refunded</h3>
                   <p class="mb-4 text-secondary">
                     Even the "Big Four" are not immune. Deloitte Australia was forced to refund a government client after delivering a report "littered with AI errors," including fabricated court judgments. Senators compared the output to the work of a "first-year student".
                   </p>
@@ -354,26 +437,23 @@
       
                   <h3 class="fw-bold text-primary mb-3">The "Impossibility Theorem"</h3>
                   <p class="mb-4 text-secondary">
-                    Hallucination is not a bug; it is a feature of the architecture. A 2025 theorem proves that no LLM can simultaneously achieve truthfulness and knowledge-constrained optimality. In other words: To generate a coherent and useful response, the model is mathematically forced to fill in the gaps, prioritizing a plausible narrative over strict accuracy.
+                    Hallucination is not a bug; it is a feature of the architecture. A 2025 theorem proves that no LLM can simultaneously achieve truthfulness and knowledge-constrained optimality. In other words: To generate a coherent and useful response, the model is mathematically forced to fill in the gaps.
                   </p>
       
                   <div class="mt-auto">
                     <div class="p-3 bg-light rounded-3 border border-light">
-                       
                        <div class="mb-2 d-flex align-items-center">
                           <i class="bi bi-bookmark-check-fill text-secondary me-2" style="font-size: 10px;"></i>
                           <span class="fw-bold text-secondary text-uppercase" style="font-size: 10px; letter-spacing: 1px;">Scientific Evidence</span>
                        </div>
-      
                        <div class="mb-3">
                           <span class="small text-muted fst-italic">
                             <i class="bi bi-quote me-1"></i>
                             "Hallucination is a manifestation of fundamental limitation of the inference process itself."
                           </span>
                        </div>
-      
                        <div class="d-flex align-items-start pt-3 border-top border-secondary border-opacity-10">
-                          <i class="bi bi-file-earmark-pdf text-danger mt-1 me-3 fs-4"></i>
+                          <i class="bi bi-file-earmark-pdf text-accent mt-1 me-3 fs-4"></i>
                           <div>
                             <h6 class="fw-bold text-dark mb-1" style="font-size: 0.85rem; line-height: 1.4;">
                               <a href="https://arxiv.org/pdf/2506.06382" target="_blank" class="text-dark text-decoration-underline">
@@ -396,7 +476,7 @@
               <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background: #fff;">
                 <div class="card-body p-4 p-lg-5 position-relative">
                   <div class="d-flex align-items-center mb-4">
-                    <div class="icon-square bg-warning bg-opacity-10 rounded-3 p-2 me-3" style="color: #b45309;">
+                    <div class="icon-square bg-accent bg-opacity-10 text-accent rounded-3 p-2 me-3">
                       <i class="bi bi-exclamation-triangle-fill fs-4"></i>
                     </div>
                     <h5 class="fw-bold mb-0 text-dark">The Professional Liability</h5>
@@ -424,7 +504,7 @@
               <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden" style="background: #fff;">
                 <div class="card-body p-4 p-lg-5 position-relative">
                   <div class="d-flex align-items-center mb-4">
-                    <div class="icon-square bg-dark bg-opacity-10 text-dark rounded-3 p-2 me-3">
+                    <div class="icon-square bg-primary bg-opacity-10 text-primary rounded-3 p-2 me-3">
                       <i class="bi bi-shield-lock fs-4"></i>
                     </div>
                     <h5 class="fw-bold mb-0 text-dark">The Sovereign Imperative</h5>
@@ -455,10 +535,9 @@
       
           <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="400">
             <div class="col-lg-12">
-              <div class="p-5 rounded-5 position-relative overflow-hidden text-white shadow-lg" 
-                   style="background: linear-gradient(135deg, #3730a3 0%, #312e81 100%); border: 1px solid rgba(255,255,255,0.15);">
-                
-                <div class="row align-items-center position-relative" style="z-index: 2;">
+              <div class="p-5 rounded-5 position-relative overflow-hidden text-white shadow-lg enidia-protocol-card" 
+                   style="background: linear-gradient(135deg, #0044CC 0%, #0A1930 100%); border: 1px solid rgba(255,255,255,0.2);">
+                   <div class="row align-items-center position-relative" style="z-index: 2;">
                   <div class="col-lg-8">
                     <span class="badge bg-white bg-opacity-10 border border-white border-opacity-25 text-white mb-3 px-3 py-2 rounded-pill text-uppercase fw-bold" style="letter-spacing: 1px; font-size: 11px;">
                       The Enidia Protocol
@@ -474,13 +553,13 @@
                     
                     <ul class="list-unstyled d-flex flex-wrap gap-3 gap-md-4 text-light opacity-100 mb-0" style="font-size: 0.95rem; font-weight: 500;">
                       <li class="d-flex align-items-center">
-                        <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> Integrated Verification
+                        <i class="bi bi-check-circle-fill text-white me-2 fs-5"></i> Integrated Verification
                       </li>
                       <li class="d-flex align-items-center">
-                         <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> On-Premise Air-Gap
+                         <i class="bi bi-check-circle-fill text-white me-2 fs-5"></i> On-Premise Air-Gap
                       </li>
                        <li class="d-flex align-items-center">
-                         <i class="bi bi-check-circle-fill text-info me-2 fs-5"></i> Citation Anchoring
+                         <i class="bi bi-check-circle-fill text-white me-2 fs-5"></i> Citation Anchoring
                       </li>
                     </ul>
                   </div>
@@ -521,7 +600,7 @@
                 
                 <div class="d-flex justify-content-center gap-5 mb-4 opacity-75">
                    <div class="d-flex flex-column align-items-center">
-                      <i class="bi bi-pen text-success fs-3"></i>
+                      <i class="bi bi-pen text-primary fs-3"></i>
                       <small class="fw-bold mt-2" style="font-size: 10px; letter-spacing:1px; color:#64748b;">ASSOCIATE</small>
                    </div>
                    <div class="d-flex flex-column align-items-center">
@@ -529,7 +608,7 @@
                       <small class="fw-bold mt-2" style="font-size: 10px; letter-spacing:1px; color:#64748b;">LIBRARIAN</small>
                    </div>
                    <div class="d-flex flex-column align-items-center">
-                      <div class="d-flex align-items-center text-warning fs-3">
+                      <div class="d-flex align-items-center text-primary fs-3">
                         <i class="bi bi-file-earmark-text"></i>
                         <i class="bi bi-search" style="font-size: 0.6em; margin-left: -5px; margin-top: 5px;"></i>
                       </div>
@@ -560,7 +639,7 @@
           
           <div class="row justify-content-center text-center mb-5">
             <div class="col-md-8" data-aos="fade-up">
-              <span class="text-primary text-uppercase fw-bold ls-1">The Modules</span>
+              <span class="text-accent text-uppercase fw-bold ls-1">The Modules</span>
               <h2 class="section-heading mt-2">Specialized Agents, Integrated Results</h2>
             </div>
           </div>
@@ -569,7 +648,7 @@
             <div class="col-lg-6 order-lg-1" data-aos="fade-right">
               <div class="feature-text">
                 <div class="module-icon mb-3" style="margin: 0;">
-                  <i class="bi bi-pen text-success" style="font-size: 48px;"></i>
+                  <i class="bi bi-pen text-primary" style="font-size: 48px;"></i>
                 </div>
                 <h3>The Associate</h3>
                 <h5 class="text-primary mb-3">Drafting & Validation</h5>
@@ -582,8 +661,11 @@
             </div>
             <div class="col-lg-6 order-lg-2" data-aos="fade-left">
               <div class="mockup-container">
-                  <div class="mockup-header"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
-                  <div class="mockup-body">
+                <div class="chat-header">
+                  <div class="chat-header-dot" style="background:var(--enidia-orange);"></div>
+                  <span class="chat-header-text">ASSOCIATE AGENT</span>
+                </div>
+                <div class="mockup-body">
                     <div class="mockup-left">
                       <div class="text-line short"></div><div class="text-line"></div><div class="text-line"></div>
                       <div class="text-line source-highlight"></div>
@@ -596,9 +678,9 @@
                         <div class="form-input target-highlight"></div>
                       </div>
                       <svg class="validation-connector">
-                         <path d="M210 110 C 300 110, 300 160, 320 160" stroke="#0d6efd" stroke-width="2" fill="none" stroke-dasharray="4" opacity="0.6"/>
-                         <circle cx="210" cy="110" r="3" fill="#ffc107" />
-                         <circle cx="320" cy="160" r="3" fill="#0d6efd" />
+                         <path d="M210 110 C 300 110, 300 160, 320 160" style="stroke:var(--enidia-blue)" stroke-width="2" fill="none" stroke-dasharray="4" opacity="0.6"/>
+                         <circle cx="210" cy="110" r="3" fill="#fd7e14" /> 
+                         <circle cx="320" cy="160" r="3" style="fill:var(--enidia-blue)" />
                       </svg>
                       
                       <div style="margin-top: 20px;"><button class="btn btn-sm btn-primary w-100">Validate & Copy</button></div>
@@ -622,7 +704,7 @@
             <div class="col-lg-6 order-lg-1" data-aos="fade-right">
               <div class="chat-interface">
                 <div class="chat-header">
-                  <div class="chat-header-dot" style="background:#0d6efd;"></div>
+                  <div class="chat-header-dot" style="background:var(--enidia-blue);"></div>
                   <span class="chat-header-text">LIBRARIAN AGENT</span>
                 </div>
                 <div class="chat-body">
@@ -642,8 +724,8 @@
             <div class="col-lg-6 order-lg-1" data-aos="fade-right">
               <div class="feature-text">
                 <div class="module-icon mb-3" style="margin: 0;">
-                  <i class="bi bi-file-earmark-text text-warning" style="font-size: 48px;"></i>
-                  <i class="bi bi-search text-warning" style="font-size: 28px; margin-left: -15px;"></i>
+                  <i class="bi bi-file-earmark-text text-primary" style="font-size: 48px;"></i>
+                  <i class="bi bi-search text-primary" style="font-size: 28px; margin-left: -15px;"></i>
                 </div>
                 <h3>The Researcher</h3>
                 <h5 class="text-primary mb-3">Case Law & Precedent Analysis</h5>
@@ -653,7 +735,7 @@
             <div class="col-lg-6 order-lg-2" data-aos="fade-left">
                <div class="chat-interface">
                 <div class="chat-header">
-                  <div class="chat-header-dot" style="background:#ffc107;"></div>
+                  <div class="chat-header-dot" style="background:var(--enidia-orange);"></div>
                   <span class="chat-header-text">RESEARCHER AGENT</span>
                 </div>
                 <div class="chat-body">
@@ -684,7 +766,7 @@
                 
                 <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="0">
                     <div class="p-4 bg-white rounded-3 shadow-sm w-100 border">
-                        <i class="bi bi-shield-x display-5 text-danger mb-3"></i>
+                        <i class="bi bi-shield-x display-5 text-accent mb-3"></i>
                         <h5 class="fw-bold text-dark">Immunized Against Exfiltration</h5>
                         <p class="small text-muted mb-0">
                           New "Zero-Click" attacks allow hackers to steal data through public AI models without you ever clicking a link. 
@@ -695,7 +777,7 @@
 
                 <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-4 bg-white rounded-3 shadow-sm w-100 border">
-                        <i class="bi bi-building-lock display-5 text-success mb-3"></i>
+                        <i class="bi bi-building-lock display-5 text-primary mb-3"></i>
                         <h5 class="fw-bold text-dark">Privilege & GDPR Preserved</h5>
                         <p class="small text-muted mb-0">
                           Sending client data to a third-party cloud can endanger <strong>Legal Professional Privilege</strong> and violate GDPR transfer rules. 
@@ -706,7 +788,7 @@
       
                 <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-4 bg-white rounded-3 shadow-sm w-100 border">
-                        <i class="bi bi-hdd-network display-5 text-primary mb-3"></i>
+                         <i class="bi bi-hdd-network display-5 text-primary mb-3"></i>
                         <h5 class="fw-bold text-dark">Your IP, Not Their Training</h5>
                         <p class="small text-muted mb-0">
                           Public models learn from your prompts, effectively turning your firm's hard-won expertise into a commodity for your competitors. 
