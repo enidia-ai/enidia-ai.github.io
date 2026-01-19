@@ -21,19 +21,69 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <style>
-      h1, h2, h3 { font-family: 'Merriweather', serif; }
-      body { font-family: 'Roboto', sans-serif; }
-      
-      /* Subtle dark header for About page too */
-      .hero-section {
-        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-        color: white;
-        padding: 100px 0;
-        position: relative;
-        overflow: hidden; /* Keeps the dots inside */
+      /* --- UNIFIED COLOR PALETTE --- */
+      :root {
+        --enidia-blue: #0044CC;       /* New Royal Blue */
+        --enidia-dark: #0A1930;       /* Deep Navy */
+        --enidia-orange: #FF9900;     /* Friendly Tangerine */
       }
 
-      /* Abstract 'Structure' Background Pattern */
+      /* 1. Friendly Backgrounds */
+      body, .bg-light {
+        background-color: #F4F7FB !important; /* Soft Blue-Grey */
+      }
+      .bg-white {
+        background-color: #ffffff !important;
+      }
+
+      /* 2. Button Reskin (Round & Pill) */
+      .btn-primary {
+        background-color: var(--enidia-blue);
+        border-color: var(--enidia-blue);
+        box-shadow: 0 4px 14px rgba(0, 68, 204, 0.3); /* Soft Blue Glow */
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--enidia-orange) !important; /* Friendly "Pop" on hover */
+        border-color: var(--enidia-orange) !important;
+        transform: translateY(-2px);
+      }
+      
+      /* 3. Typography & Accents */
+      h1, h2, h3, h4, h5 {
+        color: var(--enidia-dark);
+        font-family: 'Merriweather', serif;
+      }
+      .text-primary {
+        color: var(--enidia-blue) !important;
+      }
+      .text-accent {
+        color: var(--enidia-orange) !important;
+      }
+      
+      /* --- FIXED TYPOGRAPHY (Matched to Index) --- */
+      /* Removed 'span' from this list so it doesn't override the Logo font */
+      body, p, a { 
+        font-family: 'Roboto', sans-serif; 
+      }
+      
+      p {
+        color: #4b5563; 
+        font-size: 1.1rem;
+        line-height: 1.7; 
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95));
+        color: white;
+        padding: 140px 0 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
       .hero-bg-pattern {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
@@ -43,58 +93,69 @@
         pointer-events: none;
       }
 
-      /* --- LOGO BACKGROUND FIX (The White Pill) --- */
-
-      /* 1. Target the Logo Container */
+      /* --- LOGO REDESIGN (Exact Match to Index) --- */
       #header .logo {
-        /* Create the white background */
         background-color: #ffffff; 
-        
-        /* Add shape and spacing */
-        padding: 8px 20px;
-        border-radius: 50px; /* Makes it a pill shape */
-        
-        /* Add a subtle shadow so it pops off the background */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        
-        /* Ensure layout remains centered */
+        padding: 8px 16px;
+        border-radius: 8px; 
+        border-left: 4px solid var(--enidia-blue); 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         display: flex;
         align-items: center;
       }
+      #header .logo span { color: var(--enidia-dark) !important; }
+      #header .logo span span { color: var(--enidia-blue) !important; }
+      #header .logo div { background-color: #cbd5e1 !important; }
+      #header .logo img { filter: none !important; opacity: 1 !important; height: 24px; width: auto; }
 
-      /* 2. Ensure the text inside is Dark (since background is now white) */
-      #header .logo span {
-        color: #1e293b !important; /* Dark Navy Text */
+      @media (max-width: 768px) { 
+        #header .logo { padding: 6px 12px; flex-wrap: wrap; }
+        #header .logo span { font-size: 18px !important; line-height: 1.3 !important; }
+        .hero-section { padding: 120px 0 60px 0; }
       }
 
-      #header .logo span span {
-        color: #0d6efd !important; /* Keep the dot blue */
+      /* --- FORCE OVERRIDES --- */
+      
+      /* 1. Kill Default Gradients */
+      .btn-primary, .btn-primary.rounded-pill, a.btn-primary {
+        background-image: none !important;
+        background-color: var(--enidia-blue) !important;
+        border-color: var(--enidia-blue) !important;
+        color: white !important;
+        box-shadow: 0 4px 14px rgba(0, 68, 204, 0.4) !important;
       }
 
-      /* 3. The Vertical Divider Line (Dark Gray) */
-      #header .logo div {
-        background-color: #cbd5e1 !important;
+      /* 2. Hover State */
+      .btn-primary:hover, .btn-primary:active {
+        background-color: var(--enidia-orange) !important;
+        border-color: var(--enidia-orange) !important;
+        color: white !important;
+        transform: translateY(-2px);
       }
 
-      /* 4. The "Enidia" Image - No Filters! */
-      #header .logo img {
-        filter: none !important;
-        opacity: 1 !important;
-        /* Ensure it fits nicely */
-        height: 24px;
-        width: auto;
+      /* 3. Heading Fixes */
+      h2.section-heading, .section-title h2 {
+        color: var(--enidia-dark) !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
       }
 
-      /* 5. Mobile Adjustment */
-      @media (max-width: 768px) {
-        #header .logo {
-          padding: 6px 15px;
-        }
-        /* Slightly reduce font size on mobile for longer name */
-        #header .logo span {
-           font-size: 20px !important;
-        }
+      /* 4. Form Styles */
+      .form-control:focus {
+        border-color: var(--enidia-blue);
+        box-shadow: 0 0 0 0.25rem rgba(0, 68, 204, 0.15);
       }
+      
+      /* Scroll to top */
+      .back-to-top {
+        background-color: var(--enidia-blue) !important;
+        border-radius: 50px !important;
+      }
+      .back-to-top:hover {
+        background-color: var(--enidia-orange) !important;
+      }
+      .back-to-top i { color: #ffffff !important; }
+
     </style>
   </head>
   
@@ -104,28 +165,23 @@
       <div class="container d-flex justify-content-between align-items-center">
         
         <div class="logo d-flex align-items-center">
-  
-          <a href="index.html" style="text-decoration:none;">
-            <span style="font-family: 'Merriweather', serif; font-size: 26px; font-weight: 700; color: #1e293b;">
-              Enidia Legal Solution<span style="color:#0d6efd">.</span>
+          <a href="index.html" style="text-decoration:none; white-space: normal;">
+            <span style="font-family: 'Merriweather', serif; font-size: 22px; font-weight: 700; color: #1e293b; line-height: 1.2;">
+              Enidia<span style="color:var(--enidia-blue)"> Legal Solution</span><span style="color:var(--enidia-blue)">.</span>
             </span>
           </a>
-        
-          <div style="width: 1px; height: 24px; background-color: #cbd5e1; margin: 0 15px;"></div>
-        
+          <div style="width: 1px; height: 18px; background-color: #cbd5e1; margin: 0 12px;"></div>
+          
           <a href="contact.html" class="d-flex align-items-center" style="text-decoration:none;">
-            <span style="font-size: 11px; color: #64748b; margin-right: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">
-              by
-            </span>
-            <img src="assets/img/logo.png" alt="Enidia AI" style="height: 24px; width: auto; opacity: 0.9;">
+            <span style="font-size: 10px; color: #64748b; margin-right: 6px; font-weight: 500; text-transform: uppercase;">by</span>
+            <img src="assets/img/logo.png" alt="Enidia AI" style="height: 20px; width: auto;">
           </a>
-        
         </div>
         
         <nav id="navbar" class="navbar">
           <ul>
             <li><a href="index.html">Solutions</a></li>
-            <li><a class="active " href="contact.html">About Enidia</a></li>
+            <li><a class="active" href="contact.html">About Enidia</a></li>
             <li><a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank" class="btn btn-primary ms-3 text-white px-4" style="border-radius: 50px;">Book Demo</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
@@ -142,8 +198,8 @@
         <div class="container position-relative">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-8 text-center hero-text">
-              <h1 data-aos="fade-up">Built by Lawyers & Engineers</h1>
-              <p class="mb-5 lead" data-aos="fade-up" data-aos-delay="100">
+              <h1 data-aos="fade-up" class="display-4 fw-bold mb-3" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Built by Lawyers & Engineers</h1>
+              <p class="mb-4 lead text-light" data-aos="fade-up" data-aos-delay="100" style="opacity: 0.9; max-width: 700px; margin: 0 auto;">
                 We didn't just wrap ChatGPT in a website. We built an AI infrastructure designed for the rigor of the legal profession.
               </p>
             </div>
@@ -151,20 +207,20 @@
         </div>
       </section>
       
-      <section class="section">
+      <section class="section bg-white pt-5 pb-5">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-6 mb-4" data-aos="fade-right">
-                        <h3>Bridging the Gap</h3>
-                        <p>Enidia AI was founded in 2021 with a clear vision: generic AI is too risky for law firms. You need tools that understand context, citation, and confidentiality.</p>
-                        <p>We are a multidisciplinary team of AI engineers, legal professionals, and academic researchers with deep roots in the AI and law space.</p>
+                <div class="row g-5">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <h3 class="fw-bold mb-3 text-dark">Bridging the Gap</h3>
+                        <p class="text-muted" style="line-height: 1.7;">Enidia AI was founded in 2021 with a clear vision: generic AI is too risky for law firms. You need tools that understand context, citation, and confidentiality.</p>
+                        <p class="text-muted" style="line-height: 1.7;">We are a multidisciplinary team of AI engineers, legal professionals, and academic researchers with deep roots in the AI and law space.</p>
                     </div>
-                    <div class="col-md-6 mb-4" data-aos="fade-left">
-                        <h3>Deep Expertise</h3>
-                        <p>With over <strong>45 years of combined experience</strong>, including PhDs and LLMs, and long-standing involvement in international AI and law communities like ICAIL and JURIX, we are uniquely positioned to turn advanced research into real-world impact.</p>
-                        <p>Our commitment to ethical AI drives us to develop tools like <strong>Enidia Legal Solution</strong>—advancing legal practice while upholding the highest standards of reliability.</p>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <h3 class="fw-bold mb-3 text-dark">Deep Expertise</h3>
+                        <p class="text-muted" style="line-height: 1.7;">With over <strong>45 years of combined experience</strong>, including PhDs and LLMs, and long-standing involvement in international AI and law communities like ICAIL and JURIX, we are uniquely positioned to turn advanced research into real-world impact.</p>
+                        <p class="text-muted" style="line-height: 1.7;">Our commitment to ethical AI drives us to develop tools like <strong class="text-primary">Enidia Legal Solution</strong>—advancing legal practice while upholding the highest standards of reliability.</p>
                     </div>
                 </div>
             </div>
@@ -172,48 +228,48 @@
         </div>
       </section>
       
-      <section id="form" class="section bg-light">
+      <section id="form" class="section bg-light border-top">
         <div class="container">
           <div class="row mb-5 align-items-end">
             <div class="col-md-6" data-aos="fade-up">
-              <h2>Get in Touch</h2>
-              <p class="mb-0">Interested in a partnership or a custom integration? Send us a message.</p>
+              <h2 class="fw-bold section-heading">Get in Touch</h2>
+              <p class="mb-0 text-muted">Interested in a partnership or a custom integration? Send us a message.</p>
             </div>
           </div>
           
           <div class="row">
             <div class="col-md-4 ms-auto order-2" data-aos="fade-up">
-              <ul class="list-unstyled">
-                <li class="mb-3">
-                  <strong class="d-block mb-1 text-primary">Address</strong>
-                  <span>6A Avenue des Hauts-Fourneaux L-4362 Esch-sur-Alzette, Luxembourg</span>
+              <ul class="list-unstyled p-4 bg-white rounded-4 shadow-sm border">
+                <li class="mb-4">
+                  <strong class="d-block mb-1 text-primary text-uppercase" style="font-size: 0.85rem; letter-spacing: 1px;">Address</strong>
+                  <span class="text-secondary">6A Avenue des Hauts-Fourneaux<br>L-4362 Esch-sur-Alzette, Luxembourg</span>
                 </li>
-                <li class="mb-3">
-                  <strong class="d-block mb-1 text-primary">Email</strong>
-                  <span>info@enidia.ai</span>
+                <li class="mb-2">
+                  <strong class="d-block mb-1 text-primary text-uppercase" style="font-size: 0.85rem; letter-spacing: 1px;">Email</strong>
+                  <span class="text-secondary">info@enidia.ai</span>
                 </li>
               </ul>
             </div>
             
             <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
-              <div>
+              <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border">
                 <form action="https://formbold.com/s/6vv8e" method="POST" class="php-email-form">
                     <div class="row">
-                      <div class="col-md-6 form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" name="Name" required />
+                      <div class="col-md-6 form-group mb-3">
+                        <label for="name" class="fw-bold text-dark small mb-1">Name</label>
+                        <input type="text" class="form-control bg-light border-0" name="Name" required />
                       </div>
-                      <div class="col-md-6 form-group mt-3 mt-md-0">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="Email" required />
+                      <div class="col-md-6 form-group mb-3">
+                        <label for="email" class="fw-bold text-dark small mb-1">Email</label>
+                        <input type="email" class="form-control bg-light border-0" name="Email" required />
                       </div>
-                      <div class="col-md-12 form-group mt-3">
-                        <label for="subject">Subject</label>
-                        <input type="text" class="form-control" name="Subject" required />
+                      <div class="col-md-12 form-group mb-3">
+                        <label for="subject" class="fw-bold text-dark small mb-1">Subject</label>
+                        <input type="text" class="form-control bg-light border-0" name="Subject" required />
                       </div>
-                      <div class="col-md-12 form-group mt-3">
-                        <label for="message">Message</label>
-                        <textarea class="form-control" name="Message" rows="5" required></textarea>
+                      <div class="col-md-12 form-group mb-4">
+                        <label for="message" class="fw-bold text-dark small mb-1">Message</label>
+                        <textarea class="form-control bg-light border-0" name="Message" rows="5" required></textarea>
                       </div>
                       
                       <div class="col-md-12 mb-3">
@@ -222,8 +278,8 @@
                         <div class="sent-message">Your message has been sent. Thank you!</div>
                       </div>
                       
-                      <div class="col-md-6 form-group">
-                        <input type="submit" class="btn btn-primary d-block w-100 rounded-pill" value="Send Message">
+                      <div class="col-md-12 form-group">
+                        <input type="submit" class="btn btn-primary d-block w-100 rounded-pill py-3 fw-bold shadow-lg" value="Send Message">
                       </div>
                     </div>
                 </form>
@@ -236,12 +292,12 @@
       
     </main>
     
-    <footer class="footer" role="contentinfo">
+    <footer class="footer bg-white border-top" role="contentinfo">
       <div class="container">
         <div class="row">
           <div class="col-md-4 mb-4 mb-md-0">
             <h3>Enidia Legal Solution</h3>
-            <p>Trusted AI for Law Firms.</p>
+            <p>Empowering legal professionals with tools that are not only technologically advanced but also align with the highest standards of reliability.</p>
             <p class="social">
             <a href="https://www.linkedin.com/company/enidia-ai"><span class="bi bi-linkedin"></span></a>
             </p>
@@ -253,16 +309,19 @@
                 <ul class="list-unstyled">
                   <li><a href="index.html">Solutions</a></li>
                   <li><a href="contact.html">About Us</a></li>
+                  <li><a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank">Book a Demo</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        
         <div class="row justify-content-center text-center">
           <div class="col-md-7">
             <p class="copyright">&copy; Copyright Enidia AI. All Rights Reserved</p>
           </div>
         </div>
+        
       </div>
     </footer>
     
