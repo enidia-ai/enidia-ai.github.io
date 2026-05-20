@@ -1,429 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    
-    <title>Enidia app | The AI Backoffice for Lawyers</title>
-    <meta content="AI tools for lawyers, legal semantic search, automated drafting" name="description">
-    
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-    
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700|Roboto:300,400,500,700&display=swap" rel="stylesheet">
-    
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    
-    <link href="assets/css/style.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enidia — AI Legal Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #0050b4; -webkit-font-smoothing: antialiased; }
+    :root {
+      --blue: #0050b4;
+      --navy: #000078;
+      --orange: #ff8200;
+    }
+    a { text-decoration: none; }
 
-    <style>
-      /* Typography Upgrade */
-      h1, h2, h3 { font-family: 'Merriweather', serif; }
-      body, p, a { font-family: 'Roboto', sans-serif; }
-      
-      p {
-        color: #4b5563; 
-        font-size: 1.1rem;
-        line-height: 1.7; 
-      }
-      .feature-text h3 {
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: #1e293b;
-      }
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,80,180,0.1);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      height: 66px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .btn-primary {
+      background: #000078; color: #ffffff;
+      font-weight: 700; font-size: 14px; padding: 11px 24px;
+      border-radius: 999px; transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #0050b4; }
+    .btn-outline {
+      border: 2px solid #0050b4; color: #0050b4;
+      font-weight: 600; font-size: 15px; padding: 13px 28px;
+      border-radius: 999px; transition: all 0.2s;
+    }
+    .btn-outline:hover { background: #0050b4; color: #fff; }
 
-      /* Hero Section - Darker Professional Tint */
-      .hero-section {
-        background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('assets/img/office-photo.png');
-        background-size: cover; 
-        background-position: center; 
-        background-repeat: no-repeat;
-        color: white;
-        padding: 160px 0 100px 0;
-        position: relative;
-        overflow: hidden;
-      }
+    /* Hero */
+    .hero {
+      padding: 60px 24px 80px;
+      background: #ffffff;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .hero-eyebrow {
+      color: #ff8200; font-weight: 700; font-size: 12px;
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 {
+      color: #000078; font-size: clamp(30px, 3.8vw, 50px);
+      font-weight: 800; line-height: 1.15; margin-bottom: 24px;
+    }
+    .hero h1 .accent {
+      color: #0050b4;
+    }
+    .hero-sub {
+      color: #0050b4; opacity: 0.65; font-size: 17px; line-height: 1.75; margin-bottom: 36px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-hero {
+      background: #000078; color: #ffffff;
+      font-weight: 700; font-size: 15px; padding: 14px 28px;
+      border-radius: 999px; transition: background 0.2s;
+    }
+    .btn-hero:hover { background: #0050b4; }
 
-      .hero-section h1, 
-      .hero-section p {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 8px 16px rgba(0,0,0,0.8);
-      }
-      .hero-section h1 { font-weight: 700; }
-      
-      .hero-bg-pattern {
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        opacity: 0.1;
-        background-image: radial-gradient(#ffffff 1px, transparent 1px);
-        background-size: 30px 30px;
-        pointer-events: none;
-      }
+    /* Agents */
+    .agents { background: #ffffff; padding: 80px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      text-align: center; margin-bottom: 52px;
+    }
+    .section-title h2 {
+      color: #000078; font-size: 30px; font-weight: 800; margin-bottom: 10px;
+    }
+    .section-title p {
+      color: #0050b4; opacity: 0.55; font-size: 16px;
+      max-width: 540px; margin: 0 auto; line-height: 1.65;
+    }
+    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .card {
+      border: 1.5px solid rgba(0,80,180,0.14); border-radius: 16px; padding: 32px;
+      background: #ffffff; position: relative; transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 8px 32px rgba(0,80,180,0.1); }
+    .card-featured {
+      background: #ffffff; border-color: #000078; border-width: 2px;
+    }
+    .card-featured:hover { box-shadow: 0 8px 32px rgba(0,0,120,0.12); }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+      background: rgba(0,80,180,0.08);
+    }
+    .card-featured .card-icon { background: #ff8200; }
+    .card h3 { color: #000078; font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+    .card p { color: #0050b4; opacity: 0.6; font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
+    .card-meta {
+      color: #0050b4; opacity: 0.38; font-size: 11px;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+    }
+    .badge {
+      position: absolute; top: 18px; right: 18px;
+      background: #ff8200; color: #ffffff;
+      font-size: 11px; font-weight: 800; padding: 4px 11px;
+      border-radius: 999px; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .agents-note {
+      text-align: center; color: #0050b4; opacity: 0.4;
+      font-size: 13px; margin-top: 24px;
+    }
 
-      /* --- CHAT & MOCKUP STYLES --- */
-      .chat-interface, .mockup-container {
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        border: 1px solid #e9ecef;
-        overflow: hidden;
-        max-width: 450px;
-        margin: 0 auto;
-      }
-      /* Chat Specifics */
-      .chat-header { background: #f8f9fa; padding: 12px 20px; border-bottom: 1px solid #dee2e6; display: flex; align-items: center; gap: 10px; }
-      .chat-header-dot { width: 10px; height: 10px; border-radius: 50%; }
-      .chat-header-text { font-size: 11px; font-weight: bold; color: #6c757d; text-transform: uppercase; letter-spacing: 1px; }
-      .chat-body { padding: 20px; background: #fff; display: flex; flex-direction: column; gap: 15px; }
-      .chat-bubble { padding: 12px 16px; border-radius: 12px; font-size: 13px; line-height: 1.5; max-width: 85%; position: relative; }
-      .chat-bubble.user { background: #0d6efd; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-      .chat-bubble.ai { background: #f1f3f5; color: #212529; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid #e9ecef; }
-      .source-tag { display: inline-block; margin-top: 6px; padding: 2px 6px; background: #e2e6ea; color: #495057; font-size: 10px; border-radius: 4px; font-weight: bold; }
-      .chat-input-area { padding: 15px; border-top: 1px solid #e9ecef; background: #f8f9fa; }
-      .fake-input-bar { height: 35px; background: #fff; border: 1px solid #ced4da; border-radius: 20px; width: 100%; }
-      
-      /* Mockup Specifics */
-      .mockup-header { background: #e9ecef; padding: 10px 20px; display: flex; gap: 8px; border-bottom: 1px solid #dee2e6; }
-      .dot { width: 12px; height: 12px; border-radius: 50%; }
-      .dot.red { background: #ff5f57; } .dot.yellow { background: #febc2e; } .dot.green { background: #28c840; }
-      .mockup-body { display: flex; height: 300px; }
-      .mockup-left { width: 50%; padding: 20px; background: #fff; border-right: 1px solid #dee2e6; overflow: hidden; }
-      .mockup-right { width: 50%; padding: 20px; background: #f0f7ff; }
-      .text-line { height: 6px; background: #e9ecef; margin-bottom: 8px; border-radius: 2px; }
-      .text-line.short { width: 60%; } .text-line.highlight { background: #ffeeba; }
-      .form-field { margin-bottom: 12px; }
-      .form-label { font-size: 10px; font-weight: bold; color: #0d6efd; display: block; margin-bottom: 4px; }
-      .form-input { height: 24px; background: white; border: 1px solid #cbd5e1; border-radius: 4px; width: 100%; }
+    /* Trust */
+    .trust {
+      background: #f4f7fc; padding: 64px 24px;
+      border-top: 1px solid rgba(0,80,180,0.08);
+    }
+    .trust-label {
+      text-align: center; color: #0050b4; opacity: 0.4;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; margin-bottom: 44px;
+    }
+    .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; text-align: center; }
+    .trust-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .trust-icon {
+      width: 48px; height: 48px; background: #ff8200; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .trust-item strong { color: #000078; font-size: 20px; font-weight: 800; display: block; margin-bottom: 4px; }
+    .trust-item span { color: #0050b4; opacity: 0.55; font-size: 13px; line-height: 1.5; }
 
-      /* Layout Helpers */
-      .feature-row { padding: 60px 0; }
+    /* CTA */
+    .cta-section { background: #000078; padding: 80px 24px; }
+    .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+    .cta-inner h2 { color: #ffffff; font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+    .cta-inner > p { color: rgba(255,255,255,0.5); font-size: 16px; margin-bottom: 44px; line-height: 1.6; }
+    .cta-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
+    .cta-card {
+      border-radius: 16px; padding: 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+    }
+    .cta-card-orange { border-color: rgba(255,130,0,0.4); background: rgba(255,130,0,0.07); }
+    .cta-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .cta-eyebrow-orange { color: #ff8200; }
+    .cta-eyebrow-dim { color: rgba(255,255,255,0.3); }
+    .cta-card h3 { color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .cta-card p { color: rgba(255,255,255,0.45); font-size: 14px; line-height: 1.65; margin-bottom: 24px; }
+    .btn-cta-orange {
+      display: inline-block; background: #ff8200; color: #ffffff;
+      font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 999px;
+      transition: background 0.2s;
+    }
+    .btn-cta-orange:hover { background: #e07000; }
+    .btn-cta-ghost {
+      display: inline-block; border: 1.5px solid rgba(255,255,255,0.25); color: #ffffff;
+      font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 999px;
+      transition: border-color 0.2s;
+    }
+    .btn-cta-ghost:hover { border-color: rgba(255,255,255,0.6); }
 
-      /* --- LOGO PILL --- */
-      #header .logo {
-        background-color: #ffffff; 
-        padding: 8px 20px;
-        border-radius: 50px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        display: flex;
-        align-items: center;
-      }
-      #header .logo span { color: #1e293b !important; }
-      #header .logo span span { color: #0d6efd !important; }
-      #header .logo div { background-color: #cbd5e1 !important; }
-      #header .logo img { filter: none !important; opacity: 1 !important; height: 24px; width: auto; }
-      @media (max-width: 768px) { #header .logo { padding: 6px 15px; } }
-    </style>
-  </head>
-  
-  <body>
-    
-    <header id="header" class="fixed-top d-flex align-items-center">
-      <div class="container d-flex justify-content-between align-items-center">
-        
-        <div class="logo d-flex align-items-center">
-          <a href="index.html" style="text-decoration:none;">
-            <span style="font-family: 'Merriweather', serif; font-size: 26px; font-weight: 700; color: #1e293b;">
-              Enidia app<span style="color:#0d6efd">.</span>
-            </span>
+    /* Footer */
+    footer {
+      background: #000078; border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 24px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer p { color: rgba(255,255,255,0.28); font-size: 12px; }
+    footer a { color: rgba(255,255,255,0.35); font-size: 12px; }
+    footer a:hover { color: rgba(255,255,255,0.65); }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-graphic { display: none; }
+      .cards { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: repeat(2,1fr); }
+      .cta-cards { grid-template-columns: 1fr; }
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,120,0.35); backdrop-filter: blur(3px);
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #ffffff; border-radius: 20px; padding: 40px;
+      max-width: 560px; width: 100%; position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,120,0.18);
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      background: none; border: none; cursor: pointer;
+      color: #0050b4; opacity: 0.4; font-size: 22px; line-height: 1;
+      padding: 4px 8px; border-radius: 6px; transition: opacity 0.15s;
+    }
+    .modal-close:hover { opacity: 0.8; }
+    .modal h2 { color: #000078; font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .modal > p { color: #0050b4; opacity: 0.6; font-size: 14px; line-height: 1.65; margin-bottom: 28px; }
+    .modal-options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .modal-option {
+      border-radius: 14px; padding: 24px;
+      border: 1.5px solid rgba(0,80,180,0.15);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .modal-option-cloud { border-color: rgba(0,0,120,0.2); background: #f4f7fc; }
+    .modal-option-local { border-color: rgba(255,130,0,0.3); background: rgba(255,130,0,0.04); }
+    .modal-option-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-option-cloud .modal-option-icon { background: #000078; }
+    .modal-option-local .modal-option-icon { background: #ff8200; }
+    .modal-option h3 { color: #000078; font-size: 15px; font-weight: 700; }
+    .modal-option p { color: #0050b4; opacity: 0.6; font-size: 13px; line-height: 1.6; }
+    .modal-option a {
+      display: inline-block; font-weight: 700; font-size: 13px;
+      padding: 9px 18px; border-radius: 999px; margin-top: 4px;
+      transition: opacity 0.15s;
+    }
+    .modal-option a:hover { opacity: 0.85; }
+    .modal-option-cloud a { background: #000078; color: #ffffff; }
+    .modal-option-local a { background: #ff8200; color: #ffffff; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <img src="assets/img/logo.png" alt="Enidia" style="height:46px;" />
+      <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-primary">Book a demo</a>
+    </div>
+  </nav>
+
+  <!-- DATA PRIVACY BAR -->
+  <div style="background:#f4f7fc; border-bottom:1px solid rgba(0,80,180,0.1); padding:10px 24px; margin-top:66px;">
+    <div style="max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;">
+      <span style="display:flex; align-items:center; gap:7px; color:#000078; font-size:13px; font-weight:600;">
+        <svg width="15" height="15" fill="none" stroke="#ff8200" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        Your documents never leave your premises
+      </span>
+      <span style="color:rgba(0,80,180,0.2); font-size:13px;">|</span>
+      <span style="display:flex; align-items:center; gap:7px; color:#000078; font-size:13px; font-weight:600;">
+        <svg width="15" height="15" fill="none" stroke="#ff8200" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"/></svg>
+        Runs on your own hardware
+      </span>
+      <span style="color:rgba(0,80,180,0.2); font-size:13px;">|</span>
+      <span style="display:flex; align-items:center; gap:7px; color:#000078; font-size:13px; font-weight:600;">
+        <svg width="15" height="15" fill="none" stroke="#ff8200" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        No cloud. No third-party access. Zero data exposure.
+      </span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">Verification-first AI for law firms</p>
+        <h1>
+          The first AI a lawyer can trust.<br/>
+          <span class="accent">Because it proves every answer.</span>
+        </h1>
+        <p class="hero-sub">
+          Three specialist agents working together — reading your documents, building your client intelligence, and teaching themselves your firm's exact standards through a simple chat. Every answer comes with the clause it came from. Every missing clause is explained, not silently skipped. <strong style="color:#000078;">Your documents never leave your premises.</strong>
+        </p>
+        <div class="hero-ctas">
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-hero">Book a demo to see them in action</a>
+          <button onclick="document.getElementById('librarian-modal').classList.add('open')" class="btn-outline" style="cursor:pointer; font-family:inherit;">Install Librarian — free</button>
+        </div>
+      </div>
+      <div class="hero-graphic" style="display:flex; justify-content:center;">
+        <svg viewBox="0 0 420 360" style="width:100%; max-width:420px;" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Document -->
+          <rect x="55" y="35" width="135" height="180" rx="8" fill="#f4f7fc" stroke="#0050b4" stroke-opacity="0.2" stroke-width="1.5"/>
+          <rect x="75" y="65" width="95" height="8" rx="4" fill="#0050b4" fill-opacity="0.18"/>
+          <rect x="75" y="83" width="75" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+          <rect x="75" y="97" width="85" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+          <rect x="75" y="111" width="65" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+          <!-- Highlighted source clause -->
+          <rect x="75" y="130" width="95" height="12" rx="3" fill="#ff8200" fill-opacity="0.25"/>
+          <rect x="75" y="130" width="95" height="12" rx="3" stroke="#ff8200" stroke-opacity="0.5" stroke-width="1"/>
+          <rect x="75" y="152" width="70" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+          <rect x="75" y="166" width="80" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+          <rect x="75" y="180" width="55" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+
+          <!-- Arrow -->
+          <path d="M 198 136 L 226 136" stroke="#0050b4" stroke-width="1.8" stroke-opacity="0.35"/>
+          <path d="M 220 130 L 228 136 L 220 142" stroke="#0050b4" stroke-width="1.8" stroke-opacity="0.35" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- Answer card -->
+          <rect x="236" y="55" width="152" height="220" rx="10" fill="#f4f7fc" stroke="#0050b4" stroke-opacity="0.12" stroke-width="1.5"/>
+
+          <!-- Verified answer -->
+          <circle cx="261" cy="93" r="14" fill="#ff8200"/>
+          <path d="M 255 93 L 260 98 L 268 86" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="282" y="86" width="84" height="9" rx="4" fill="#000078" fill-opacity="0.18"/>
+          <rect x="282" y="100" width="58" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+
+          <!-- Source citation box -->
+          <rect x="248" y="120" width="124" height="34" rx="6" fill="#ff8200" fill-opacity="0.1" stroke="#ff8200" stroke-opacity="0.3" stroke-width="1"/>
+          <rect x="257" y="129" width="60" height="5" rx="2.5" fill="#ff8200" fill-opacity="0.7"/>
+          <rect x="257" y="140" width="92" height="5" rx="2.5" fill="#0050b4" fill-opacity="0.2"/>
+
+          <!-- More fields -->
+          <rect x="248" y="167" width="85" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+          <rect x="248" y="181" width="68" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
+
+          <!-- Missing field marker -->
+          <circle cx="261" cy="217" r="14" fill="white" stroke="#0050b4" stroke-opacity="0.15" stroke-width="1.5"/>
+          <path d="M 255 211 L 267 223 M 267 211 L 255 223" stroke="#0050b4" stroke-width="2" stroke-opacity="0.2" stroke-linecap="round"/>
+          <rect x="282" y="210" width="78" height="6" rx="3" fill="#0050b4" fill-opacity="0.08"/>
+          <rect x="282" y="222" width="55" height="5" rx="2.5" fill="#0050b4" fill-opacity="0.05"/>
+
+          <text x="210" y="316" text-anchor="middle" fill="#0050b4" fill-opacity="0.3" font-size="11" font-family="Inter, sans-serif">Every answer sourced. Every gap explained.</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE AGENTS -->
+  <section class="agents" id="agents">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Three specialists. One pipeline.</h2>
+        <p>Each agent does one thing exceptionally well. Together they give your firm a knowledge layer it has never had.</p>
+      </div>
+      <div class="cards">
+
+        <!-- Librarian -->
+        <div class="card" id="librarian">
+          <span class="badge">Free to install</span>
+          <div class="card-icon">
+            <svg width="24" height="24" fill="none" stroke="#0050b4" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3>The Librarian</h3>
+          <p>Turns your firm's own documents into a searchable knowledge base. Answers questions, retrieves precedents, surfaces context — all from files that never leave your network.</p>
+          <p class="card-meta">On-premises · No IT integration · Free for 20+ fee-earner firms</p>
+        </div>
+
+        <!-- Associate — featured -->
+        <div class="card card-featured">
+          <div class="card-icon">
+            <svg width="24" height="24" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+
+          <h3>The Associate</h3>
+          <p>Reads any legal document and fills your checklists with answers, visual evidence, and a completeness audit trail. Every missing field is explained — not silently skipped. 25 hours becomes 2.</p>
+          <p class="card-meta">Verified at a Global 10 law firm · Configurable per matter type · Runs on your hardware</p>
+        </div>
+
+        <!-- Clerk -->
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" fill="none" stroke="#0050b4" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3>The Clerk</h3>
+          <p>Builds a structured entity card for every counterparty in your documents — signing authority, UBO chain, obligations — combined with live registry data. The compliance intelligence layer law firms have never had.</p>
+          <p class="card-meta">RCS · GLEIF · Companies House · AMLD6-ready · No data leaves your network</p>
+        </div>
+
+      </div>
+      <p class="agents-note">Each agent can be taught your firm's exact standards through a simple chat. They remember every instruction.</p>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="trust">
+    <div class="section-inner">
+      <p class="trust-label">Academic rigour. Industry trust.</p>
+      <div class="trust-grid">
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="22" height="22" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <div>
+            <strong>€600k</strong>
+            <span>FNR research grants</span>
+            <div style="display:flex; gap:8px; justify-content:center; margin-top:6px; flex-wrap:wrap;">
+              <a href="https://www.fnr.lu/results-2020-jump-poc-call/" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">iComplAI ↗</a>
+              <a href="https://www.fnr.lu/results-2022-core-call/#1620407951711-54861d53-816d" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">ExAIle ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <a href="assets/img/lexisnexis-award-placeholder.jpg" target="_blank" rel="noopener" style="display:contents;">
+            <div class="trust-icon" style="cursor:pointer;">
+              <svg width="22" height="22" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </div>
           </a>
-          <div style="width: 1px; height: 24px; background-color: #cbd5e1; margin: 0 15px;"></div>
-          <a href="contact.html" class="d-flex align-items-center" style="text-decoration:none;">
-            <span style="font-size: 11px; color: #64748b; margin-right: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">by</span>
-            <img src="assets/img/logo.png" alt="Enidia AI" style="height: 24px; width: auto; opacity: 0.9;">
+          <div>
+            <strong>1st Place</strong>
+            <span>LexisNexis Research<br/>Award 2019</span>
+            <div style="margin-top:6px;"><a href="assets/img/lexisnexis-award-placeholder.jpg" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">View award ↗</a></div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <a href="https://www.blcc.co.uk/eva-2026-winners/" target="_blank" rel="noopener" style="display:contents;">
+            <div class="trust-icon" style="cursor:pointer;">
+              <svg width="22" height="22" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
           </a>
+          <div>
+            <strong>3rd Place</strong>
+            <span>Eurostart Venture<br/>Award 2026, London</span>
+            <div style="margin-top:6px;"><a href="https://www.blcc.co.uk/eva-2026-winners/" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">View winners ↗</a></div>
+          </div>
         </div>
-        
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li><a class="active" href="index.html">Solutions</a></li>
-            <li><a href="contact.html">About Enidia</a></li>
-            <li><a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank" class="btn btn-primary ms-3 text-white px-4" style="border-radius: 50px;">Book Demo</a></li>
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
-        
+
+        <div class="trust-item">
+          <a href="https://www.ie.edu/uncover-ie/biggest-law-firms-in-the-world/" target="_blank" rel="noopener" style="display:contents;">
+            <div class="trust-icon" style="cursor:pointer;">
+              <svg width="22" height="22" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"/></svg>
+            </div>
+          </a>
+          <div>
+            <strong>Global 10</strong>
+            <span>Deployed and independently<br/>verified at a Global 10 law firm</span>
+            <div style="margin-top:6px;"><a href="https://www.ie.edu/uncover-ie/biggest-law-firms-in-the-world/" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">See the Global 10 ↗</a></div>
+          </div>
+        </div>
+
       </div>
-    </header>
-    
-    <section class="hero-section" id="hero">
-      <div class="hero-bg-pattern"></div>
-      <div class="container position-relative">
-        <div class="row align-items-center justify-content-center text-center">
-          <div class="col-lg-10">
-            <h1 data-aos="fade-up" class="display-4 fw-bold mb-4">Verification-Driven AI<br>for Law and Compliance.</h1>
-            <p data-aos="fade-up" data-aos-delay="100" class="lead mb-5 text-light opacity-75" style="max-width: 700px; margin: 0 auto;">
-              AI extracts. <strong>The Enidia app</strong> lets you verify — every answer traced to its source, every gap detected before it matters.
-            </p>
-            <p data-aos="fade-up" data-aos-delay="200">
-              <a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg me-3">Book a Brief Demo</a>
-              <a href="#modules" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Meet the Digital Team</a>
-            </p>
-          </div>
+    </div>
+  </section>
+
+  <!-- GET STARTED -->
+  <section class="cta-section" id="get-started">
+    <div class="cta-inner">
+      <h2>Ready to trust your AI?</h2>
+      <p>Start with the Librarian at no cost, or see all three agents in action.</p>
+      <div class="cta-cards">
+
+        <div class="cta-card cta-card-orange">
+          <p class="cta-eyebrow cta-eyebrow-orange">Free</p>
+          <h3>Install the Librarian</h3>
+          <p>On-premises knowledge base built from your own documents. Free for firms with 20+ fee-earners. No IT integration required.</p>
+          <button onclick="document.getElementById('librarian-modal').classList.add('open')" class="btn-cta-orange" style="cursor:pointer; font-family:inherit; border:none;">Get started free</button>
         </div>
+
+        <div class="cta-card">
+          <p class="cta-eyebrow cta-eyebrow-dim">Full suite</p>
+          <h3>Book a demo</h3>
+          <p>See the Associate fill a real checklist — with evidence — in minutes. Then see the Clerk build the entity record behind it.</p>
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-cta-ghost">Book a demo to see them in action</a>
+        </div>
+
       </div>
-    </section>
-    
-    <main id="main">
-      
-      <section class="section" style="padding-bottom: 0;">
-        <div class="container">
-          <div class="row justify-content-center text-center">
-            <div class="col-lg-8" data-aos="fade-up">
-              <h2 class="mb-3">Three Agents. One Pipeline.</h2>
-              <p class="lead text-muted mb-5">
-                Three specialised agents. One unified workflow. The Librarian is free to install —
-                the Associate and the Registrar are where the value compounds.
-              </p>
-            </div>
+    </div>
+  </section>
+
+  <!-- LIBRARIAN MODAL -->
+  <div class="modal-overlay" id="librarian-modal" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('librarian-modal').classList.remove('open')" aria-label="Close">&#x2715;</button>
+      <h2>Get started with the Librarian</h2>
+      <p>The Librarian turns your firm's documents into a searchable knowledge base — with no IT integration and no data leaving your network. You can try it via our cloud demo, or deploy it on your own hardware.</p>
+      <div class="modal-options">
+
+        <div class="modal-option modal-option-cloud">
+          <div class="modal-option-icon">
+            <svg width="20" height="20" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
           </div>
-      
-          <div class="row justify-content-center" data-aos="zoom-in">
-            <div class="col-lg-8">
-              <div class="p-4 bg-white rounded-4 shadow-sm border border-light text-center position-relative">
-                
-                <div class="d-flex justify-content-center gap-5 mb-4 opacity-75">
-                   <div class="d-flex flex-column align-items-center">
-                      <i class="bi bi-pen text-success fs-3"></i>
-                      <small class="fw-bold mt-2" style="font-size: 10px; letter-spacing:1px; color:#64748b;">ASSOCIATE</small>
-                   </div>
-                   <div class="d-flex flex-column align-items-center">
-                      <i class="bi bi-journal-text text-primary fs-3"></i>
-                      <small class="fw-bold mt-2" style="font-size: 10px; letter-spacing:1px; color:#64748b;">LIBRARIAN</small>
-                      <small class="fw-bold" style="font-size: 9px; letter-spacing:1px; color:#28a745;">FREE</small>
-                   </div>
-                   <div class="d-flex flex-column align-items-center">
-                      <i class="bi bi-card-list text-warning fs-3"></i>
-                      <small class="fw-bold mt-2" style="font-size: 10px; letter-spacing:1px; color:#64748b;">REGISTRAR</small>
-                   </div>
-                </div>
-      
-                <div class="position-relative">
-                  <input type="text" class="form-control form-control-lg rounded-pill border-2 ps-4 pe-5" 
-                         value="Enidia, find the 2023 precedent and draft a new clause..." disabled 
-                         style="background: #f8f9fa; color: #1e293b; font-weight: 500; font-size: 16px;">
-                  
-                  <button class="btn btn-primary rounded-circle position-absolute top-50 end-0 translate-middle-y me-2 shadow-sm d-flex align-items-center justify-content-center p-0" 
-                          style="width: 40px; height: 40px; min-width: 40px; border: none;">
-                    <i class="bi bi-arrow-up" style="font-size: 18px; line-height: 0;"></i>
-                  </button>
-                </div>
-                
-              </div>
-            </div>
-          </div>
+          <h3>Try via cloud demo</h3>
+          <p>See the Librarian in action on our hosted environment — no installation needed. Book a demo and we'll walk you through it with your own documents.</p>
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener">Book a demo</a>
         </div>
-      </section>
-      
-      <section id="modules" class="section bg-light">
-        <div class="container">
-          
-          <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-8" data-aos="fade-up">
-              <span class="text-primary text-uppercase fw-bold ls-1">The Modules</span>
-              <h2 class="section-heading mt-2">Specialized Agents, Integrated Results</h2>
-            </div>
-          </div>
 
-          <div class="row align-items-center feature-row">
-            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
-              <div class="feature-text">
-                <div class="module-icon mb-3" style="margin: 0;">
-                  <i class="bi bi-pen text-success" style="font-size: 48px;"></i>
-                </div>
-                <h3>The Associate</h3>
-                <h5 class="text-primary mb-3">Extraction & Verification</h5>
-                <p>Built on 15 years of software verification research — including work with CEA on safety-critical systems. The Associate doesn't just extract data: it gives you visual proof of correctness and flags what's missing, so you know the output is complete before you act on it.</p>
-              </div>
-            </div>
-            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-              <div class="chat-interface">
-                <div class="chat-header">
-                  <div class="chat-header-dot" style="background:#28a745;"></div>
-                  <span class="chat-header-text">ASSOCIATE AGENT</span>
-                </div>
-                <div class="chat-body">
-                  <div class="chat-bubble user">Extract all share classes from this filing.</div>
-                  <div class="chat-bubble ai">
-                    Extracted <strong>6 fields</strong> from the document.
-                    <br><br>
-                    <span style="font-size: 11px;">
-                      <i class="bi bi-check-circle-fill text-success me-1"></i> <strong>Soundness:</strong> every value traced to source
-                      <br>
-                      <i class="bi bi-check-circle-fill text-success me-1"></i> <strong>Completeness:</strong> 6/6 expected items found
-                    </span>
-                    <br><span class="source-tag" style="background: #d4edda; color: #155724;">Verified</span>
-                  </div>
-                </div>
-                <div class="chat-input-area"><div class="fake-input-bar"></div></div>
-              </div>
-            </div>
+        <div class="modal-option modal-option-local">
+          <div class="modal-option-icon">
+            <svg width="20" height="20" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>
           </div>
-
-          <div class="row align-items-center feature-row">
-            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-              <div class="feature-text">
-                <div class="module-icon mb-3" style="margin: 0;">
-                   <i class="bi bi-journal-text text-primary" style="font-size: 48px;"></i>
-                </div>
-                <div class="d-flex align-items-center gap-3 mb-1">
-                  <h3 class="mb-0">The Librarian</h3>
-                  <span class="badge rounded-pill px-3 py-2" style="background:#d4edda; color:#155724; font-size:11px; font-weight:700; letter-spacing:0.5px;">FREE TO INSTALL</span>
-                </div>
-                <h5 class="text-primary mb-3">Internal Knowledge Search</h5>
-                <p>Stop wasting hours hunting for "that one clause" you wrote three years ago. The Librarian indexes your firm's entire document history securely — on your own servers, with no data leaving your network. It understands legal concepts, not just keywords. Free to install for firms with 20 or more fee-earners.</p>
-              </div>
-            </div>
-            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
-              <div class="chat-interface">
-                <div class="chat-header">
-                  <div class="chat-header-dot" style="background:#0d6efd;"></div>
-                  <span class="chat-header-text">LIBRARIAN AGENT</span>
-                </div>
-                <div class="chat-body">
-                  <div class="chat-bubble user">Find standard indemnification clauses from our 2023 Real Estate contracts.</div>
-                  <div class="chat-bubble ai">
-                    I found 3 relevant clauses. Here is the most referenced one:
-                    <br><br><em>"The Landlord shall indemnify Tenant against..."</em>
-                    <br><span class="source-tag">Source: Lease_Agreement_v2.pdf (Pg 14)</span>
-                  </div>
-                </div>
-                <div class="chat-input-area"><div class="fake-input-bar"></div></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row align-items-center feature-row">
-            <div class="col-lg-6 order-lg-1" data-aos="fade-right">
-              <div class="feature-text">
-                <div class="module-icon mb-3" style="margin: 0;">
-                  <i class="bi bi-card-list text-warning" style="font-size: 48px;"></i>
-                </div>
-                <h3>The Registrar</h3>
-                <h5 class="text-primary mb-3">Entity Intelligence & Compliance</h5>
-                <p>Every party in a processed document becomes a structured entity card — automatically, as a side effect of the work you are already doing. The Registrar combines public registry data (RCS, GLEIF, Companies House) with what the document itself says: signing authority, beneficial ownership, obligations. No manual data entry. No integration project. And a complete, sourced verification chain for every entity — exactly what regulators require under AMLD6 and the EU's beneficial ownership framework.</p>
-              </div>
-            </div>
-            <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-               <div class="chat-interface">
-                <div class="chat-header">
-                  <div class="chat-header-dot" style="background:#ffc107;"></div>
-                  <span class="chat-header-text">REGISTRAR AGENT</span>
-                </div>
-                <div class="chat-body">
-                  <div class="chat-bubble user">Who are the parties in this agreement and what are their signing authorities?</div>
-                  <div class="chat-bubble ai">
-                    <strong>Oaktree Capital Management (Europe) S.à r.l.</strong><br>
-                    RCS B177442 · LEI verified · Status: Active<br><br>
-                    Signing authority (Board Resolution, p.3):<br>
-                    <em>"Two A-directors acting jointly for amounts above €500,000."</em>
-                    <br><span class="source-tag" style="background:#fff3cd; color:#856404;">Registry + Document</span>
-                  </div>
-                </div>
-                <div class="chat-input-area"><div class="fake-input-bar"></div></div>
-              </div>
-            </div>
-          </div>
-
+          <h3>Install on your hardware — free</h3>
+          <p>Deploy the Librarian on your own servers at no cost — documents never leave your network. Contact us for minimum hardware requirements and setup details.</p>
+          <a href="mailto:info@enidia.ai?subject=Librarian%20on-premises%20installation">Contact us</a>
         </div>
-      </section>
 
-      <section class="section border-top bg-light">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-12" data-aos="fade-up">
-                    <h2>Uncompromised Data Sovereignty.</h2>
-                    <p class="text-muted">Built for firms where confidentiality is not optional.</p>
-                </div>
-            </div>
-            
-            <div class="row text-center g-4 justify-content-center">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
-                        <i class="bi bi-server display-5 text-primary mb-3"></i>
-                        <h5 class="fw-bold text-dark">On-Premise or Cloud</h5>
-                        <p class="small text-muted mb-0">
-                          Deploy on your own secure servers (air-gapped ready) or use our cloud infrastructure. No concerns about client privilege.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
-                        <i class="bi bi-robot display-5 text-primary mb-3"></i>
-                        <h5 class="fw-bold text-dark">No Public Training</h5>
-                        <p class="small text-muted mb-0">
-                          Your data is used <strong>only</strong> to serve your queries. We do not train our models on your firm's inputs or outputs.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-4 bg-white rounded-3 shadow-sm h-100 border">
-                        <i class="bi bi-shield-check display-5 text-primary mb-3"></i>
-                        <h5 class="fw-bold text-dark">EU AI Act Ready</h5>
-                        <p class="small text-muted mb-0">
-                          Designed for compliance with EU AI Act Articles 9, 12, and 14 — transparency, logging, and human oversight built in.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center mt-5" data-aos="fade-up" data-aos-delay="300">
-                <div class="col-md-8 text-center">
-                    <p class="text-muted mb-0" style="font-size: 0.95rem;">
-                        <i class="bi bi-building me-2"></i>Currently deployed at firms among the 10 biggest international practices globally.
-                    </p>
-                </div>
-            </div>
-        </div>
-      </section>
-      
-    </main>
-    
-    <footer class="footer bg-white border-top" role="contentinfo">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h3>The Enidia App</h3>
-            <p>Verification-driven AI for legal and regulatory workflows. Built on 15 years of software verification research.</p>
-            <p class="social">
-            <a href="https://www.linkedin.com/company/enidia-ai"><span class="bi bi-linkedin"></span></a>
-            </p>
-          </div>
-          <div class="col-md-4 ms-auto">
-            <div class="row site-section pt-0">
-              <div class="col-12 mb-4 mb-md-0">
-                <h3>Navigation</h3>
-                <ul class="list-unstyled">
-                  <li><a href="index.html">Solutions</a></li>
-                  <li><a href="contact.html">About Us</a></li>
-                  <li><a href="https://calendar.app.google/s7P4Hvp7k6hTk7zn9" target="_blank">Book a Demo</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="row justify-content-center text-center">
-          <div class="col-md-7">
-            <p class="copyright">&copy; Copyright Enidia AI. All Rights Reserved</p>
-          </div>
-        </div>
-        
       </div>
-    </footer>
-    
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-    
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    
-    <script src="assets/js/main.js"></script>
-    
-  </body>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <img src="assets/img/logo.png" alt="Enidia" style="height:38px; opacity:0.55;" />
+      <p>© 2026 Enidia AI, S.à r.l.-S · Esch-sur-Alzette, Luxembourg</p>
+      <a href="mailto:info@enidia.ai">info@enidia.ai</a>
+    </div>
+  </footer>
+
+</body>
 </html>
