@@ -488,12 +488,32 @@
           <div style="margin-bottom:14px;">
             <label style="display:block; color:#000078; font-size:12px; font-weight:700; margin-bottom:5px;">Document type</label>
             <select id="roi-doctype" onchange="roiCalc()" style="width:100%; padding:8px 10px; border:1.5px solid rgba(0,80,180,0.2); border-radius:8px; font-family:inherit; font-size:13px; color:#000078; background:#fff;">
-              <option value="lpa">LPA (Limited Partnership Agreement)</option>
-              <option value="loan">Loan / Credit Agreement</option>
-              <option value="sha">Shareholders Agreement (SHA)</option>
-              <option value="nda">NDA / Confidentiality Agreement</option>
-              <option value="employment">Employment Contract</option>
-              <option value="dd">M&A Due Diligence Checklist</option>
+              <optgroup label="General">
+                <option value="lpa">LPA (Limited Partnership Agreement)</option>
+                <option value="loan">Loan / Credit Agreement</option>
+                <option value="sha">Shareholders Agreement (SHA)</option>
+                <option value="nda">NDA / Confidentiality Agreement</option>
+                <option value="employment">Employment Contract</option>
+                <option value="dd">M&A Due Diligence Checklist</option>
+              </optgroup>
+              <optgroup label="EU-Wide Regulatory">
+                <option value="sfdr">SFDR Annex II–V (ESG Templates)</option>
+                <option value="aifmd">AIFMD Annex IV / Art. 23</option>
+              </optgroup>
+              <optgroup label="Luxembourg (CSSF)">
+                <option value="lux-prospectus">Fund Prospectus (UCITS/AIF)</option>
+                <option value="lux-aifm">AIFM Agreement / IMA</option>
+              </optgroup>
+              <optgroup label="France (AMF)">
+                <option value="fr-kiid">DICI / KIID (per share class)</option>
+              </optgroup>
+              <optgroup label="Germany (BaFin)">
+                <option value="de-ima">Anlageverwaltungsvertrag (IMA)</option>
+              </optgroup>
+              <optgroup label="Netherlands (AFM/DNB)">
+                <option value="nl-wwft">Wwft AML/KYC Dossier</option>
+                <option value="nl-suitability">Suitability Report (MiFID II)</option>
+              </optgroup>
             </select>
           </div>
 
@@ -553,14 +573,28 @@
   </section>
 
   <script>
-    // Document profiles: [manual hours (mid), savingsPct (mid), role mix: trainee, assoc, senior, partner]
+    // Document profiles: { label, hours (manual mid), saving (pct), mix [trainee, assoc, senior, partner] }
     const DOC_PROFILES = {
-      lpa:        { label: 'LPA',               hours: 18,  saving: 0.91, mix: [0,    0.50, 0.40, 0.10] },
-      loan:       { label: 'Loan Agreement',     hours: 15,  saving: 0.78, mix: [0,    0.60, 0.30, 0.10] },
-      sha:        { label: 'SHA',                hours: 11,  saving: 0.76, mix: [0,    0.40, 0.50, 0.10] },
-      nda:        { label: 'NDA',                hours: 1,   saving: 0.91, mix: [0.80, 0.15, 0,    0.05] },
-      employment: { label: 'Employment Contract', hours: 1.5, saving: 0.85, mix: [0.90, 0.10, 0,    0]    },
-      dd:         { label: 'M&A DD Checklist',   hours: 80,  saving: 0.73, mix: [0.70, 0.25, 0,    0.05] },
+      // General
+      lpa:             { label: 'LPA',                        hours: 25,   saving: 0.91, mix: [0,    0.50, 0.40, 0.10] },
+      loan:            { label: 'Loan Agreement',             hours: 15,   saving: 0.78, mix: [0,    0.60, 0.30, 0.10] },
+      sha:             { label: 'SHA',                        hours: 11,   saving: 0.76, mix: [0,    0.40, 0.50, 0.10] },
+      nda:             { label: 'NDA',                        hours: 1,    saving: 0.73, mix: [0.80, 0.15, 0,    0.05] },
+      employment:      { label: 'Employment Contract',        hours: 1.5,  saving: 0.73, mix: [0.90, 0.10, 0,    0]    },
+      dd:              { label: 'M&A DD Checklist',           hours: 80,   saving: 0.73, mix: [0.70, 0.25, 0,    0.05] },
+      // EU-Wide
+      sfdr:            { label: 'SFDR Annex II–V',            hours: 8,    saving: 0.73, mix: [0,    0.70, 0.30, 0]    },
+      aifmd:           { label: 'AIFMD Annex IV',             hours: 5,    saving: 0.85, mix: [0.40, 0.50, 0.10, 0]    },
+      // Luxembourg
+      'lux-prospectus':{ label: 'Fund Prospectus (Lux)',      hours: 25,   saving: 0.80, mix: [0,    0.60, 0.30, 0.10] },
+      'lux-aifm':      { label: 'AIFM Agreement (Lux)',       hours: 12,   saving: 0.75, mix: [0,    0.60, 0.40, 0]    },
+      // France
+      'fr-kiid':       { label: 'DICI/KIID (FR)',             hours: 2.5,  saving: 0.95, mix: [0.50, 0.40, 0.10, 0]    },
+      // Germany
+      'de-ima':        { label: 'Anlageverwaltungsvertrag (DE)',hours: 17,  saving: 0.70, mix: [0,    0.40, 0.60, 0]    },
+      // Netherlands
+      'nl-wwft':       { label: 'Wwft AML/KYC Dossier (NL)', hours: 7,    saving: 0.85, mix: [0.30, 0.55, 0.15, 0]    },
+      'nl-suitability':{ label: 'Suitability Report (NL)',    hours: 4,    saving: 0.80, mix: [0,    0.60, 0.40, 0]    },
     };
 
     function fmt(n) {
@@ -589,8 +623,9 @@
       document.getElementById('roi-hours-year').textContent  = fmtH(hoursSavedPerMonth * 12);
       document.getElementById('roi-cost-month').textContent  = fmt(costSavedPerMonth);
       document.getElementById('roi-cost-year').textContent   = fmt(costSavedPerMonth * 12);
+      const savedH = (doc.hours * doc.saving).toFixed(1);
       document.getElementById('roi-note').textContent =
-        `Based on ${doc.hours}h manual review per ${doc.label}, ${Math.round(doc.saving*100)}% time saving, at a blended rate of €${Math.round(blendedRate)}/hr.`;
+        `Based on ${doc.hours}h manual review per ${doc.label} → ${savedH}h saved (${Math.round(doc.saving*100)}% saving), blended rate €${Math.round(blendedRate)}/hr.`;
     }
 
     roiCalc();
