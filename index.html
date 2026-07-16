@@ -209,7 +209,11 @@
       .hero-graphic { display: none; }
       .cards { grid-template-columns: 1fr; }
       .trust-grid { grid-template-columns: repeat(2,1fr); }
-      .cta-cards { grid-template-columns: 1fr; }
+      .cta-cards { grid-template-columns: 1fr !important; }
+      .roi-grid { grid-template-columns: 1fr !important; }
+      .roi-rates-grid { grid-template-columns: 1fr !important; }
+      .modal-options { grid-template-columns: 1fr; }
+      .modal { padding: 28px 24px; }
     }
 
     /* Modal */
@@ -480,7 +484,7 @@
         <p style="color:#0050b4; opacity:0.55; font-size:16px; max-width:600px; margin:0 auto; line-height:1.65;">The Associate reduces time spent on data-intensive legal tasks by <strong style="color:#000078; opacity:1;">73–84%</strong> — while adding full tracing, evidence, and completeness guarantees that manual review cannot provide.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px;">
+      <div class="roi-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px;">
 
         <!-- ROI 1: Time -->
         <div style="border:1.5px solid rgba(0,80,180,0.12); border-radius:16px; padding:36px; background:#f4f7fc;">
@@ -552,7 +556,7 @@
           </div>
 
           <!-- Rates -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;">
+          <div class="roi-rates-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;">
             <div>
               <label style="display:block; color:#000078; font-size:11px; font-weight:700; margin-bottom:4px;">Associate rate (€/hr)</label>
               <input id="roi-assoc" type="number" min="0" value="325" onchange="roiCalc()" oninput="roiCalc()" style="width:100%; padding:7px 10px; border:1.5px solid rgba(0,80,180,0.2); border-radius:8px; font-family:inherit; font-size:13px; color:#000078;">
