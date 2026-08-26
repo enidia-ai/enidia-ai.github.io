@@ -1,4 +1,4 @@
-/* Enidia — the site's design system.
+/* Enidia: the site's design system.
    One stylesheet for every page: the home page and the inner pages had drifted
    onto two different designs, and a shared file is the only thing that keeps
    them from drifting again. The palette is the film series' palette on purpose
@@ -72,6 +72,13 @@ nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(255,255,255,.88);
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-size:15px;font-weight:500;color:var(--ink-soft)}
 .nav-links a:hover{color:var(--navy)}
+/* A button in the nav is still a button: .nav-links a outranks .btn-solid on
+   specificity, which was painting the label ink-grey on navy. */
+.nav-links a.btn-solid,.nav-links a.btn-solid:hover{color:#fff}
+
+/* The calculator is a long way down the page, so the hero points at it. */
+.hero-calc{margin-top:14px;font-size:15px;color:var(--ink-soft)}
+.hero-calc a{color:var(--navy);font-weight:600;border-bottom:2px solid var(--orange)}
 @media(max-width:900px){.nav-links a.hide-sm{display:none}}
 
 /* ------------------------------------------------------------------- hero */

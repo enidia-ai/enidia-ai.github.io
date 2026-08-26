@@ -15,14 +15,18 @@ SRC=../marketing/animations
 OUT=assets/video
 mkdir -p "$OUT"
 
-for name in validation trace absent ask deploy; do
-  src="$SRC/film-$name.mp4"
+# The short loops for the hero and the gallery, then the two long films. The
+# long ones ship as the full cut, intro and end card included: they are watched
+# once, deliberately, not looped behind a headline.
+for name in validation trace absent learn deploy long-task-cssf long-task-lpa; do
+  case "$name" in long-*) src="$SRC/$name.mp4" ;; *) src="$SRC/film-$name.mp4" ;; esac
   [ -f "$src" ] || { echo "  missing $src -- run $SRC/build.sh"; continue; }
-  cp "$src" "$OUT/film-$name.mp4"
+  case "$name" in long-*) dst="$OUT/$name.mp4" ;; *) dst="$OUT/film-$name.mp4" ;; esac
+  cp "$src" "$dst"
   dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$src")
   at=$(python3 -c "print(max(0, $dur - 1.2))")
   ffmpeg -loglevel error -y -ss "$at" -i "$src" -frames:v 1 -q:v 4 "$OUT/poster-$name.jpg"
   printf '  %-11s %6sKB video  %5sKB poster\n' "$name" \
-    "$(( $(stat -c%s "$OUT/film-$name.mp4") / 1024 ))" \
+    "$(( $(stat -c%s "$dst") / 1024 ))" \
     "$(( $(stat -c%s "$OUT/poster-$name.jpg") / 1024 ))"
 done
