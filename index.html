@@ -11,471 +11,375 @@
 
 	  gtag('config', 'G-38CCXVVLH0');
 	</script>
-  
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enidia — AI Legal Intelligence</title>
+  <title>Enidia — Give it the work you'd never give AI</title>
+  <meta name="description" content="Enidia AssociAte fills a checklist, survey, form or template from your own documents — every answer carrying its page and its exact quote, every gap reported rather than guessed. On your hardware. One task, done properly." />
+  <link rel="icon" href="assets/img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #0050b4; -webkit-font-smoothing: antialiased; }
-    :root {
-      --blue: #0050b4;
-      --navy: #000078;
-      --orange: #ff8200;
-    }
-    a { text-decoration: none; }
-
-    /* Nav */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      background: #ffffff;
-      border-bottom: 1px solid rgba(0,80,180,0.1);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 24px;
-      height: 66px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .btn-primary {
-      background: #000078; color: #ffffff;
-      font-weight: 700; font-size: 14px; padding: 11px 24px;
-      border-radius: 999px; transition: background 0.2s;
-    }
-    .btn-primary:hover { background: #0050b4; }
-    .btn-outline {
-      border: 2px solid #0050b4; color: #0050b4;
-      font-weight: 600; font-size: 15px; padding: 13px 28px;
-      border-radius: 999px; transition: all 0.2s;
-    }
-    .btn-outline:hover { background: #0050b4; color: #fff; }
-
-    /* Hero */
-    .hero {
-      padding: 60px 24px 80px;
-      background: #ffffff;
-    }
-    .hero-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
-    }
-    .hero-eyebrow {
-      color: #ff8200; font-weight: 700; font-size: 12px;
-      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 20px;
-    }
-    .hero h1 {
-      color: #000078; font-size: clamp(30px, 3.8vw, 50px);
-      font-weight: 800; line-height: 1.15; margin-bottom: 24px;
-    }
-    .hero h1 .accent {
-      color: #0050b4;
-    }
-    .hero-sub {
-      color: #0050b4; opacity: 0.65; font-size: 17px; line-height: 1.75; margin-bottom: 36px;
-    }
-    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-hero {
-      background: #000078; color: #ffffff;
-      font-weight: 700; font-size: 15px; padding: 14px 28px;
-      border-radius: 999px; transition: background 0.2s;
-    }
-    .btn-hero:hover { background: #0050b4; }
-
-    /* Agents */
-    .agents { background: #ffffff; padding: 80px 24px; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-title {
-      text-align: center; margin-bottom: 52px;
-    }
-    .section-title h2 {
-      color: #000078; font-size: 30px; font-weight: 800; margin-bottom: 10px;
-    }
-    .section-title p {
-      color: #0050b4; opacity: 0.55; font-size: 16px;
-      max-width: 540px; margin: 0 auto; line-height: 1.65;
-    }
-    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .card {
-      border: 1.5px solid rgba(0,80,180,0.14); border-radius: 16px; padding: 32px;
-      background: #ffffff; position: relative; transition: box-shadow 0.2s;
-    }
-    .card:hover { box-shadow: 0 8px 32px rgba(0,80,180,0.1); }
-    .card-featured {
-      background: #ffffff; border-color: #000078; border-width: 2px;
-    }
-    .card-featured:hover { box-shadow: 0 8px 32px rgba(0,0,120,0.12); }
-    .card-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
-      background: rgba(0,80,180,0.08);
-    }
-    .card-featured .card-icon { background: #ff8200; }
-    .card h3 { color: #000078; font-size: 19px; font-weight: 700; margin-bottom: 10px; }
-    .card p { color: #0050b4; opacity: 0.6; font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
-    .card-meta {
-      color: #0050b4; opacity: 0.38; font-size: 11px;
-      font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
-    }
-    .badge {
-      position: absolute; top: 18px; right: 18px;
-      background: #ff8200; color: #ffffff;
-      font-size: 11px; font-weight: 800; padding: 4px 11px;
-      border-radius: 999px; letter-spacing: 0.05em; text-transform: uppercase;
-    }
-    .agents-note {
-      text-align: center; color: #0050b4; opacity: 0.4;
-      font-size: 13px; margin-top: 24px;
-    }
-
-    /* Trust */
-    .trust {
-      background: #f4f7fc; padding: 64px 24px;
-      border-top: 1px solid rgba(0,80,180,0.08);
-    }
-    .trust-label {
-      text-align: center; color: #0050b4; opacity: 0.4;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; margin-bottom: 44px;
-    }
-    .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; text-align: center; }
-    .trust-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-    .trust-icon {
-      width: 48px; height: 48px; background: #ff8200; border-radius: 999px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .trust-item strong { color: #000078; font-size: 20px; font-weight: 800; display: block; margin-bottom: 4px; }
-    .trust-item span { color: #0050b4; opacity: 0.55; font-size: 13px; line-height: 1.5; }
-
-    /* CTA */
-    .cta-section { background: #000078; padding: 80px 24px; }
-    .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
-    .cta-inner h2 { color: #ffffff; font-size: 30px; font-weight: 800; margin-bottom: 10px; }
-    .cta-inner > p { color: rgba(255,255,255,0.5); font-size: 16px; margin-bottom: 44px; line-height: 1.6; }
-    .cta-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
-    .cta-card {
-      border-radius: 16px; padding: 32px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
-    }
-    .cta-card-orange { border-color: rgba(255,130,0,0.4); background: rgba(255,130,0,0.07); }
-    .cta-eyebrow {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
-      text-transform: uppercase; margin-bottom: 10px;
-    }
-    .cta-eyebrow-orange { color: #ff8200; }
-    .cta-eyebrow-dim { color: rgba(255,255,255,0.3); }
-    .cta-card h3 { color: #ffffff; font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-    .cta-card p { color: rgba(255,255,255,0.45); font-size: 14px; line-height: 1.65; margin-bottom: 24px; }
-    .btn-cta-orange {
-      display: inline-block; background: #ff8200; color: #ffffff;
-      font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 999px;
-      transition: background 0.2s;
-    }
-    .btn-cta-orange:hover { background: #e07000; }
-    .btn-cta-ghost {
-      display: inline-block; border: 1.5px solid rgba(255,255,255,0.25); color: #ffffff;
-      font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 999px;
-      transition: border-color 0.2s;
-    }
-    .btn-cta-ghost:hover { border-color: rgba(255,255,255,0.6); }
-
-    /* Footer */
-    footer {
-      background: #000078; border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 56px 24px 32px;
-    }
-    .footer-inner {
-      max-width: 1100px; margin: 0 auto;
-    }
-    .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
-      margin-bottom: 48px;
-    }
-    .footer-brand img { height: 38px; opacity: 0.8; margin-bottom: 16px; }
-    .footer-brand p { color: rgba(255,255,255,0.38); font-size: 13px; line-height: 1.7; max-width: 280px; }
-    .footer-col h4 { color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
-    .footer-col a { display: block; color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 10px; transition: color 0.2s; }
-    .footer-col a:hover { color: #ffffff; }
-    .footer-col p { color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 10px; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-bottom p { color: rgba(255,255,255,0.28); font-size: 12px; }
-    .footer-bottom a { color: rgba(255,255,255,0.28); font-size: 12px; }
-    .footer-bottom a:hover { color: rgba(255,255,255,0.65); }
-
-    @media (max-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-graphic { display: none; }
-      .cards { grid-template-columns: 1fr; }
-      .trust-grid { grid-template-columns: repeat(2,1fr); }
-      .cta-cards { grid-template-columns: 1fr !important; }
-      .roi-grid { grid-template-columns: 1fr !important; }
-      .roi-rates-grid { grid-template-columns: 1fr !important; }
-      .modal-options { grid-template-columns: 1fr; }
-      .modal { padding: 28px 24px; }
-    }
-
-    /* Modal */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 200;
-      background: rgba(0,0,120,0.35); backdrop-filter: blur(3px);
-      align-items: center; justify-content: center; padding: 24px;
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: #ffffff; border-radius: 20px; padding: 40px;
-      max-width: 560px; width: 100%; position: relative;
-      box-shadow: 0 24px 64px rgba(0,0,120,0.18);
-    }
-    .modal-close {
-      position: absolute; top: 16px; right: 16px;
-      background: none; border: none; cursor: pointer;
-      color: #0050b4; opacity: 0.4; font-size: 22px; line-height: 1;
-      padding: 4px 8px; border-radius: 6px; transition: opacity 0.15s;
-    }
-    .modal-close:hover { opacity: 0.8; }
-    .modal h2 { color: #000078; font-size: 22px; font-weight: 800; margin-bottom: 8px; }
-    .modal > p { color: #0050b4; opacity: 0.6; font-size: 14px; line-height: 1.65; margin-bottom: 28px; }
-    .modal-options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .modal-option {
-      border-radius: 14px; padding: 24px;
-      border: 1.5px solid rgba(0,80,180,0.15);
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .modal-option-cloud { border-color: rgba(0,0,120,0.2); background: #f4f7fc; }
-    .modal-option-local { border-color: rgba(255,130,0,0.3); background: rgba(255,130,0,0.04); }
-    .modal-option-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .modal-option-cloud .modal-option-icon { background: #000078; }
-    .modal-option-local .modal-option-icon { background: #ff8200; }
-    .modal-option h3 { color: #000078; font-size: 15px; font-weight: 700; }
-    .modal-option p { color: #0050b4; opacity: 0.6; font-size: 13px; line-height: 1.6; }
-    .modal-option a {
-      display: inline-block; font-weight: 700; font-size: 13px;
-      padding: 9px 18px; border-radius: 999px; margin-top: 4px;
-      transition: opacity 0.15s;
-    }
-    .modal-option a:hover { opacity: 0.85; }
-    .modal-option-cloud a { background: #000078; color: #ffffff; }
-    .modal-option-local a { background: #ff8200; color: #ffffff; }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/enidia.css">
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <img src="assets/img/logo.png" alt="Enidia" style="height:46px;" />
-      <div style="display:flex; align-items:center; gap:24px;">
-        <a href="#get-started" style="color:#0050b4; font-size:14px; font-weight:600;">Contact</a>
-        <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-primary">Book a demo</a>
+      <a href="/"><img src="assets/img/logo.png" alt="Enidia" style="height:42px" /></a>
+      <div class="nav-links">
+        <a href="#task" class="hide-sm">What we do</a>
+        <a href="#see" class="hide-sm">See it work</a>
+        <a href="#start" class="hide-sm">Getting started</a>
+        <a href="#on-premise" class="hide-sm">On-premise</a>
+        <a href="#calculator" class="hide-sm">ROI</a>
+        <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Book a demo</a>
       </div>
     </div>
   </nav>
 
-  <!-- DATA PRIVACY BAR -->
-  <div style="background:#f4f7fc; border-bottom:1px solid rgba(0,80,180,0.1); padding:10px 24px; margin-top:66px;">
-    <div style="max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;">
-      <span style="display:flex; align-items:center; gap:7px; color:#000078; font-size:13px; font-weight:600;">
-        <svg width="15" height="15" fill="none" stroke="#ff8200" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-        Your documents never leave your premises
-      </span>
-      <span style="color:rgba(0,80,180,0.2); font-size:13px;">|</span>
-      <span style="display:flex; align-items:center; gap:7px; color:#000078; font-size:13px; font-weight:600;">
-        <svg width="15" height="15" fill="none" stroke="#ff8200" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"/></svg>
-        Runs on your own hardware
-      </span>
-      <span style="color:rgba(0,80,180,0.2); font-size:13px;">|</span>
-      <span style="display:flex; align-items:center; gap:7px; color:#000078; font-size:13px; font-weight:600;">
-        <svg width="15" height="15" fill="none" stroke="#ff8200" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        No cloud. No third-party access. Zero data exposure.
-      </span>
+  <!-- HERO -------------------------------------------------------------- -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">EnidiA AssociAte</p>
+        <h1>Give it the work you'd never give AI.</h1>
+        <p class="lede">
+          One task, done properly: take a checklist, survey, form or template and fill it in
+          from your own documents. Every answer carries the page it came from and the exact
+          words. Every question the documents do not answer is reported as unanswered, not
+          quietly guessed. All of it on your own hardware.
+        </p>
+        <div class="hero-ctas">
+          <a href="#see" class="btn btn-solid">Watch it fill a form</a>
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-ghost">Try it on your own documents — free</a>
+        </div>
+        <p class="hero-note">No installation to watch. No commitment to try.</p>
+      </div>
+      <div class="film">
+        <video src="assets/video/film-validation.mp4" autoplay muted loop playsinline
+               poster="assets/video/poster-validation.jpg"></video>
+        <p class="film-cap">Twenty-one regulatory questions, answered out of a hundred-page prospectus — each one carrying its page and its quote.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="trustbar">
+    <div class="wrap">
+      <span><svg width="16" height="16" fill="none" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>Your documents never leave your premises</span>
+      <span><svg width="16" height="16" fill="none" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"/></svg>Runs on hardware you own</span>
+      <span><svg width="16" height="16" fill="none" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Every answer sourced. Every gap reported.</span>
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <p class="hero-eyebrow">Verification-first AI for law firms</p>
-        <h1>
-          The first AI a lawyer can trust.<br/>
-          <span class="accent">Because it proves every answer.</span>
-        </h1>
-        <p class="hero-sub">
-          Three specialist agents working together — reading your documents, building your client intelligence, and teaching themselves your firm's exact standards through a simple chat. Every answer comes with the clause it came from. Every missing clause is explained, not silently skipped. <strong style="color:#000078;">Your documents never leave your premises.</strong>
+  <!-- THE ONE TASK ------------------------------------------------------ -->
+  <section class="section" id="task">
+    <div class="wrap">
+      <div class="head mid">
+        <p class="eyebrow">What we do</p>
+        <h2>One task. Better, cheaper and safer than anyone else.</h2>
+        <p class="lede">
+          We are not a general legal assistant, and we are not trying to be. Enidia does a
+          single, enormous, unglamorous job that law firms and fund administrators do every
+          week: <strong>you have a fixed set of questions, and the answers are buried in
+          documents.</strong>
         </p>
-        <div class="hero-ctas">
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-hero">Book a demo to see them in action</a>
-          <button onclick="document.getElementById('librarian-modal').classList.add('open')" class="btn-outline" style="cursor:pointer; font-family:inherit;">Install Librarian — free</button>
-        </div>
-        <div style="margin-top:18px; display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
-          <a href="#get-started" style="color:#ff8200; font-size:14px; font-weight:700; letter-spacing:0.02em;">Request a free trial on your own documents →</a>
-          <a href="#calculator" style="color:#0050b4; opacity:0.5; font-size:14px; font-weight:600; letter-spacing:0.02em;">Calculate your savings →</a>
-        </div>
       </div>
-      <div class="hero-graphic" style="display:flex; justify-content:center;">
-        <svg viewBox="0 0 420 360" style="width:100%; max-width:420px;" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Document -->
-          <rect x="55" y="35" width="135" height="180" rx="8" fill="#f4f7fc" stroke="#0050b4" stroke-opacity="0.2" stroke-width="1.5"/>
-          <rect x="75" y="65" width="95" height="8" rx="4" fill="#0050b4" fill-opacity="0.18"/>
-          <rect x="75" y="83" width="75" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
-          <rect x="75" y="97" width="85" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
-          <rect x="75" y="111" width="65" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
-          <!-- Highlighted source clause -->
-          <rect x="75" y="130" width="95" height="12" rx="3" fill="#ff8200" fill-opacity="0.25"/>
-          <rect x="75" y="130" width="95" height="12" rx="3" stroke="#ff8200" stroke-opacity="0.5" stroke-width="1"/>
-          <rect x="75" y="152" width="70" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
-          <rect x="75" y="166" width="80" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
-          <rect x="75" y="180" width="55" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
 
-          <!-- Arrow -->
-          <path d="M 198 136 L 226 136" stroke="#0050b4" stroke-width="1.8" stroke-opacity="0.35"/>
-          <path d="M 220 130 L 228 136 L 220 142" stroke="#0050b4" stroke-width="1.8" stroke-opacity="0.35" stroke-linecap="round" stroke-linejoin="round"/>
+      <div class="grid g4" style="margin-bottom:44px">
+        <div class="card"><h3>Checklists</h3><p>Matter and closing checklists, condition-precedent lists, playbook reviews.</p></div>
+        <div class="card"><h3>Regulatory forms</h3><p>CSSF questionnaires, AIFMD Annex IV, SFDR annexes, filings that must be defensible.</p></div>
+        <div class="card"><h3>Surveys and questionnaires</h3><p>Client, counterparty and vendor questionnaires answered out of the underlying agreements.</p></div>
+        <div class="card"><h3>Templates and data rooms</h3><p>Structured templates populated from a prospectus, an LPA, a credit agreement or a whole folder.</p></div>
+      </div>
 
-          <!-- Answer card -->
-          <rect x="236" y="55" width="152" height="220" rx="10" fill="#f4f7fc" stroke="#0050b4" stroke-opacity="0.12" stroke-width="1.5"/>
-
-          <!-- Verified answer -->
-          <circle cx="261" cy="93" r="14" fill="#ff8200"/>
-          <path d="M 255 93 L 260 98 L 268 86" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="282" y="86" width="84" height="9" rx="4" fill="#000078" fill-opacity="0.18"/>
-          <rect x="282" y="100" width="58" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
-
-          <!-- Source citation box -->
-          <rect x="248" y="120" width="124" height="34" rx="6" fill="#ff8200" fill-opacity="0.1" stroke="#ff8200" stroke-opacity="0.3" stroke-width="1"/>
-          <rect x="257" y="129" width="60" height="5" rx="2.5" fill="#ff8200" fill-opacity="0.7"/>
-          <rect x="257" y="140" width="92" height="5" rx="2.5" fill="#0050b4" fill-opacity="0.2"/>
-
-          <!-- More fields -->
-          <rect x="248" y="167" width="85" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
-          <rect x="248" y="181" width="68" height="6" rx="3" fill="#0050b4" fill-opacity="0.1"/>
-
-          <!-- Missing field marker -->
-          <circle cx="261" cy="217" r="14" fill="white" stroke="#0050b4" stroke-opacity="0.15" stroke-width="1.5"/>
-          <path d="M 255 211 L 267 223 M 267 211 L 255 223" stroke="#0050b4" stroke-width="2" stroke-opacity="0.2" stroke-linecap="round"/>
-          <rect x="282" y="210" width="78" height="6" rx="3" fill="#0050b4" fill-opacity="0.08"/>
-          <rect x="282" y="222" width="55" height="5" rx="2.5" fill="#0050b4" fill-opacity="0.05"/>
-
-          <text x="210" y="316" text-anchor="middle" fill="#0050b4" fill-opacity="0.3" font-size="11" font-family="Inter, sans-serif">Every answer sourced. Every gap explained.</text>
-        </svg>
+      <div class="head mid" style="margin-bottom:32px">
+        <h2 style="font-size:clamp(24px,2.6vw,32px)">Three answers, and you can tell them apart</h2>
+        <p class="lede">The whole product is that these are three different things, and you can see which is which at a glance.</p>
+      </div>
+      <div class="states">
+        <div class="state ok"><div class="dot"></div><h3>Found</h3>
+          <p>The document answers the question. The answer carries the page and the sentence it was taken from, word for word.</p></div>
+        <div class="state warn"><div class="dot"></div><h3>Inferred</h3>
+          <p>The document says the thing, but not in the form's vocabulary. You get the answer, both supporting passages, and a label saying this is a mapping rather than a quote.</p></div>
+        <div class="state none"><div class="dot"></div><h3>Absent</h3>
+          <p>Nothing in the documents answers it. This is reported as a finding, not left blank and not filled with something plausible.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- THREE AGENTS -->
-  <section class="agents" id="agents">
-    <div class="section-inner">
-      <div class="section-title">
-        <h2>Three specialists. One pipeline.</h2>
-        <p>Each agent does one thing exceptionally well. Together they give your firm a knowledge layer it has never had.</p>
+  <!-- WHY GENERAL TOOLS ARE THE WRONG TOOL ------------------------------ -->
+  <section class="section tint">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Why not a general legal AI</p>
+        <h2>General assistants are built for a different shape of work.</h2>
+        <p class="lede">
+          The large legal-AI platforms are good products for open-ended work: research a
+          question, summarise a document, draft a first pass, chat with a data room. That is a
+          different job from filling a fixed set of questions and standing behind the result —
+          and the difference is structural, not a matter of quality.
+        </p>
       </div>
-      <div class="cards">
-
-        <!-- Librarian -->
-        <div class="card" id="librarian">
-          <span class="badge">Free to install</span>
-          <div class="card-icon">
-            <svg width="24" height="24" fill="none" stroke="#0050b4" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-          </div>
-          <h3>The Librarian</h3>
-          <p>Turns your firm's own documents into a searchable knowledge base. Answers questions, retrieves precedents, surfaces context — all from files that never leave your network.</p>
-          <p class="card-meta">On-premises · No IT integration · Free for 20+ fee-earner firms</p>
-        </div>
-
-        <!-- Associate — featured -->
-        <div class="card card-featured">
-          <div class="card-icon">
-            <svg width="24" height="24" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-          </div>
-
-          <h3>The Associate</h3>
-          <p>Reads any legal document and fills your checklists with answers, visual evidence, and a completeness audit trail. Every missing field is explained — not silently skipped. 25 hours becomes 4.</p>
-          <p class="card-meta">Verified at a Global 10 law firm · Configurable per matter type · Runs on your hardware</p>
-        </div>
-
-        <!-- Clerk -->
+      <div class="grid g2">
         <div class="card">
-          <div class="card-icon">
-            <svg width="24" height="24" fill="none" stroke="#0050b4" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-          </div>
+          <h3>They answer. They do not report coverage.</h3>
+          <p>A general assistant is built to produce an answer to whatever you ask. Ask it fifty
+          questions and you get fifty answers — including for the questions your documents never
+          addressed. The thing you actually need to know on a filing is which answers the
+          documents support, and there is nothing in a chat transcript that tells you.</p>
+        </div>
+        <div class="card">
+          <h3>A missing fact comes back as a confident sentence.</h3>
+          <p>Silence is the expensive failure in this task, and it is invisible in a generative
+          tool: the gap looks exactly like an answer. Our whole design is that the gap is a
+          visible, countable state you have to sign off, not a blank you might never notice.</p>
+        </div>
+        <div class="card">
+          <h3>Citations are not the same as quotes.</h3>
+          <p>A page reference next to a paraphrase is not something a reviewer can check without
+          re-reading the document. Every answer here carries the verbatim span it came from, so
+          checking it takes seconds — which is the only way review at this volume is real review.</p>
+        </div>
+        <div class="card">
+          <h3>Their pricing punishes exactly this workload.</h3>
+          <p>A form of fifty questions against a hundred-page document is the most token-hungry
+          shape of legal work there is. On a per-seat-plus-metered-usage model, the task that
+          most needs automating is the one that costs most to automate — so firms ration it.
+          Ours does not meter, because it runs on a machine you own.</p>
+        </div>
+      </div>
+      <p class="cmp-note" style="margin-top:26px">
+        The honest version: if you want one tool for everything, buy one of theirs. If you have
+        checklists, forms or questionnaires to fill and someone has to be able to defend the
+        result, that is the job we built for, and we do it better, cheaper and more safely than a
+        general tool can.
+      </p>
+    </div>
+  </section>
+
+  <!-- SEE IT WORK -------------------------------------------------------- -->
+  <section class="section" id="see">
+    <div class="wrap">
+      <div class="head mid">
+        <p class="eyebrow">See it work</p>
+        <h2>Short films, no narrator, nothing staged.</h2>
+        <p class="lede">Each one is a single claim you can watch us make good on. Silent — the captions carry it.</p>
+      </div>
+      <div class="films">
+        <div class="film">
+          <video src="assets/video/film-validation.mp4" muted loop playsinline controls
+                 poster="assets/video/poster-validation.jpg"></video>
+          <p class="film-cap"><b>Verify</b> — an answer you can check, in one click, against the page it came from.</p>
+        </div>
+        <div class="film">
+          <video src="assets/video/film-absent.mp4" muted loop playsinline controls
+                 poster="assets/video/poster-absent.jpg"></video>
+          <p class="film-cap"><b>Absent</b> — four questions came back with no answer, and it says so.</p>
+        </div>
+        <div class="film">
+          <video src="assets/video/film-trace.mp4" muted loop playsinline controls
+                 poster="assets/video/poster-trace.jpg"></video>
+          <p class="film-cap"><b>Trace</b> — when the document does not use the form's words, the answer is labelled an inference.</p>
+        </div>
+        <div class="film">
+          <video src="assets/video/film-deploy.mp4" muted loop playsinline controls
+                 poster="assets/video/poster-deploy.jpg"></video>
+          <p class="film-cap"><b>Deploy</b> — where the work happens, and what never leaves the building.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW YOU GET STARTED ------------------------------------------------ -->
+  <section class="section tint" id="start">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Getting started</p>
+        <h2>Watch it. Try it on your own work. Then decide.</h2>
+        <p class="lede">
+          Nothing is asked of you until you have seen it work on your documents. There is no
+          trial that expires into a subscription, because the thing you eventually buy is a
+          machine, not a meter.
+        </p>
+      </div>
+
+      <div class="step-rail">
+        <span>Today</span><i></i><span>A week or two</span><i></i><span>When it has earned it</span>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-n"><b>1</b><span>Watch</span></div>
+          <span class="cost">Free · right now</span>
+          <h3>See the film</h3>
+          <p>Two minutes, no form to fill in, no call. A real form filled from a real public
+          prospectus, with every answer traceable back to its page.</p>
+          <a href="#see" class="btn btn-ghost btn-sm">Watch the films</a>
+        </div>
+        <div class="step">
+          <div class="step-n"><b>2</b><span>Try</span></div>
+          <span class="cost">Free · your documents</span>
+          <h3>Run it on your own problem, in our cloud</h3>
+          <p>We start with a short call to understand the task, then set you up on our hosted
+          environment with your own checklist and your own documents. No installation. No
+          commitment. We run a few trials at a time so each firm gets proper attention.</p>
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Request a free trial</a>
+        </div>
+        <div class="step">
+          <div class="step-n"><b>3</b><span>Own</span></div>
+          <span class="cost pay">Hardware + licence</span>
+          <h3>Bring it inside</h3>
+          <p>Once it has proved itself on your work, you buy the hardware it runs on and licence
+          the tool. It moves onto your premises, your documents stop travelling, and the running
+          cost stops depending on how much you use it.</p>
+          <a href="#on-premise" class="btn btn-ghost btn-sm">What on-premise means</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ON-PREMISE + THE PRICING MODEL ------------------------------------- -->
+  <section class="section" id="on-premise">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">On-premise</p>
+        <h2>The work stays in the building. So does the bill.</h2>
+        <p class="lede">
+          On-premise is the part of this that competitors cannot copy without rebuilding their
+          business, and it changes two things at once: who can see your documents, and what a
+          heavy month costs you.
+        </p>
+      </div>
+
+      <div class="grid g3" style="margin-bottom:60px">
+        <div class="card"><h3>Privilege stays intact</h3>
+          <p>Nothing is sent to a third-party model. There is no processor to add to your record,
+          no sub-processor list to chase, and no transfer to assess — because there is no transfer.</p></div>
+        <div class="card"><h3>The documents you cannot send anywhere</h3>
+          <p>Matters under embargo, client data with contractual bans on external processing,
+          regulated material. These are exactly the documents with the most manual work in them,
+          and the only ones a cloud tool can never touch.</p></div>
+        <div class="card"><h3>Fixed cost, unlimited runs</h3>
+          <p>The machine costs what it costs. Running a fifty-question form over three hundred
+          documents costs the same as running it over three — so nobody has to ask permission
+          before using it.</p></div>
+        <div class="card"><h3>It still works when the vendor changes</h3>
+          <p>Price rises, model deprecations, an outage, an acquisition. Software on your own
+          hardware keeps doing the same thing tomorrow as it did today.</p></div>
+        <div class="card"><h3>Your corpus is searchable</h3>
+          <p>Because the system lives where your documents live, it can work across your own back
+          catalogue — the firm's own precedents, not just the file in front of you.</p></div>
+        <div class="card"><h3>An artefact you can hand over</h3>
+          <p>Every run produces a certificate: each element, its state, its verbatim source and
+          its locator. It goes into the matter file, to the client, or in front of a regulator.</p></div>
+      </div>
+
+      <div class="head">
+        <h2 style="font-size:clamp(24px,2.8vw,34px)">Two ways to pay for legal AI</h2>
+        <p class="lede">
+          Most of the category sells a seat and then meters what you do with it. We sell you the
+          machine. On a task whose whole nature is high volume over long documents, that
+          difference compounds.
+        </p>
+      </div>
+      <div class="cmp-scroll">
+        <table class="cmp">
+          <thead>
+            <tr><th></th><th>Per seat, plus metered usage</th><th>Enidia — on your hardware</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>What you buy</th>
+              <td>A licence per named user, plus consumption charged against a credit or token allowance.</td>
+              <td><b>A machine and a licence.</b> The capacity is yours once it is bought.</td></tr>
+            <tr><th>What a heavy month costs</th>
+              <td>More than a light one. The cost scales with pages processed, which is the same thing as scaling with how useful the tool is being.</td>
+              <td><b>The same as a light one.</b> Volume changes how long a run takes, not what it costs.</td></tr>
+            <tr><th>Who has to ration it</th>
+              <td>Whoever owns the budget. Teams learn not to run the big job twice.</td>
+              <td><b>Nobody.</b> Re-running a form after a document is amended is free, so it gets re-run.</td></tr>
+            <tr><th>Where your documents go</th>
+              <td>To the vendor's environment, and onward to whichever model providers sit behind it.</td>
+              <td><b>Nowhere.</b> They are read on a machine inside your firm.</td></tr>
+            <tr><th>Who the seat is for</th>
+              <td>Named individuals. Work done by a back-office team or overnight batch either needs more seats or does not happen.</td>
+              <td><b>The task, not the person.</b> A form is a job the machine runs, whoever asked for it.</td></tr>
+            <tr><th>What it is good at</th>
+              <td>Open-ended work: research, summarising, drafting, chatting with a data room.</td>
+              <td><b>One task.</b> Filling a checklist, form, survey or template from documents, with every answer defensible.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">
+        The left-hand column is the prevailing commercial model in legal AI rather than any one
+        vendor's price list; the specifics vary and change. If you want us to run the comparison
+        against the quote actually on your desk, send it over and we will do the arithmetic with you.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE AGENTS --------------------------------------------------------- -->
+  <section class="section tint" id="agents">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The product</p>
+        <h2>One specialist for the task, two that make it sharper.</h2>
+        <p class="lede">
+          The AssociAte is the product: it does the one task. The other two exist because the
+          same firm usually needs its own back catalogue searchable, and its counterparties
+          structured — both of which make the AssociAte's answers better.
+        </p>
+      </div>
+      <div class="grid g3">
+        <div class="card" style="border-color:var(--blue);border-width:2px">
+          <span class="tag tag-dim" style="background:var(--ok-wash);color:var(--ok)">The one task</span>
+          <h3>The AssociAte</h3>
+          <p>Takes your checklist, form, survey or template and fills it from the documents.
+          Every answer carries its page and its exact words; every question the documents do not
+          answer comes back marked absent, with nothing invented to cover it. 25 hours becomes 4.</p>
+          <p class="meta">Verified at a Global 10 law firm · Configurable per matter type · Runs on your hardware</p>
+        </div>
+        <div class="card">
+          <span class="tag tag-free">Free to install</span>
+          <h3>The Librarian</h3>
+          <p>Turns your firm's own documents into a searchable knowledge base. Answers questions,
+          retrieves precedents, surfaces context — from files that never leave your network.</p>
+          <p class="meta">On-premises · No IT integration · Free for firms with 20+ fee-earners</p>
+        </div>
+        <div class="card">
           <h3>The Clerk</h3>
-          <p>Builds a structured entity card for every counterparty in your documents — signing authority, UBO chain, obligations — combined with live registry data. The compliance intelligence layer law firms have never had.</p>
-          <p class="card-meta">RCS · GLEIF · Companies House · AMLD6-ready · No data leaves your network</p>
+          <p>Builds a structured entity card for every counterparty in your documents — signing
+          authority, UBO chain, obligations — combined with live registry data.</p>
+          <p class="meta">RCS · GLEIF · Companies House · AMLD6-ready · No data leaves your network</p>
         </div>
-
       </div>
-      <p class="agents-note">Each agent can be taught your firm's exact standards through a simple chat. They remember every instruction.</p>
+      <p class="cmp-note" style="margin-top:26px">
+        Each one can be taught your firm's standards through a plain conversation, and remembers
+        what it was told.
+      </p>
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
-  <section class="trust">
-    <div class="section-inner">
-      <p class="trust-label">Academic rigour. Industry trust.</p>
-      <div class="trust-grid">
-
-        <div class="trust-item">
-          <div class="trust-icon">
-            <svg width="22" height="22" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-          </div>
-          <div>
-            <strong>€600k</strong>
-            <span>FNR research grants</span>
-            <div style="display:flex; gap:8px; justify-content:center; margin-top:6px; flex-wrap:wrap;">
-              <a href="https://www.fnr.lu/results-2020-jump-poc-call/" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">iComplAI ↗</a>
-              <a href="https://www.fnr.lu/results-2022-core-call/#1620407951711-54861d53-816d" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">ExAIle ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-item">
-          <a href="assets/img/lexisnexis-award.jpg" target="_blank" rel="noopener" style="display:contents;">
-            <div class="trust-icon" style="cursor:pointer;">
-              <svg width="22" height="22" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-            </div>
-          </a>
-          <div>
-            <strong>1st Place</strong>
-            <span>LexisNexis Best Paper<br/>Award 2020</span>
-            <div style="margin-top:6px;"><a href="assets/img/lexisnexis-award.jpg" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">View award ↗</a></div>
-          </div>
-        </div>
-
-        <div class="trust-item">
-          <a href="https://www.blcc.co.uk/eva-2026-winners/" target="_blank" rel="noopener" style="display:contents;">
-            <div class="trust-icon" style="cursor:pointer;">
-              <svg width="22" height="22" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-            </div>
-          </a>
-          <div>
-            <strong>3rd Place</strong>
-            <span>Eurostart Venture<br/>Award 2026, London</span>
-            <div style="margin-top:6px;"><a href="https://www.blcc.co.uk/eva-2026-winners/" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">View winners ↗</a></div>
-          </div>
-        </div>
-
-        <div class="trust-item">
-          <a href="https://www.ie.edu/uncover-ie/biggest-law-firms-in-the-world/" target="_blank" rel="noopener" style="display:contents;">
-            <div class="trust-icon" style="cursor:pointer;">
-              <svg width="22" height="22" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"/></svg>
-            </div>
-          </a>
-          <div>
-            <strong>Global 10</strong>
-            <span>Deployed and independently<br/>verified at a Global 10 law firm</span>
-            <div style="margin-top:6px;"><a href="https://www.ie.edu/uncover-ie/biggest-law-firms-in-the-world/" target="_blank" rel="noopener" style="color:#ff8200; font-size:12px; font-weight:600; text-decoration:underline; text-underline-offset:2px;">See the Global 10 ↗</a></div>
-          </div>
-        </div>
-
+  <!-- PROOF --------------------------------------------------------------- -->
+  <section class="section deep">
+    <div class="wrap">
+      <div class="head mid">
+        <p class="eyebrow">Academic rigour. Industry trust.</p>
+        <h2>Built on funded research, tested on real files.</h2>
+      </div>
+      <div class="proof">
+        <div><b>€600k</b><p>FNR research grants</p>
+          <a href="https://www.fnr.lu/results-2020-jump-poc-call/" target="_blank" rel="noopener">iComplAI ↗</a><br>
+          <a href="https://www.fnr.lu/results-2022-core-call/#1620407951711-54861d53-816d" target="_blank" rel="noopener">ExAIle ↗</a></div>
+        <div><b>1st place</b><p>LexisNexis Best Paper Award 2020</p>
+          <a href="assets/img/lexisnexis-award.jpg" target="_blank" rel="noopener">View award ↗</a></div>
+        <div><b>3rd place</b><p>Eurostart Venture Award 2026, London</p>
+          <a href="https://www.blcc.co.uk/eva-2026-winners/" target="_blank" rel="noopener">View winners ↗</a></div>
+        <div><b>Global 10</b><p>Deployed and independently verified at a Global 10 law firm</p>
+          <a href="https://www.ie.edu/uncover-ie/biggest-law-firms-in-the-world/" target="_blank" rel="noopener">See the Global 10 ↗</a></div>
       </div>
     </div>
   </section>
-
-  <!-- ROI SECTION -->
   <section style="background:#ffffff; padding:80px 24px; border-top:1px solid rgba(0,80,180,0.08);">
     <div style="max-width:1100px; margin:0 auto;">
       <div style="text-align:center; margin-bottom:52px;">
@@ -662,40 +566,33 @@
 
     roiCalc();
   </script>
-
-  <!-- GET STARTED -->
+  <!-- GET STARTED --------------------------------------------------------- -->
   <section class="cta-section" id="get-started">
-    <div class="cta-inner">
-      <h2>Ready to trust your AI?</h2>
-      <p>Start with the Librarian at no cost, run a free trial on your own documents, or see the full suite in action.</p>
-      <div class="cta-cards" style="grid-template-columns: 1fr 1fr 1fr;">
-
+    <div class="wrap cta-inner">
+      <h2>Start where it costs you nothing.</h2>
+      <p>Watch a film, run the AssociAte on a document from your own firm, or install the Librarian today.</p>
+      <div class="cta-cards">
         <div class="cta-card cta-card-orange">
           <p class="cta-eyebrow cta-eyebrow-orange">Free</p>
           <h3>Install the Librarian</h3>
           <p>On-premises knowledge base built from your own documents. Free for firms with 20+ fee-earners. No IT integration required.</p>
-          <button onclick="document.getElementById('librarian-modal').classList.add('open')" class="btn-cta-orange" style="cursor:pointer; font-family:inherit; border:none;">Get started free</button>
+          <button onclick="document.getElementById('librarian-modal').classList.add('open')" class="btn-cta-orange" style="cursor:pointer;font-family:inherit;border:none">Get started free</button>
         </div>
-
         <div class="cta-card">
           <p class="cta-eyebrow cta-eyebrow-dim">Free trial</p>
           <h3>Try it on your documents</h3>
-          <p>Run the Associate on a real document from your firm. We start with a short call to understand your needs, then set up a session on our hosted environment. No installation. No commitment. We run a small number of trials at a time to make sure each firm gets proper attention.</p>
+          <p>Run the AssociAte on a real checklist and a real document from your firm, on our hosted environment. No installation. No commitment. We run a small number of trials at a time so each firm gets proper attention.</p>
           <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-cta-ghost">Request a free trial</a>
         </div>
-
         <div class="cta-card">
           <p class="cta-eyebrow cta-eyebrow-dim">Full suite</p>
           <h3>Book a demo</h3>
-          <p>See the Associate fill a real checklist — with evidence — in minutes. Then see the Clerk build the entity record behind it.</p>
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-cta-ghost">Book a demo to see them in action</a>
+          <p>See the AssociAte fill a real checklist — with evidence — in minutes. Then see the Clerk build the entity record behind it.</p>
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-cta-ghost">Book a demo</a>
         </div>
-
       </div>
     </div>
   </section>
-
-  <!-- LIBRARIAN MODAL -->
   <div class="modal-overlay" id="librarian-modal" onclick="if(event.target===this)this.classList.remove('open')">
     <div class="modal">
       <button class="modal-close" onclick="document.getElementById('librarian-modal').classList.remove('open')" aria-label="Close">&#x2715;</button>
@@ -724,22 +621,23 @@
       </div>
     </div>
   </div>
-
-  <!-- FOOTER -->
+  <!-- FOOTER --------------------------------------------------------------- -->
   <footer>
-    <div class="footer-inner">
+    <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/img/logo.png" alt="Enidia" />
-          <p>Verification-first AI for law firms. Every answer sourced. Every gap explained. Your documents never leave your premises.</p>
+          <p>One task, done properly: your checklists, forms and templates filled from your own
+          documents. Every answer sourced. Every gap reported. Nothing leaves your premises.</p>
         </div>
         <div class="footer-col">
           <h4>Product</h4>
+          <a href="#task">What we do</a>
+          <a href="#agents">The AssociAte</a>
           <a href="#agents">The Librarian</a>
-          <a href="#agents">The Associate</a>
           <a href="#agents">The Clerk</a>
-          <a href="#calculator">ROI Calculator</a>
-          <a href="#get-started">Free trial</a>
+          <a href="#on-premise">On-premise</a>
+          <a href="#calculator">ROI calculator</a>
           <a href="verification-standard.html">Verification Standard</a>
         </div>
         <div class="footer-col">
@@ -760,4 +658,3 @@
 
 </body>
 </html>
-

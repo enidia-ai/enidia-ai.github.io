@@ -17,105 +17,22 @@
   <title>The AI Verification Standard for Legal and Financial Practice — Enidia AI</title>
   <meta name="description" content="An open standard defining the minimum requirements for verified AI output in legal and financial document work: soundness, completeness, and third-party auditability." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="assets/img/favicon.png" rel="icon">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #0050b4; -webkit-font-smoothing: antialiased; }
-    :root {
-      --blue: #0050b4;
-      --navy: #000078;
-      --orange: #ff8200;
-    }
-    a { text-decoration: none; }
-
-    /* Nav */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      background: #ffffff;
-      border-bottom: 1px solid rgba(0,80,180,0.1);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 24px;
-      height: 66px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .btn-primary {
-      background: #000078; color: #ffffff;
-      font-weight: 700; font-size: 14px; padding: 11px 24px;
-      border-radius: 999px; transition: background 0.2s;
-    }
-    .btn-primary:hover { background: #0050b4; }
-
-    /* Document */
-    .doc {
-      max-width: 800px; margin: 0 auto; padding: 120px 24px 80px;
-    }
-    .doc-eyebrow {
-      color: #ff8200; font-weight: 700; font-size: 12px;
-      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px;
-    }
-    .doc h1 {
-      color: #000078; font-size: clamp(28px, 3.4vw, 42px);
-      font-weight: 800; line-height: 1.18; margin-bottom: 10px;
-    }
-    .doc .doc-subtitle {
-      color: #0050b4; opacity: 0.65; font-size: 18px; line-height: 1.6; margin-bottom: 24px; font-weight: 500;
-    }
-    .doc-meta {
-      color: #0050b4; opacity: 0.5; font-size: 13px; line-height: 1.8;
-      border-top: 1px solid rgba(0,80,180,0.12); border-bottom: 1px solid rgba(0,80,180,0.12);
-      padding: 14px 0; margin-bottom: 40px;
-    }
-    .doc h2 {
-      color: #000078; font-size: 24px; font-weight: 800; margin: 44px 0 14px;
-    }
-    .doc h3 {
-      color: #0050b4; font-size: 18px; font-weight: 700; margin: 28px 0 10px;
-    }
-    .doc p {
-      color: #1e2f50; font-size: 15.5px; line-height: 1.8; margin-bottom: 14px;
-    }
-    .doc ul { margin: 0 0 14px 22px; }
-    .doc li { color: #1e2f50; font-size: 15.5px; line-height: 1.8; margin-bottom: 6px; }
-    .doc strong { color: #000078; }
-    .requirement {
-      border-left: 4px solid #ff8200; background: #fff8f0;
-      padding: 14px 18px; margin: 14px 0; border-radius: 0 10px 10px 0;
-    }
-    .requirement p { margin-bottom: 0; }
-    .abstract {
-      background: #f4f7fc; border: 1.5px solid rgba(0,80,180,0.14);
-      border-radius: 16px; padding: 26px 28px; margin-bottom: 8px;
-    }
-    .abstract p { margin-bottom: 0; font-size: 15px; }
-    .doc-footer-note {
-      border-top: 1px solid rgba(0,80,180,0.12); margin-top: 48px; padding-top: 20px;
-      color: #0050b4; opacity: 0.55; font-size: 13px; line-height: 1.8; font-style: italic;
-    }
-    .doc-footer-note a { color: #0050b4; font-weight: 600; }
-
-    /* Footer */
-    footer {
-      background: #000078; border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 40px 24px 32px;
-    }
-    .footer-inner { max-width: 1100px; margin: 0 auto; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-bottom p { color: rgba(255,255,255,0.28); font-size: 12px; }
-    .footer-bottom a { color: rgba(255,255,255,0.45); font-size: 12px; }
-    .footer-bottom a:hover { color: rgba(255,255,255,0.85); }
-  </style>
+  <link rel="stylesheet" href="assets/css/enidia.css">
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <a href="index.html"><img src="assets/img/logo.png" alt="Enidia" style="height:46px;" /></a>
-      <div style="display:flex; align-items:center; gap:24px;">
-        <a href="index.html" style="color:#0050b4; font-size:14px; font-weight:600;">Home</a>
-        <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-primary">Book a demo</a>
+      <a href="index.html"><img src="assets/img/logo.png" alt="Enidia" style="height:42px" /></a>
+      <div class="nav-links">
+        <a href="index.html#task" class="hide-sm">What we do</a>
+        <a href="index.html#see" class="hide-sm">See it work</a>
+        <a href="index.html#on-premise" class="hide-sm">On-premise</a>
+        <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Book a demo</a>
       </div>
     </div>
   </nav>
@@ -244,10 +161,10 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div class="footer-bottom">
+    <div class="wrap">
+      <div class="footer-bottom" style="margin-top:0;border-top:none;padding-top:0">
         <p>© 2026 Enidia AI, S.à r.l.-S · Esch-sur-Alzette, Luxembourg · RCS B277442</p>
-        <a href="index.html">enidia.ai</a>
+        <p><a href="index.html">enidia.ai</a> · <a href="mailto:info@enidia.ai">info@enidia.ai</a></p>
       </div>
     </div>
   </footer>
