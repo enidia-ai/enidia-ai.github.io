@@ -285,3 +285,37 @@ footer{background:var(--paper);border-top:1px solid var(--rule);padding:72px 0 3
 .post p a{color:var(--blue);font-weight:500}
 .post .go{color:var(--blue);font-weight:600;font-size:15px}
 .post .go:hover{color:var(--orange)}
+
+/* ------------------------------------------------------------- contact form
+   One form, on the index page. Deliberately short: a name, a way to reply, and
+   the question itself. Everything else we can ask in the reply. */
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:36px}}
+.contact-aside p{color:var(--ink-soft);font-size:16px;margin-bottom:20px;max-width:46ch}
+.contact-aside .contact-line{display:block;font-size:15px;color:var(--ink-soft);margin-bottom:12px}
+.contact-aside .contact-line b{display:block;font-family:var(--text);font-size:12px;
+    font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);
+    margin-bottom:4px}
+.contact-aside .contact-line a{color:var(--navy);font-weight:600}
+.contact-form{background:var(--card);border:1px solid var(--rule);border-radius:16px;
+              padding:32px;box-shadow:var(--shadow)}
+.contact-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.contact-form .row2{grid-template-columns:1fr}
+                        .contact-form{padding:24px}}
+.contact-form label{display:block;font-size:13px;font-weight:600;color:var(--ink);
+                    margin-bottom:6px}
+.contact-form .field{margin-bottom:18px}
+.contact-form input,.contact-form textarea{width:100%;font-family:var(--text);font-size:15px;
+    color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;
+    padding:12px 14px;transition:border-color .15s ease, box-shadow .15s ease}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(0,80,180,.12)}
+.contact-form textarea{resize:vertical;min-height:130px}
+.contact-form button{width:100%;background:var(--navy);color:#fff;font-family:var(--text);
+    font-weight:600;font-size:15px;padding:14px 22px;border:none;border-radius:10px;
+    cursor:pointer;transition:background .2s ease}
+.contact-form button:hover{background:var(--blue)}
+.contact-form .form-note{margin-top:14px;font-size:13px;color:var(--ink-faint)}
+.film-cap-link{display:inline-block;margin-top:8px;color:var(--navy);font-weight:600;
+               border-bottom:2px solid var(--orange)}
+.film-cap-link:hover{color:var(--blue)}
