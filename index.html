@@ -231,8 +231,8 @@
           </div>
           <p style="color:#0050b4; opacity:0.65; font-size:14px; line-height:1.7; margin-bottom:16px;">The AssociAte automates extraction, verification and completeness checking for every field in your checklists. The saving depends on the document: a standardised regulatory form such as a DICI runs to 95%, a heavily negotiated bespoke agreement to 70%. Most legal documents sit between 73% and 85%.</p>
           <div style="background:#ffffff; border-radius:10px; padding:16px; border:1px solid rgba(0,80,180,0.1);">
-            <p style="color:#000078; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Measured, not estimated: 84%</p>
-            <p style="color:#0050b4; font-size:14px; line-height:1.6;">An LPA checklist that previously took <strong style="color:#000078;">25 hours</strong> was completed in <strong style="color:#000078;">4 hours</strong>. This one we timed on a real engagement. The other document types in the calculator are our estimates, and the calculator says which is which.</p>
+            <p style="color:#000078; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Our own timed run: 84%</p>
+            <p style="color:#0050b4; font-size:14px; line-height:1.6;">An LPA checklist that previously took <strong style="color:#000078;">25 hours</strong> was completed in <strong style="color:#000078;">4 hours</strong>. We timed that one ourselves on this task. It is our own figure, not a client's, and no firm has verified it. The other document types in the calculator are estimates, and the calculator says which is which.</p>
           </div>
         </div>
 
@@ -253,7 +253,7 @@
             <label style="display:block; color:#000078; font-size:12px; font-weight:700; margin-bottom:5px;">Document type</label>
             <select id="roi-doctype" onchange="roiCalc()" style="width:100%; padding:8px 10px; border:1.5px solid rgba(0,80,180,0.2); border-radius:8px; font-family:inherit; font-size:13px; color:#000078; background:#fff;">
               <optgroup label="General">
-                <option value="lpa">LPA (Limited Partnership Agreement) · measured</option>
+                <option value="lpa">LPA (Limited Partnership Agreement) · timed by us</option>
                 <option value="loan">Loan / Credit Agreement</option>
                 <option value="sha">Shareholders Agreement (SHA)</option>
                 <option value="nda">NDA / Confidentiality Agreement</option>
@@ -394,7 +394,7 @@
       document.getElementById('roi-note').textContent =
         `Based on ${doc.hours}h manual review per ${doc.label} → ${savedH}h saved (${Math.round(doc.saving*100)}% saving), blended rate €${Math.round(blendedRate)}/hr. ` +
         (doc.measured
-          ? 'This figure is measured: we timed it on a real engagement.'
+          ? 'This figure is one we timed ourselves. It is our own number, not a client\'s.'
           : 'This figure is our estimate, not a measurement. We will tell you how we arrived at it.');
     }
 
