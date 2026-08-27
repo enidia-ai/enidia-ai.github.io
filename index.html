@@ -33,7 +33,7 @@
         <a href="#contact" class="hide-sm">Contact</a>
         <a href="#tasks" class="hide-sm">Full task</a>
         <a href="#on-premise" class="hide-sm">On-premise</a>
-        <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Book a demo</a>
+        <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-solid btn-sm" data-cta="nav-demo">Book a demo</a>
       </div>
     </div>
   </nav>
@@ -53,7 +53,7 @@
         </p>
         <div class="hero-ctas">
           <a href="#see" class="btn btn-solid">Watch it fill a form</a>
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-ghost">Try it on your own documents, free</a>
+          <a href="#contact" class="btn btn-ghost" data-cta="hero-trial" data-intent="trial">Try it on your own documents, free</a>
         </div>
         <p class="hero-note">No installation to watch. No commitment to try.</p>
         <p class="hero-calc"><a href="#calculator">Use our calculator to see your saving</a>
@@ -186,7 +186,7 @@
           <p>We start with a short call to understand the task, then set you up on our hosted
           environment with your own checklist and your own documents. No installation. No
           commitment. We run a few trials at a time so each firm gets proper attention.</p>
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Request a free trial</a>
+          <a href="#contact" class="btn btn-ghost btn-sm" data-cta="step2-trial" data-intent="trial">Request a free trial</a>
         </div>
         <div class="step">
           <div class="step-n"><b>3</b><span>Own</span></div>
@@ -325,7 +325,7 @@
         </div>
 
       </div>
-      <p style="text-align:center; color:#0050b4; opacity:0.4; font-size:13px; margin-top:8px;">Pricing is tailored to your firm's volume and matter mix. <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" style="color:#ff8200; font-weight:600; text-decoration:underline; text-underline-offset:2px;">Book a demo</a> to discuss what the numbers look like for you.</p>
+      <p style="text-align:center; color:#0050b4; font-size:14px; margin-top:8px;">Pricing is tailored to your firm's volume and matter mix. <a href="#contact" data-cta="roi-note" data-intent="numbers" style="color:#ff8200; font-weight:600; text-decoration:underline; text-underline-offset:2px;">Send us your numbers</a> and we will tell you what they look like for you, or <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" data-cta="roi-note-cal" style="color:#0050b4; font-weight:600;">book a call</a>.</p>
     </div>
   </section>
 
@@ -398,14 +398,26 @@
       </div>
       <div class="contact-grid">
         <div class="contact-aside">
-          <p>If you would rather see it than read about it, book a demo and we will run the
-          AssociAte on a document of your choosing. If you would rather ask first, the form
-          is here.</p>
+          <p>Write and we answer ourselves, usually the same working day. If you would rather
+          see it than read about it, say so in the message and we will run the AssociAte on a
+          document of your choosing &mdash; or pick a time in the calendar below.</p>
           <span class="contact-line"><b>Email</b><a href="mailto:info@enidia.ai">info@enidia.ai</a></span>
-          <span class="contact-line"><b>Demo</b><a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener">Pick a time in our calendar</a></span>
+          <span class="contact-line"><b>Demo</b><a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" data-cta="contact-aside-demo">Pick a time in our calendar</a></span>
           <span class="contact-line"><b>Address</b>6A Avenue des Hauts-Fourneaux, L-4362 Esch-sur-Alzette, Luxembourg</span>
         </div>
-        <form class="contact-form" action="https://formbold.com/s/6vv8e" method="POST">
+        <form class="contact-form" action="https://formbold.com/s/6vv8e" method="POST" data-cta="contact-form">
+          <input type="hidden" name="_redirect" value="https://enidia.ai/thank-you.html" />
+          <input type="hidden" name="Source" id="c-source" value="" />
+          <div class="field">
+            <label for="c-intent">What brings you here?</label>
+            <select id="c-intent" name="Intent">
+              <option value="trial">A free trial on our documents</option>
+              <option value="demo">A demonstration</option>
+              <option value="librarian">The Librarian, on our own hardware</option>
+              <option value="numbers">What this would cost and save us</option>
+              <option value="question" selected>A question about the task or the hardware</option>
+            </select>
+          </div>
           <div class="row2">
             <div class="field">
               <label for="c-name">Name</label>
@@ -687,13 +699,13 @@
           <p class="cta-eyebrow cta-eyebrow-dim">Free trial</p>
           <h3>Try it on your documents</h3>
           <p>Run the AssociAte on a real checklist and a real document from your firm, on our hosted environment. No installation. No commitment. We run a small number of trials at a time so each firm gets proper attention.</p>
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-cta-ghost">Request a free trial</a>
+          <a href="#contact" class="btn-cta-ghost" data-cta="ctacard-trial" data-intent="trial">Request a free trial</a>
         </div>
         <div class="cta-card">
           <p class="cta-eyebrow cta-eyebrow-dim">Full suite</p>
           <h3>Book a demo</h3>
           <p>See the AssociAte fill a real checklist, with evidence, in minutes. Then see the Clerk build the entity record behind it.</p>
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-cta-ghost">Book a demo</a>
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn-cta-ghost" data-cta="ctacard-demo">Book a demo</a>
         </div>
       </div>
     </div>
@@ -710,8 +722,8 @@
             <svg width="20" height="20" fill="none" stroke="#ffffff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
           </div>
           <h3>Try via cloud demo</h3>
-          <p>See the Librarian in action on our hosted environment, with no installation needed. Book a demo and we'll walk you through it with your own documents.</p>
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener">Book a demo</a>
+          <p>See the Librarian in action on our hosted environment, with no installation needed. Tell us what you want to search and we will walk you through it with your own documents.</p>
+          <a href="#contact" data-cta="librarian-cloud" data-intent="librarian" onclick="document.getElementById('librarian-modal').classList.remove('open')">Ask us to set it up</a>
         </div>
 
         <div class="modal-option modal-option-local">
@@ -751,8 +763,8 @@
           <h4>Contact</h4>
           <p>Questions or trial requests</p>
           <a href="mailto:info@enidia.ai">info@enidia.ai</a>
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener">Book a demo</a>
-          <a href="#get-started">Request a free trial</a>
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" data-cta="footer-demo">Book a demo</a>
+          <a href="#contact" data-cta="footer-trial" data-intent="trial">Request a free trial</a>
           <a href="#contact">Send us a message</a>
           <a href="https://www.linkedin.com/company/enidia-ai" target="_blank" rel="noopener">LinkedIn</a>
         </div>

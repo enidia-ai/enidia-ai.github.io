@@ -57,3 +57,67 @@
   if (choice === 'granted') loadGA();
   else if (choice !== 'denied') banner();
 })();
+
+/* --- lightweight event tracking + CTA intent routing ------------------- */
+(function () {
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+  window.enidiaTrack = track;
+
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
+  }
+
+  ready(function () {
+    // CTA clicks — every element carrying data-cta reports its location.
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest && e.target.closest('[data-cta]');
+      if (!el || el.tagName === 'FORM') return;
+      var href = el.getAttribute('href') || '';
+      track('cta_click', {
+        cta_location: el.getAttribute('data-cta'),
+        cta_label: (el.textContent || '').trim().slice(0, 80),
+        destination: href.indexOf('calendar.app.google') > -1 ? 'calendar'
+                   : href.charAt(0) === '#' ? 'onpage_form' : href
+      });
+      // An ask with a stated intent preselects it in the contact form.
+      var intent = el.getAttribute('data-intent');
+      if (intent) {
+        var sel = document.getElementById('c-intent');
+        var src = document.getElementById('c-source');
+        if (sel) sel.value = intent;
+        if (src) src.value = el.getAttribute('data-cta');
+      }
+    });
+
+    // Form submit.
+    var form = document.querySelector('form.contact-form');
+    if (form) form.addEventListener('submit', function () {
+      var sel = document.getElementById('c-intent');
+      track('generate_lead', { intent: sel ? sel.value : 'unknown',
+                               cta_location: (document.getElementById('c-source') || {}).value || 'direct' });
+    });
+
+    // Video plays — first play per film.
+    Array.prototype.forEach.call(document.querySelectorAll('video'), function (v) {
+      var once = false;
+      v.addEventListener('play', function () {
+        if (once) return;
+        once = true;
+        track('video_play', { film: (v.currentSrc || v.src || '').split('/').pop() });
+      });
+    });
+
+    // Scroll depth.
+    var marks = [25, 50, 75, 90], hit = {};
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement;
+      var pct = (h.scrollTop + window.innerHeight) / h.scrollHeight * 100;
+      marks.forEach(function (m) {
+        if (!hit[m] && pct >= m) { hit[m] = true; track('scroll_depth', { percent: m }); }
+      });
+    }, { passive: true });
+  });
+})();
