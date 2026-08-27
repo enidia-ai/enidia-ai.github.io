@@ -342,3 +342,24 @@ footer{background:var(--paper);border-top:1px solid var(--rule);padding:72px 0 3
 .cookie-btn-ghost:hover{background:rgba(255,255,255,0.12)}
 @media(max-width:520px){.cookie-banner{padding:16px}.cookie-actions{width:100%}
   .cookie-btn{flex:1 1 0}}
+
+/* --- ROI section ------------------------------------------------------ */
+.roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+.roi-rates-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.roi-cta{display:block;width:100%;margin-top:14px;text-align:center;
+  background:var(--navy);color:#fff;font-family:var(--text);font-size:14px;font-weight:600;
+  padding:13px 18px;border-radius:9px;border:none;cursor:pointer}
+.roi-cta:hover{background:var(--blue)}
+@media(max-width:900px){
+  .roi-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .roi-rates-grid{grid-template-columns:1fr}
+  .roi-grid > div{padding:22px !important}
+}
+/* the comparison table scrolls rather than squeezing on small screens */
+.cmp-scroll{-webkit-overflow-scrolling:touch}
+@media(max-width:760px){
+  .cmp{min-width:640px}
+  .cmp th,.cmp td{padding:14px 16px;font-size:14.5px}
+}

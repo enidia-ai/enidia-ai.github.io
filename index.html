@@ -209,11 +209,11 @@
       <div style="text-align:center; margin-bottom:52px;">
         <p style="color:#ff8200; font-weight:700; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:12px;">Return on investment</p>
         <h2 style="color:#000078; font-size:30px; font-weight:800; margin-bottom:12px;">The numbers speak for themselves.</h2>
-        <p style="color:#0050b4; opacity:0.7; font-size:16px; max-width:660px; margin:0 auto; line-height:1.65;">The AssociAte reduces time spent on data-intensive legal tasks by <strong style="color:#000078; opacity:1;">73-84%</strong>, while adding the tracing, evidence and completeness guarantees that manual review cannot provide.</p>
+        <p style="color:#0050b4; opacity:0.7; font-size:16px; max-width:660px; margin:0 auto; line-height:1.65;">The AssociAte reduces time spent on data-intensive legal tasks by <strong style="color:#000078; opacity:1;">70-95%</strong>, while adding the tracing, evidence and completeness guarantees that manual review cannot provide.</p>
         <p style="color:#0050b4; opacity:0.7; font-size:15px; max-width:660px; margin:16px auto 0; line-height:1.7;">If you bill by the hour, read the figure below as capacity rather than lost revenue. The hours come back to the firm, and they are the hours nobody wanted to bill in the first place: the ones a client queries, the ones a competitor now quotes a fixed fee for. What you do with them is the decision. Take on the next matter without the next hire. Turn a checklist round in a day instead of a fortnight. Answer the client who has started asking what AI you use, with something you can show them. Or price the work at a number a firm doing it by hand cannot match. Each of those is worth more than the line item it replaces.</p>
       </div>
 
-      <div class="roi-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px;">
+      <div class="roi-grid">
 
         <!-- ROI 1: Time -->
         <div style="border:1.5px solid rgba(0,80,180,0.12); border-radius:16px; padding:36px; background:#f4f7fc;">
@@ -223,13 +223,13 @@
             </div>
             <div>
               <p style="color:#ff8200; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em;">Time saving</p>
-              <p style="color:#000078; font-size:26px; font-weight:800; line-height:1.1;">73–84% faster</p>
+              <p style="color:#000078; font-size:26px; font-weight:800; line-height:1.1;">70-95% faster</p>
             </div>
           </div>
-          <p style="color:#0050b4; opacity:0.65; font-size:14px; line-height:1.7; margin-bottom:16px;">The Associate automates extraction, verification, and completeness checks for every field in your legal checklists. Savings vary by document complexity: standardised forms achieve 84%; heavily negotiated bespoke documents reach 73%.</p>
+          <p style="color:#0050b4; opacity:0.65; font-size:14px; line-height:1.7; margin-bottom:16px;">The AssociAte automates extraction, verification and completeness checking for every field in your checklists. The saving depends on the document: a standardised regulatory form such as a DICI runs to 95%, a heavily negotiated bespoke agreement to 70%. Most legal documents sit between 73% and 85%.</p>
           <div style="background:#ffffff; border-radius:10px; padding:16px; border:1px solid rgba(0,80,180,0.1);">
-            <p style="color:#000078; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Real example: 84% saving</p>
-            <p style="color:#0050b4; font-size:14px; line-height:1.6;">An LPA checklist that previously took <strong style="color:#000078;">25 hours</strong> was completed in <strong style="color:#000078;">4 hours</strong>.</p>
+            <p style="color:#000078; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Measured, not estimated: 84%</p>
+            <p style="color:#0050b4; font-size:14px; line-height:1.6;">An LPA checklist that previously took <strong style="color:#000078;">25 hours</strong> was completed in <strong style="color:#000078;">4 hours</strong>. This one we timed on a real engagement. The other document types in the calculator are our estimates, and the calculator says which is which.</p>
           </div>
         </div>
 
@@ -250,7 +250,7 @@
             <label style="display:block; color:#000078; font-size:12px; font-weight:700; margin-bottom:5px;">Document type</label>
             <select id="roi-doctype" onchange="roiCalc()" style="width:100%; padding:8px 10px; border:1.5px solid rgba(0,80,180,0.2); border-radius:8px; font-family:inherit; font-size:13px; color:#000078; background:#fff;">
               <optgroup label="General">
-                <option value="lpa">LPA (Limited Partnership Agreement)</option>
+                <option value="lpa">LPA (Limited Partnership Agreement) · measured</option>
                 <option value="loan">Loan / Credit Agreement</option>
                 <option value="sha">Shareholders Agreement (SHA)</option>
                 <option value="nda">NDA / Confidentiality Agreement</option>
@@ -286,7 +286,7 @@
 
           <!-- Rates -->
           <p style="color:#0050b4; opacity:0.75; font-size:11.5px; line-height:1.6; margin-bottom:10px;">Enter charge-out rates to value the time at what it bills, or fully loaded internal cost rates if the work is on a fixed fee or done in-house. The hours are the same either way.</p>
-          <div class="roi-rates-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px;">
+          <div class="roi-rates-grid">
             <div>
               <label style="display:block; color:#000078; font-size:11px; font-weight:700; margin-bottom:4px;">Associate rate (€/hr)</label>
               <input id="roi-assoc" type="number" min="0" value="325" onchange="roiCalc()" oninput="roiCalc()" style="width:100%; padding:7px 10px; border:1.5px solid rgba(0,80,180,0.2); border-radius:8px; font-family:inherit; font-size:13px; color:#000078;">
@@ -326,7 +326,8 @@
               </div>
             </div>
             <p id="roi-note" style="color:#0050b4; font-size:11px; opacity:0.5; margin-top:10px; line-height:1.5;"></p>
-            <p style="color:#0050b4; font-size:11px; opacity:0.5; margin-top:8px; line-height:1.5;">Against this, a one-off hardware investment of about <strong style="color:#000078; opacity:1;">€5,000</strong> for the machine it runs on. There is no metered usage on top, and adding people does not add to it.</p>
+            <p style="color:#0050b4; font-size:11.5px; opacity:0.75; margin-top:8px; line-height:1.5;">Against this, a one-off hardware investment of about <strong style="color:#000078; opacity:1;">€5,000</strong> for the machine it runs on. There is no metered usage on top, and adding people does not add to it.</p>
+            <a href="#contact" class="roi-cta" data-cta="roi-card" data-intent="numbers">Send us these numbers and we will check them</a>
           </div>
         </div>
 
@@ -339,7 +340,7 @@
     // Document profiles: { label, hours (manual mid), saving (pct), mix [trainee, assoc, senior, partner] }
     const DOC_PROFILES = {
       // General
-      lpa:             { label: 'LPA',                        hours: 25,   saving: 0.84, mix: [0,    0.50, 0.40, 0.10] },
+      lpa:             { label: 'LPA',                        hours: 25,   saving: 0.84, mix: [0,    0.50, 0.40, 0.10], measured: true },
       loan:            { label: 'Loan Agreement',             hours: 15,   saving: 0.78, mix: [0,    0.60, 0.30, 0.10] },
       sha:             { label: 'SHA',                        hours: 11,   saving: 0.76, mix: [0,    0.40, 0.50, 0.10] },
       nda:             { label: 'NDA',                        hours: 1,    saving: 0.73, mix: [0.80, 0.15, 0,    0.05] },
@@ -388,7 +389,10 @@
       document.getElementById('roi-cost-year').textContent   = fmt(costSavedPerMonth * 12);
       const savedH = (doc.hours * doc.saving).toFixed(1);
       document.getElementById('roi-note').textContent =
-        `Based on ${doc.hours}h manual review per ${doc.label} → ${savedH}h saved (${Math.round(doc.saving*100)}% saving), blended rate €${Math.round(blendedRate)}/hr.`;
+        `Based on ${doc.hours}h manual review per ${doc.label} → ${savedH}h saved (${Math.round(doc.saving*100)}% saving), blended rate €${Math.round(blendedRate)}/hr. ` +
+        (doc.measured
+          ? 'This figure is measured: we timed it on a real engagement.'
+          : 'This figure is our estimate, not a measurement. We will tell you how we arrived at it.');
     }
 
     roiCalc();
