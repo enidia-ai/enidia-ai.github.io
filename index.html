@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-38CCXVVLH0"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -21,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/enidia.css">
+  <script src="assets/js/consent.js" defer></script>
 </head>
 <body>
 
@@ -28,13 +26,13 @@
     <div class="nav-inner">
       <a href="index.html"><img src="assets/img/logo.png" alt="Enidia" style="height:42px" /></a>
       <div class="nav-links">
-        <a href="#task" class="hide-sm">What we do</a>
         <a href="#see" class="hide-sm">See it work</a>
-        <a href="#tasks" class="hide-sm">Full task</a>
+        <a href="#task" class="hide-sm">What we do</a>
         <a href="#start" class="hide-sm">Getting started</a>
-        <a href="#on-premise" class="hide-sm">On-premise</a>
         <a href="#calculator" class="hide-sm">ROI</a>
         <a href="#contact" class="hide-sm">Contact</a>
+        <a href="#tasks" class="hide-sm">Full task</a>
+        <a href="#on-premise" class="hide-sm">On-premise</a>
         <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Book a demo</a>
       </div>
     </div>
@@ -78,95 +76,6 @@
     </div>
   </div>
 
-  <!-- THE ONE TASK ------------------------------------------------------ -->
-  <section class="section" id="task">
-    <div class="wrap">
-      <div class="head mid">
-        <p class="eyebrow">What we do</p>
-        <h2>One task. Better, cheaper and safer than anyone else.</h2>
-        <p class="lede">
-          We are not a general legal assistant, and we are not trying to be. Enidia does a
-          single, enormous, unglamorous job that law firms and fund administrators do every
-          week: <strong>you have a fixed set of questions, and the answers are buried in
-          documents.</strong>
-        </p>
-      </div>
-
-      <div class="grid g4" style="margin-bottom:44px">
-        <div class="card"><h3>Checklists</h3><p>Matter and closing checklists, condition-precedent lists, playbook reviews.</p></div>
-        <div class="card"><h3>Regulatory forms</h3><p>CSSF questionnaires, AIFMD Annex IV, SFDR annexes, filings that must be defensible.</p></div>
-        <div class="card"><h3>Surveys and questionnaires</h3><p>Client, counterparty and vendor questionnaires answered out of the underlying agreements.</p></div>
-        <div class="card"><h3>Templates and data rooms</h3><p>Structured templates populated from a prospectus, an LPA, a credit agreement or a whole folder.</p></div>
-      </div>
-
-      <div class="head mid" style="margin-bottom:32px">
-        <h2 style="font-size:clamp(24px,2.6vw,32px)">Three answers, and you can tell them apart</h2>
-        <p class="lede">The whole product is that these are three different things, and you can see which is which at a glance.</p>
-      </div>
-      <div class="states">
-        <div class="state ok"><div class="dot"></div><h3>Found</h3>
-          <p>The document answers the question. The answer carries the page, and the passage it rests on is framed where it sits, so you check it by looking rather than by re-reading.</p></div>
-        <div class="state warn"><div class="dot"></div><h3>Inferred</h3>
-          <p>The document says the thing, but not in the form's vocabulary. You get the answer, both supporting passages framed on their pages, and a label saying this is a mapping rather than something the document states.</p></div>
-        <div class="state none"><div class="dot"></div><h3>Absent</h3>
-          <p>We could not find an answer in the documents. That is reported as a finding, never
-          left blank and never filled with something plausible. From there the tool helps you
-          settle the question that actually matters: is it missing from the documents, or did
-          the AI fail to find it?</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY GENERAL TOOLS ARE THE WRONG TOOL ------------------------------ -->
-  <section class="section tint">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">Why not a general legal AI</p>
-        <h2>General assistants are built for a different shape of work.</h2>
-        <p class="lede">
-          The large legal-AI platforms are good products for open-ended work: research a
-          question, summarise a document, draft a first pass, chat with a data room. That is a
-          different job from filling a fixed set of questions and standing behind the result,
-          and the difference is structural, not a matter of quality.
-        </p>
-      </div>
-      <div class="grid g2">
-        <div class="card">
-          <h3>They answer. They do not report coverage.</h3>
-          <p>A general assistant is built to produce an answer to whatever you ask. Ask it fifty
-          questions and you get fifty answers, including for the questions your documents never
-          addressed. The thing you actually need to know on a filing is which answers the
-          documents support, and there is nothing in a chat transcript that tells you.</p>
-        </div>
-        <div class="card">
-          <h3>A missing fact comes back as a confident sentence.</h3>
-          <p>Silence is the expensive failure in this task, and it is invisible in a generative
-          tool: the gap looks exactly like an answer. Our whole design is that the gap is a
-          visible, countable state you have to sign off, not a blank you might never notice.</p>
-        </div>
-        <div class="card">
-          <h3>Citations are not the same as hard evidence.</h3>
-          <p>A page reference next to a paraphrase is not something a reviewer can check without
-          re-reading the document. Every answer here comes with the passage it rests on framed
-          on the page, so checking it takes seconds. That is the only way review at this volume
-          is real review.</p>
-        </div>
-        <div class="card">
-          <h3>Their pricing punishes exactly this workload.</h3>
-          <p>A form of fifty questions against a hundred-page document is the most token-hungry
-          shape of legal work there is. On a per-seat-plus-metered-usage model, the task that
-          most needs automating is the one that costs most to automate, so firms ration it.
-          Ours does not meter, because it runs on a machine you own.</p>
-        </div>
-      </div>
-      <p class="cmp-note" style="margin-top:26px">
-        The honest version: if you want one tool for everything, buy one of theirs. If you have
-        checklists, forms or questionnaires to fill and someone has to be able to defend the
-        result, that is the job we built for, and we do it better, cheaper and more safely than a
-        general tool can.
-      </p>
-    </div>
-  </section>
 
   <!-- SEE IT WORK -------------------------------------------------------- -->
   <section class="section" id="see">
@@ -205,45 +114,47 @@
       </div>
     </div>
   </section>
-
-  <!-- THE LONG FILMS ----------------------------------------------------- -->
-  <section class="section tint" id="tasks">
+  <!-- THE ONE TASK ------------------------------------------------------ -->
+  <section class="section tint" id="task">
     <div class="wrap">
       <div class="head mid">
-        <p class="eyebrow">The whole task</p>
-        <h2>Two real jobs, start to finish, in one take.</h2>
+        <p class="eyebrow">What we do</p>
+        <h2>One task. Better, cheaper and safer than anyone else.</h2>
         <p class="lede">
-          The short films above each isolate one claim. These put them back in the order the
-          work actually happens: the form arrives, it gets filled, you check it, you argue with
-          it, you correct it, and a certificate comes out. Nothing is cut.
+          We are not a general legal assistant, and we are not trying to be. Enidia does a
+          single, enormous, unglamorous job that law firms and fund administrators do every
+          week: <strong>you have a fixed set of questions, and the answers are buried in
+          documents.</strong>
         </p>
       </div>
-      <div class="films longs">
-        <div class="film">
-          <video src="assets/video/long-task-cssf.mp4" muted playsinline controls
-                 poster="assets/video/poster-long-task-cssf.jpg"></video>
-          <p class="film-cap"><b>A CSSF questionnaire for a new sub-fund.</b> It starts where the
-          work really starts, on the regulator's own download page, and ends with a certificate
-          you could put in front of the CSSF.</p>
-        </div>
-        <div class="film">
-          <video src="assets/video/long-task-lpa.mp4" muted playsinline controls
-                 poster="assets/video/poster-long-task-lpa.jpg"></video>
-          <p class="film-cap"><b>A closing checklist against a partnership agreement.</b> The
-          same workflow on the other half of the market: one checklist, one LPA, one pass, and
-          every answer traceable to a clause.</p>
-        </div>
+
+      <div class="grid g4" style="margin-bottom:44px">
+        <div class="card"><h3>Checklists</h3><p>Matter and closing checklists, condition-precedent lists, playbook reviews.</p></div>
+        <div class="card"><h3>Regulatory forms</h3><p>CSSF questionnaires, AIFMD Annex IV, SFDR annexes, filings that must be defensible.</p></div>
+        <div class="card"><h3>Surveys and questionnaires</h3><p>Client, counterparty and vendor questionnaires answered out of the underlying agreements.</p></div>
+        <div class="card"><h3>Templates and data rooms</h3><p>Structured templates populated from a prospectus, an LPA, a credit agreement or a whole folder.</p></div>
       </div>
-      <p class="cmp-note" style="margin-top:26px">
-        Both are about two minutes. Both are silent, so the captions carry the argument, and both
-        show the tool getting something wrong before it gets it right. That part is not an
-        accident of the edit: a review tool that never misses is a review tool nobody checks.
-      </p>
+
+      <div class="head mid" style="margin-bottom:32px">
+        <h2 style="font-size:clamp(24px,2.6vw,32px)">Three answers, and you can tell them apart</h2>
+        <p class="lede">The whole product is that these are three different things, and you can see which is which at a glance.</p>
+      </div>
+      <div class="states">
+        <div class="state ok"><div class="dot"></div><h3>Found</h3>
+          <p>The document answers the question. The answer carries the page, and the passage it rests on is framed where it sits, so you check it by looking rather than by re-reading.</p></div>
+        <div class="state warn"><div class="dot"></div><h3>Inferred</h3>
+          <p>The document says the thing, but not in the form's vocabulary. You get the answer, both supporting passages framed on their pages, and a label saying this is a mapping rather than something the document states.</p></div>
+        <div class="state none"><div class="dot"></div><h3>Absent</h3>
+          <p>We could not find an answer in the documents. That is reported as a finding, never
+          left blank and never filled with something plausible. From there the tool helps you
+          settle the question that actually matters: is it missing from the documents, or did
+          the AI fail to find it?</p></div>
+      </div>
     </div>
   </section>
 
   <!-- HOW YOU GET STARTED ------------------------------------------------ -->
-  <section class="section tint" id="start">
+  <section class="section" id="start">
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Getting started</p>
@@ -289,160 +200,7 @@
       </div>
     </div>
   </section>
-
-  <!-- ON-PREMISE + THE PRICING MODEL ------------------------------------- -->
-  <section class="section" id="on-premise">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">On-premise</p>
-        <h2>The work stays in the building. So does the bill.</h2>
-        <p class="lede">
-          On-premise is the part of this that competitors cannot copy without rebuilding their
-          business, and it changes two things at once: who can see your documents, and what a
-          heavy month costs you.
-        </p>
-      </div>
-
-      <div class="grid g3" style="margin-bottom:60px">
-        <div class="card"><h3>Privilege stays intact</h3>
-          <p>Nothing is sent to a third-party model. There is no processor to add to your record,
-          no sub-processor list to chase, and no transfer to assess, because there is no transfer.</p></div>
-        <div class="card"><h3>The documents you cannot send anywhere</h3>
-          <p>Matters under embargo, client data with contractual bans on external processing,
-          regulated material. These are exactly the documents with the most manual work in them,
-          and the only ones a cloud tool can never touch.</p></div>
-        <div class="card"><h3>Fixed cost, unlimited runs</h3>
-          <p>The machine costs what it costs. Running a fifty-question form over three hundred
-          documents costs the same as running it over three, so nobody has to ask permission
-          before using it.</p></div>
-        <div class="card"><h3>A machine, not a data centre</h3>
-          <p>It runs perfectly well on hardware costing around $5,000. That is one workstation
-          under a desk, which puts it within reach of a three-partner boutique and a single
-          fund administrator, not only of firms with an infrastructure budget.</p></div>
-        <div class="card"><h3>Scaling costs about $5,000</h3>
-          <p>Double the people using it and you have not doubled a bill, because there is no
-          per-seat bill. If the queue gets long, you add a second machine. That is the whole
-          upgrade path, and you own what you bought.</p></div>
-        <div class="card"><h3>It still works when the vendor changes</h3>
-          <p>Price rises, model deprecations, an outage, an acquisition. Software on your own
-          hardware keeps doing the same thing tomorrow as it did today.</p></div>
-        <div class="card"><h3>Your corpus is searchable</h3>
-          <p>Because the system lives where your documents live, it can work across your own back
-          catalogue, the firm's own precedents, not just the file in front of you.</p></div>
-        <div class="card"><h3>An artefact you can hand over</h3>
-          <p>Every run produces a certificate: each element, its state, its verbatim source and
-          its locator. It goes into the matter file, to the client, or in front of a regulator.</p></div>
-      </div>
-
-      <div class="head">
-        <h2 style="font-size:clamp(24px,2.8vw,34px)">Two ways to pay for legal AI</h2>
-        <p class="lede">
-          Most of the category sells a seat and then meters what you do with it. We sell you the
-          machine. On a task whose whole nature is high volume over long documents, that
-          difference compounds.
-        </p>
-      </div>
-      <div class="cmp-scroll">
-        <table class="cmp">
-          <thead>
-            <tr><th></th><th>Per seat, plus metered usage</th><th>Enidia, on your hardware</th></tr>
-          </thead>
-          <tbody>
-            <tr><th>What you buy</th>
-              <td>A licence per named user, plus consumption charged against a credit or token allowance.</td>
-              <td><b>A machine and a licence.</b> The capacity is yours once it is bought.</td></tr>
-            <tr><th>What a heavy month costs</th>
-              <td>More than a light one. The cost scales with pages processed, which is the same thing as scaling with how useful the tool is being.</td>
-              <td><b>The same as a light one.</b> Volume changes how long a run takes, not what it costs.</td></tr>
-            <tr><th>What growth costs</th>
-              <td>Linear in people and in pages. Twice the users is roughly twice the invoice, every year, forever.</td>
-              <td><b>About $5,000, once.</b> Twice the users runs on the same machine; if it gets busy, you add another one and own it.</td></tr>
-            <tr><th>Who has to ration it</th>
-              <td>Whoever owns the budget. Teams learn not to run the big job twice.</td>
-              <td><b>Nobody.</b> Re-running a form after a document is amended is free, so it gets re-run.</td></tr>
-            <tr><th>Where your documents go</th>
-              <td>To the vendor's environment, and onward to whichever model providers sit behind it.</td>
-              <td><b>Nowhere.</b> They are read on a machine inside your firm.</td></tr>
-            <tr><th>Who the seat is for</th>
-              <td>Named individuals. Work done by a back-office team or overnight batch either needs more seats or does not happen.</td>
-              <td><b>The task, not the person.</b> A form is a job the machine runs, whoever asked for it.</td></tr>
-            <tr><th>What it is good at</th>
-              <td>Open-ended work: research, summarising, drafting, chatting with a data room.</td>
-              <td><b>One task.</b> Filling a checklist, form, survey or template from documents, with every answer defensible.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="cmp-note">
-        The left-hand column is the prevailing commercial model in legal AI rather than any one
-        vendor's price list; the specifics vary and change. If you want us to run the comparison
-        against the quote actually on your desk, send it over and we will do the arithmetic with you.
-      </p>
-    </div>
-  </section>
-
-  <!-- THE AGENTS --------------------------------------------------------- -->
-  <section class="section tint" id="agents">
-    <div class="wrap">
-      <div class="head">
-        <p class="eyebrow">The product</p>
-        <h2>One specialist for the task, two that make it sharper.</h2>
-        <p class="lede">
-          The AssociAte is the product: it does the one task. The other two exist because the
-          same firm usually needs its own back catalogue searchable, and its counterparties
-          structured, both of which make the AssociAte's answers better.
-        </p>
-      </div>
-      <div class="grid g3">
-        <div class="card" style="border-color:var(--blue);border-width:2px">
-          <span class="tag tag-dim" style="background:var(--ok-wash);color:var(--ok)">The one task</span>
-          <h3>The AssociAte</h3>
-          <p>Takes your checklist, form, survey or template and fills it from the documents.
-          Every answer carries its page and its exact words; every question the documents do not
-          answer comes back marked absent, with nothing invented to cover it. 25 hours becomes 4.</p>
-          <p class="meta">Verified at a Global 10 law firm · Configurable per matter type · Runs on your hardware</p>
-        </div>
-        <div class="card">
-          <span class="tag tag-free">Free to install</span>
-          <h3>The Librarian</h3>
-          <p>Turns your firm's own documents into a searchable knowledge base. Answers questions,
-          retrieves precedents, surfaces context, from files that never leave your network.</p>
-          <p class="meta">On-premises · No IT integration · Free for firms with 20+ fee-earners</p>
-        </div>
-        <div class="card">
-          <h3>The Clerk</h3>
-          <p>Builds a structured entity card for every counterparty in your documents: signing
-          authority, UBO chain and obligations, combined with live registry data.</p>
-          <p class="meta">RCS · GLEIF · Companies House · AMLD6-ready · No data leaves your network</p>
-        </div>
-      </div>
-      <p class="cmp-note" style="margin-top:26px">
-        Each one can be taught your firm's standards through a plain conversation, and remembers
-        what it was told.
-      </p>
-    </div>
-  </section>
-
-  <!-- PROOF --------------------------------------------------------------- -->
-  <section class="section deep">
-    <div class="wrap">
-      <div class="head mid">
-        <p class="eyebrow">Academic rigour. Industry trust.</p>
-        <h2>Built on funded research, tested on real files.</h2>
-      </div>
-      <div class="proof">
-        <div><b>€600k</b><p>FNR research grants</p>
-          <a href="https://www.fnr.lu/results-2020-jump-poc-call/" target="_blank" rel="noopener">iComplAI ↗</a><br>
-          <a href="https://www.fnr.lu/results-2022-core-call/#1620407951711-54861d53-816d" target="_blank" rel="noopener">ExAIle ↗</a></div>
-        <div><b>1st place</b><p>LexisNexis Best Paper Award 2020</p>
-          <a href="assets/img/lexisnexis-award.jpg" target="_blank" rel="noopener">View award ↗</a></div>
-        <div><b>3rd place</b><p>Eurostart Venture Award 2026, London</p>
-          <a href="https://www.blcc.co.uk/eva-2026-winners/" target="_blank" rel="noopener">View winners ↗</a></div>
-        <div><b>Global 10</b><p>Deployed and independently verified at a Global 10 law firm</p>
-          <a href="https://www.ie.edu/uncover-ie/biggest-law-firms-in-the-world/" target="_blank" rel="noopener">See the Global 10 ↗</a></div>
-      </div>
-    </div>
-  </section>
-  <section style="background:#ffffff; padding:80px 24px; border-top:1px solid rgba(0,80,180,0.08);">
+  <section id="calculator" style="background:#ffffff; padding:80px 24px; border-top:1px solid rgba(0,80,180,0.08);">
     <div style="max-width:1100px; margin:0 auto;">
       <div style="text-align:center; margin-bottom:52px;">
         <p style="color:#ff8200; font-weight:700; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:12px;">Return on investment</p>
@@ -471,7 +229,7 @@
         </div>
 
         <!-- ROI 2: Calculator -->
-        <div id="calculator" style="border:2px solid #000078; border-radius:16px; padding:32px; background:#ffffff;">
+        <div style="border:2px solid #000078; border-radius:16px; padding:32px; background:#ffffff;">
           <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
             <div style="width:48px; height:48px; background:#ff8200; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -562,7 +320,7 @@
               </div>
             </div>
             <p id="roi-note" style="color:#0050b4; font-size:11px; opacity:0.5; margin-top:10px; line-height:1.5;"></p>
-            <p style="color:#0050b4; font-size:11px; opacity:0.5; margin-top:8px; line-height:1.5;">Against this, a one-off hardware investment of about <strong style="color:#000078; opacity:1;">$5,000</strong> for the machine it runs on. There is no metered usage on top, and adding people does not add to it.</p>
+            <p style="color:#0050b4; font-size:11px; opacity:0.5; margin-top:8px; line-height:1.5;">Against this, a one-off hardware investment of about <strong style="color:#000078; opacity:1;">€5,000</strong> for the machine it runs on. There is no metered usage on top, and adding people does not add to it.</p>
           </div>
         </div>
 
@@ -629,6 +387,290 @@
 
     roiCalc();
   </script>
+  <!-- CONTACT ------------------------------------------------------------ -->
+  <section class="section tint" id="contact">
+    <div class="wrap">
+      <div class="head">
+        <h2>Talk to us</h2>
+        <p class="lede">A question about the task, the hardware it runs on, or whether your
+        checklist is a fit. Write and we answer ourselves. There is no sales desk in
+        between.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-aside">
+          <p>If you would rather see it than read about it, book a demo and we will run the
+          AssociAte on a document of your choosing. If you would rather ask first, the form
+          is here.</p>
+          <span class="contact-line"><b>Email</b><a href="mailto:info@enidia.ai">info@enidia.ai</a></span>
+          <span class="contact-line"><b>Demo</b><a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener">Pick a time in our calendar</a></span>
+          <span class="contact-line"><b>Address</b>6A Avenue des Hauts-Fourneaux, L-4362 Esch-sur-Alzette, Luxembourg</span>
+        </div>
+        <form class="contact-form" action="https://formbold.com/s/6vv8e" method="POST">
+          <div class="row2">
+            <div class="field">
+              <label for="c-name">Name</label>
+              <input type="text" id="c-name" name="Name" required />
+            </div>
+            <div class="field">
+              <label for="c-email">Email</label>
+              <input type="email" id="c-email" name="Email" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="c-firm">Firm</label>
+            <input type="text" id="c-firm" name="Firm" />
+          </div>
+          <div class="field">
+            <label for="c-message">What would you like to know?</label>
+            <textarea id="c-message" name="Message" rows="6" required></textarea>
+          </div>
+          <button type="submit">Send message</button>
+          <p class="form-note">We reply within a working day. Nothing you write here is used
+          for anything other than answering it. See our <a href="privacy.html" style="color:#0050b4;font-weight:600;text-decoration:underline;text-underline-offset:2px;">Privacy &amp; Cookie Policy</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LONG FILMS ----------------------------------------------------- -->
+  <section class="section" id="tasks">
+    <div class="wrap">
+      <div class="head mid">
+        <p class="eyebrow">The whole task</p>
+        <h2>Two real jobs, start to finish, in one take.</h2>
+        <p class="lede">
+          The short films above each isolate one claim. These put them back in the order the
+          work actually happens: the form arrives, it gets filled, you check it, you argue with
+          it, you correct it, and a certificate comes out. Nothing is cut.
+        </p>
+      </div>
+      <div class="films longs">
+        <div class="film">
+          <video src="assets/video/long-task-cssf.mp4" muted playsinline controls
+                 poster="assets/video/poster-long-task-cssf.jpg"></video>
+          <p class="film-cap"><b>A CSSF questionnaire for a new sub-fund.</b> It starts where the
+          work really starts, on the regulator's own download page, and ends with a certificate
+          you could put in front of the CSSF.</p>
+        </div>
+        <div class="film">
+          <video src="assets/video/long-task-lpa.mp4" muted playsinline controls
+                 poster="assets/video/poster-long-task-lpa.jpg"></video>
+          <p class="film-cap"><b>A closing checklist against a partnership agreement.</b> The
+          same workflow on the other half of the market: one checklist, one LPA, one pass, and
+          every answer traceable to a clause.</p>
+        </div>
+      </div>
+      <p class="cmp-note" style="margin-top:26px">
+        Both are about two minutes. Both are silent, so the captions carry the argument, and both
+        show the tool getting something wrong before it gets it right. That part is not an
+        accident of the edit: a review tool that never misses is a review tool nobody checks.
+      </p>
+    </div>
+  </section>
+
+  <!-- ON-PREMISE + THE PRICING MODEL ------------------------------------- -->
+  <section class="section tint" id="on-premise">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">On-premise</p>
+        <h2>The work stays in the building. So does the bill.</h2>
+        <p class="lede">
+          On-premise is the part of this that competitors cannot copy without rebuilding their
+          business, and it changes two things at once: who can see your documents, and what a
+          heavy month costs you.
+        </p>
+      </div>
+
+      <div class="grid g3" style="margin-bottom:60px">
+        <div class="card"><h3>Privilege stays intact</h3>
+          <p>Nothing is sent to a third-party model. There is no processor to add to your record,
+          no sub-processor list to chase, and no transfer to assess, because there is no transfer.</p></div>
+        <div class="card"><h3>The documents you cannot send anywhere</h3>
+          <p>Matters under embargo, client data with contractual bans on external processing,
+          regulated material. These are exactly the documents with the most manual work in them,
+          and the only ones a cloud tool can never touch.</p></div>
+        <div class="card"><h3>Fixed cost, unlimited runs</h3>
+          <p>The machine costs what it costs. Running a fifty-question form over three hundred
+          documents costs the same as running it over three, so nobody has to ask permission
+          before using it.</p></div>
+        <div class="card"><h3>A machine, not a data centre</h3>
+          <p>It runs perfectly well on hardware costing around €5,000. That is one workstation
+          under a desk, which puts it within reach of a three-partner boutique and a single
+          fund administrator, not only of firms with an infrastructure budget.</p></div>
+        <div class="card"><h3>Scaling costs about €5,000</h3>
+          <p>Double the people using it and you have not doubled a bill, because there is no
+          per-seat bill. If the queue gets long, you add a second machine. That is the whole
+          upgrade path, and you own what you bought.</p></div>
+        <div class="card"><h3>It still works when the vendor changes</h3>
+          <p>Price rises, model deprecations, an outage, an acquisition. Software on your own
+          hardware keeps doing the same thing tomorrow as it did today.</p></div>
+        <div class="card"><h3>Your corpus is searchable</h3>
+          <p>Because the system lives where your documents live, it can work across your own back
+          catalogue, the firm's own precedents, not just the file in front of you.</p></div>
+        <div class="card"><h3>An artefact you can hand over</h3>
+          <p>Every run produces a certificate: each element, its state, its verbatim source and
+          its locator. It goes into the matter file, to the client, or in front of a regulator.</p></div>
+      </div>
+
+      <div class="head">
+        <h2 style="font-size:clamp(24px,2.8vw,34px)">Two ways to pay for legal AI</h2>
+        <p class="lede">
+          Most of the category sells a seat and then meters what you do with it. We sell you the
+          machine. On a task whose whole nature is high volume over long documents, that
+          difference compounds.
+        </p>
+      </div>
+      <div class="cmp-scroll">
+        <table class="cmp">
+          <thead>
+            <tr><th></th><th>Per seat, plus metered usage</th><th>Enidia, on your hardware</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>What you buy</th>
+              <td>A licence per named user, plus consumption charged against a credit or token allowance.</td>
+              <td><b>A machine and a licence.</b> The capacity is yours once it is bought.</td></tr>
+            <tr><th>What a heavy month costs</th>
+              <td>More than a light one. The cost scales with pages processed, which is the same thing as scaling with how useful the tool is being.</td>
+              <td><b>The same as a light one.</b> Volume changes how long a run takes, not what it costs.</td></tr>
+            <tr><th>What growth costs</th>
+              <td>Linear in people and in pages. Twice the users is roughly twice the invoice, every year, forever.</td>
+              <td><b>About €5,000, once.</b> Twice the users runs on the same machine; if it gets busy, you add another one and own it.</td></tr>
+            <tr><th>Who has to ration it</th>
+              <td>Whoever owns the budget. Teams learn not to run the big job twice.</td>
+              <td><b>Nobody.</b> Re-running a form after a document is amended is free, so it gets re-run.</td></tr>
+            <tr><th>Where your documents go</th>
+              <td>To the vendor's environment, and onward to whichever model providers sit behind it.</td>
+              <td><b>Nowhere.</b> They are read on a machine inside your firm.</td></tr>
+            <tr><th>Who the seat is for</th>
+              <td>Named individuals. Work done by a back-office team or overnight batch either needs more seats or does not happen.</td>
+              <td><b>The task, not the person.</b> A form is a job the machine runs, whoever asked for it.</td></tr>
+            <tr><th>What it is good at</th>
+              <td>Open-ended work: research, summarising, drafting, chatting with a data room.</td>
+              <td><b>One task.</b> Filling a checklist, form, survey or template from documents, with every answer defensible.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-note">
+        The left-hand column is the prevailing commercial model in legal AI rather than any one
+        vendor's price list; the specifics vary and change. If you want us to run the comparison
+        against the quote actually on your desk, send it over and we will do the arithmetic with you.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHY GENERAL TOOLS ARE THE WRONG TOOL ------------------------------ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Why not a general legal AI</p>
+        <h2>General assistants are built for a different shape of work.</h2>
+        <p class="lede">
+          The large legal-AI platforms are good products for open-ended work: research a
+          question, summarise a document, draft a first pass, chat with a data room. That is a
+          different job from filling a fixed set of questions and standing behind the result,
+          and the difference is structural, not a matter of quality.
+        </p>
+      </div>
+      <div class="grid g2">
+        <div class="card">
+          <h3>They answer. They do not report coverage.</h3>
+          <p>A general assistant is built to produce an answer to whatever you ask. Ask it fifty
+          questions and you get fifty answers, including for the questions your documents never
+          addressed. The thing you actually need to know on a filing is which answers the
+          documents support, and there is nothing in a chat transcript that tells you.</p>
+        </div>
+        <div class="card">
+          <h3>A missing fact comes back as a confident sentence.</h3>
+          <p>Silence is the expensive failure in this task, and it is invisible in a generative
+          tool: the gap looks exactly like an answer. Our whole design is that the gap is a
+          visible, countable state you have to sign off, not a blank you might never notice.</p>
+        </div>
+        <div class="card">
+          <h3>Citations are not the same as hard evidence.</h3>
+          <p>A page reference next to a paraphrase is not something a reviewer can check without
+          re-reading the document. Every answer here comes with the passage it rests on framed
+          on the page, so checking it takes seconds. That is the only way review at this volume
+          is real review.</p>
+        </div>
+        <div class="card">
+          <h3>Their pricing punishes exactly this workload.</h3>
+          <p>A form of fifty questions against a hundred-page document is the most token-hungry
+          shape of legal work there is. On a per-seat-plus-metered-usage model, the task that
+          most needs automating is the one that costs most to automate, so firms ration it.
+          Ours does not meter, because it runs on a machine you own.</p>
+        </div>
+      </div>
+      <p class="cmp-note" style="margin-top:26px">
+        The honest version: if you want one tool for everything, buy one of theirs. If you have
+        checklists, forms or questionnaires to fill and someone has to be able to defend the
+        result, that is the job we built for, and we do it better, cheaper and more safely than a
+        general tool can.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE AGENTS --------------------------------------------------------- -->
+  <section class="section tint" id="agents">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">The product</p>
+        <h2>One specialist for the task, two that make it sharper.</h2>
+        <p class="lede">
+          The AssociAte is the product: it does the one task. The other two exist because the
+          same firm usually needs its own back catalogue searchable, and its counterparties
+          structured, both of which make the AssociAte's answers better.
+        </p>
+      </div>
+      <div class="grid g3">
+        <div class="card" style="border-color:var(--blue);border-width:2px">
+          <span class="tag tag-dim" style="background:var(--ok-wash);color:var(--ok)">The one task</span>
+          <h3>The AssociAte</h3>
+          <p>Takes your checklist, form, survey or template and fills it from the documents.
+          Every answer carries its page and its exact words; every question the documents do not
+          answer comes back marked absent, with nothing invented to cover it. 25 hours becomes 4.</p>
+          <p class="meta">Verified at a Global 10 law firm · Configurable per matter type · Runs on your hardware</p>
+        </div>
+        <div class="card">
+          <span class="tag tag-free">Free to install</span>
+          <h3>The Librarian</h3>
+          <p>Turns your firm's own documents into a searchable knowledge base. Answers questions,
+          retrieves precedents, surfaces context, from files that never leave your network.</p>
+          <p class="meta">On-premises · No IT integration · Free for firms with 20+ fee-earners</p>
+        </div>
+        <div class="card">
+          <h3>The Clerk</h3>
+          <p>Builds a structured entity card for every counterparty in your documents: signing
+          authority, UBO chain and obligations, combined with live registry data.</p>
+          <p class="meta">RCS · GLEIF · Companies House · AMLD6-ready · No data leaves your network</p>
+        </div>
+      </div>
+      <p class="cmp-note" style="margin-top:26px">
+        Each one can be taught your firm's standards through a plain conversation, and remembers
+        what it was told.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROOF --------------------------------------------------------------- -->
+  <section class="section deep">
+    <div class="wrap">
+      <div class="head mid">
+        <p class="eyebrow">Academic rigour. Industry trust.</p>
+        <h2>Built on funded research, tested on real files.</h2>
+      </div>
+      <div class="proof">
+        <div><b>€600k</b><p>FNR research grants</p>
+          <a href="https://www.fnr.lu/results-2020-jump-poc-call/" target="_blank" rel="noopener">iComplAI ↗</a><br>
+          <a href="https://www.fnr.lu/results-2022-core-call/#1620407951711-54861d53-816d" target="_blank" rel="noopener">ExAIle ↗</a></div>
+        <div><b>1st place</b><p>LexisNexis Best Paper Award 2020</p>
+          <a href="assets/img/lexisnexis-award.jpg" target="_blank" rel="noopener">View award ↗</a></div>
+        <div><b>3rd place</b><p>Eurostart Venture Award 2026, London</p>
+          <a href="https://www.blcc.co.uk/eva-2026-winners/" target="_blank" rel="noopener">View winners ↗</a></div>
+        <div><b>Global 10</b><p>Deployed and independently verified at a Global 10 law firm</p>
+          <a href="https://www.ie.edu/uncover-ie/biggest-law-firms-in-the-world/" target="_blank" rel="noopener">See the Global 10 ↗</a></div>
+      </div>
+    </div>
+  </section>
   <!-- GET STARTED --------------------------------------------------------- -->
   <section class="cta-section" id="get-started">
     <div class="wrap cta-inner">
@@ -684,50 +726,6 @@
       </div>
     </div>
   </div>
-  <!-- CONTACT ------------------------------------------------------------ -->
-  <section class="section tint" id="contact">
-    <div class="wrap">
-      <div class="head">
-        <h2>Talk to us</h2>
-        <p class="lede">A question about the task, the hardware it runs on, or whether your
-        checklist is a fit. Write and we answer ourselves. There is no sales desk in
-        between.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-aside">
-          <p>If you would rather see it than read about it, book a demo and we will run the
-          AssociAte on a document of your choosing. If you would rather ask first, the form
-          is here.</p>
-          <span class="contact-line"><b>Email</b><a href="mailto:info@enidia.ai">info@enidia.ai</a></span>
-          <span class="contact-line"><b>Demo</b><a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener">Pick a time in our calendar</a></span>
-          <span class="contact-line"><b>Address</b>6A Avenue des Hauts-Fourneaux, L-4362 Esch-sur-Alzette, Luxembourg</span>
-        </div>
-        <form class="contact-form" action="https://formbold.com/s/6vv8e" method="POST">
-          <div class="row2">
-            <div class="field">
-              <label for="c-name">Name</label>
-              <input type="text" id="c-name" name="Name" required />
-            </div>
-            <div class="field">
-              <label for="c-email">Email</label>
-              <input type="email" id="c-email" name="Email" required />
-            </div>
-          </div>
-          <div class="field">
-            <label for="c-firm">Firm</label>
-            <input type="text" id="c-firm" name="Firm" />
-          </div>
-          <div class="field">
-            <label for="c-message">What would you like to know?</label>
-            <textarea id="c-message" name="Message" rows="6" required></textarea>
-          </div>
-          <button type="submit">Send message</button>
-          <p class="form-note">We reply within a working day. Nothing you write here is used
-          for anything other than answering it.</p>
-        </form>
-      </div>
-    </div>
-  </section>
 
   <!-- FOOTER --------------------------------------------------------------- -->
   <footer>
@@ -747,6 +745,7 @@
           <a href="#on-premise">On-premise</a>
           <a href="#calculator">ROI calculator</a>
           <a href="verification-standard.html">Verification Standard</a>
+          <a href="privacy.html">Privacy &amp; Cookie Policy</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
@@ -760,7 +759,7 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 Enidia AI, S.à r.l.-S · Esch-sur-Alzette, Luxembourg · RCS B277442</p>
-        <p>info@enidia.ai</p>
+        <p><a href="privacy.html">Privacy &amp; Cookie Policy</a> &middot; <a href="#" onclick="EnidiaConsent.reopen();return false;">Cookie settings</a> &middot; info@enidia.ai</p>
       </div>
     </div>
   </footer>
