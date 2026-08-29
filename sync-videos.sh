@@ -15,10 +15,12 @@ SRC=../marketing/animations
 OUT=assets/video
 mkdir -p "$OUT"
 
-# The short loops for the hero and the gallery, then the two long films. The
+# The short loops for the hero and the gallery, then the three long films. The
 # long ones ship as the full cut, intro and end card included: they are watched
-# once, deliberately, not looped behind a headline.
-for name in validation trace absent learn deploy long-task-cssf long-task-lpa; do
+# once, deliberately, not looped behind a headline. One long film per industry
+# we sell to -- funds, law firms, in-house legal -- which is the whole argument
+# of that section: one task, three markets.
+for name in validation trace absent learn deploy long-task-cssf long-task-lpa long-task-dora; do
   case "$name" in long-*) src="$SRC/$name.mp4" ;; *) src="$SRC/film-$name.mp4" ;; esac
   [ -f "$src" ] || { echo "  missing $src -- run $SRC/build.sh"; continue; }
   case "$name" in long-*) dst="$OUT/$name.mp4" ;; *) dst="$OUT/film-$name.mp4" ;; esac
