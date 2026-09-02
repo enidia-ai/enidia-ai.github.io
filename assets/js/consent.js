@@ -92,11 +92,10 @@
       }
     });
 
-    // Form submit.
-    var form = document.querySelector('form.contact-form');
-    if (form) form.addEventListener('submit', function () {
-      var sel = document.getElementById('c-intent');
-      track('generate_lead', { intent: sel ? sel.value : 'unknown',
+    // Form sent. contact-form.js raises this once the backend has accepted the
+    // message, so a failed send is not counted as a lead.
+    document.addEventListener('enidia:lead', function (e) {
+      track('generate_lead', { intent: (e.detail && e.detail.intent) || 'unknown',
                                cta_location: (document.getElementById('c-source') || {}).value || 'direct' });
     });
 

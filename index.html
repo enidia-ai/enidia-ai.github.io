@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/enidia.css">
   <script src="assets/js/consent.js" defer></script>
+  <script src="assets/js/contact-form.js" defer></script>
 </head>
 <body>
 
@@ -418,12 +419,20 @@
           <span class="contact-line"><b>Demo</b><a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" data-cta="contact-aside-demo">Pick a time in our calendar</a></span>
           <span class="contact-line"><b>Address</b>6A Avenue des Hauts-Fourneaux, L-4362 Esch-sur-Alzette, Luxembourg</span>
         </div>
-        <form class="contact-form" action="https://formbold.com/s/6vv8e" method="POST" data-cta="contact-form">
-          <input type="hidden" name="_redirect" value="https://enidia.ai/thank-you.html" />
-          <input type="hidden" name="Source" id="c-source" value="" />
+        <form class="contact-form" id="contact-form" novalidate>
+          <input type="hidden" name="source" id="c-source" value="" />
+          <input type="hidden" name="_subject" id="c-subject" value="Enidia website enquiry" />
+          <input type="hidden" name="_replyto" id="c-replyto" value="" />
+
+          <!-- Honeypot. Hidden from people, tempting to bots. Must stay empty. -->
+          <div class="hp" aria-hidden="true">
+            <label for="c-gotcha">Leave this field empty</label>
+            <input type="text" id="c-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" />
+          </div>
+
           <div class="field">
             <label for="c-intent">What brings you here?</label>
-            <select id="c-intent" name="Intent">
+            <select id="c-intent" name="intent">
               <option value="trial">A free trial on our documents</option>
               <option value="demo">A demonstration</option>
               <option value="librarian">The Librarian, on our own hardware</option>
@@ -434,22 +443,23 @@
           <div class="row2">
             <div class="field">
               <label for="c-name">Name</label>
-              <input type="text" id="c-name" name="Name" required />
+              <input type="text" id="c-name" name="name" required autocomplete="name" />
             </div>
             <div class="field">
               <label for="c-email">Email</label>
-              <input type="email" id="c-email" name="Email" required />
+              <input type="email" id="c-email" name="email" required autocomplete="email" />
             </div>
           </div>
           <div class="field">
             <label for="c-firm">Firm</label>
-            <input type="text" id="c-firm" name="Firm" />
+            <input type="text" id="c-firm" name="firm" autocomplete="organization" />
           </div>
           <div class="field">
             <label for="c-message">What would you like to know?</label>
-            <textarea id="c-message" name="Message" rows="6" required></textarea>
+            <textarea id="c-message" name="message" rows="6" required></textarea>
           </div>
-          <button type="submit">Send message</button>
+          <button type="submit" id="c-submit">Send message</button>
+          <p class="form-status" id="c-status" role="status" aria-live="polite" hidden></p>
           <p class="form-note">We reply within a working day. Nothing you write here is used
           for anything other than answering it. See our <a href="privacy.html" style="color:#0050b4;font-weight:600;text-decoration:underline;text-underline-offset:2px;">Privacy &amp; Cookie Policy</a>.</p>
         </form>
