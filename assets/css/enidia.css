@@ -46,6 +46,7 @@ h3{font-size:22px}
 .section.deep .lede{color:rgba(255,255,255,.72)}
 .head{max-width:760px;margin-bottom:56px}
 .head h2{margin-bottom:18px}
+.head h1.page-title{font-size:clamp(28px,3.4vw,44px);margin-bottom:18px}
 .head.mid{margin-left:auto;margin-right:auto;text-align:center}
 .head.mid .lede{margin:0 auto}
 
@@ -73,14 +74,29 @@ nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(255,255,255,.88);
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-size:15px;font-weight:500;color:var(--ink-soft)}
 .nav-links a:hover{color:var(--navy)}
+.nav-links a[aria-current="page"]{color:var(--navy);font-weight:700}
 /* A button in the nav is still a button: .nav-links a outranks .btn-solid on
    specificity, which was painting the label ink-grey on navy. */
 .nav-links a.btn-solid,.nav-links a.btn-solid:hover{color:#fff}
+.mobile-menu{display:none;position:relative}
+.mobile-menu summary{list-style:none;color:var(--navy);font-size:14px;font-weight:700;cursor:pointer}
+.mobile-menu summary::-webkit-details-marker{display:none}
+.mobile-menu-links{position:absolute;right:0;top:38px;width:238px;padding:12px;
+  background:var(--card);border:1px solid var(--rule);border-radius:12px;box-shadow:var(--shadow-lg)}
+.mobile-menu-links a{display:block;padding:10px 12px;border-radius:7px;color:var(--ink-soft);
+  font-size:14px;font-weight:600}
+.mobile-menu-links a:hover{background:var(--paper);color:var(--navy)}
 
 /* The calculator is a long way down the page, so the hero points at it. */
 .hero-calc{margin-top:14px;font-size:15px;color:var(--ink-soft)}
 .hero-calc a{color:var(--navy);font-weight:600;border-bottom:2px solid var(--orange)}
-@media(max-width:900px){.nav-links a.hide-sm{display:none}}
+@media(max-width:900px){
+  .nav-links a.hide-sm{display:none}
+  .mobile-menu{display:block;margin-left:auto}
+  .nav-inner{gap:14px}
+  .nav-links{gap:0}
+}
+@media(max-width:430px){.nav-inner{padding:0 18px}.nav-links .btn{padding:10px 14px}}
 
 /* ------------------------------------------------------------------- hero */
 .hero{padding:150px 0 96px;background:
@@ -121,6 +137,9 @@ nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(255,255,255,.88);
   color:var(--orange);margin-bottom:13px}
 .solution-card h3{font-size:20px;margin-bottom:11px}
 .solution-card p{color:var(--ink-soft);font-size:15px;line-height:1.65}
+.solution-card-link{display:inline-block;margin-top:auto;padding-top:20px;color:var(--navy);
+  font-size:14px;font-weight:600}
+.solution-card-link:hover{color:var(--blue)}
 .solutions-proof{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px}
 .solutions-proof a{display:flex;align-items:center;gap:18px;padding:22px 26px;border-radius:14px;
   color:#fff;background:var(--navy)}
@@ -305,6 +324,38 @@ footer{background:var(--paper);border-top:1px solid var(--rule);padding:72px 0 3
 .doc-footer-note{border-top:1px solid var(--rule);margin-top:56px;padding-top:22px;
                  color:var(--ink-faint);font-size:13.5px;line-height:1.8;font-style:italic}
 .doc-footer-note a{color:var(--blue);font-weight:600}
+
+/* ---------------------------------------------------------- content hubs */
+.page-hero{padding:148px 0 82px;background:
+  radial-gradient(900px 420px at 85% -10%,rgba(0,80,181,.1),transparent 65%),var(--sub)}
+.page-hero h1{max-width:920px;margin-bottom:22px}
+.page-hero .lede{max-width:760px}
+.breadcrumbs{margin-bottom:24px;font-size:13px;color:var(--ink-faint)}
+.breadcrumbs a{color:var(--blue);font-weight:600}
+.hub-section{padding:82px 0}
+.hub-section.tint{background:var(--paper)}
+.hub-section .head{margin-bottom:40px}
+.hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.hub-grid.g2{grid-template-columns:repeat(2,1fr)}
+.hub-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--rule);
+  border-radius:16px;padding:30px;box-shadow:var(--shadow)}
+.hub-card h2{font-size:25px;margin-bottom:12px}
+.hub-card h3{font-size:21px;margin-bottom:10px}
+.hub-card p{color:var(--ink-soft);font-size:15.5px;margin-bottom:14px}
+.hub-card .eyebrow{color:var(--orange);font-size:12px}
+.hub-card ul{margin:0 0 16px 20px;color:var(--ink-soft);font-size:15px}
+.hub-card .text-link{margin-top:auto;padding-top:8px}
+.text-link{display:inline-block;color:var(--navy);font-weight:600;border-bottom:2px solid var(--orange)}
+.text-link:hover{color:var(--blue)}
+.hub-split{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.hub-copy p{color:var(--ink-soft);font-size:17px;margin-bottom:18px;max-width:68ch}
+.hub-copy h2{margin-bottom:18px}
+.link-list{border-top:1px solid var(--rule)}
+.link-list a{display:block;padding:18px 4px;border-bottom:1px solid var(--rule);
+  color:var(--navy);font-weight:600}
+.link-list a span{display:block;color:var(--ink-soft);font-weight:400;font-size:14px;margin-top:3px}
+@media(max-width:900px){.hub-grid{grid-template-columns:1fr 1fr}.hub-split{grid-template-columns:1fr;gap:36px}}
+@media(max-width:700px){.hub-grid,.hub-grid.g2{grid-template-columns:1fr}.page-hero{padding:124px 0 68px}}
 
 /* ------------------------------------------------------------- press entries */
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
