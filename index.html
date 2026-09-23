@@ -23,15 +23,24 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="index.html"><img src="assets/img/logo.png" alt="Enidia" style="height:42px" /></a>
+     <a href="/"><img src="assets/img/logo.png" alt="Enidia" style="height:42px" /></a>
+      <details class="mobile-menu">
+        <summary>Menu</summary>
+        <div class="mobile-menu-links">
+          <a href="/products/">Products</a>
+          <a href="/solutions/">Solutions</a>
+          <a href="/use-cases/">Use cases</a>
+          <a href="/research/">Research</a>
+          <a href="/about/">About</a>
+          <a href="/#contact">Contact</a>
+        </div>
+      </details>
       <div class="nav-links">
-        <a href="#solutions" class="hide-sm">Solutions</a>
+        <a href="/products/" class="hide-sm">Products</a>
+        <a href="/solutions/" class="hide-sm">Solutions</a>
+        <a href="/research/" class="hide-sm">Research</a>
         <a href="#see" class="hide-sm">See it work</a>
-        <a href="#start" class="hide-sm">Getting started</a>
-        <a href="#calculator" class="hide-sm">ROI</a>
         <a href="#contact" class="hide-sm">Contact</a>
-        <a href="#tasks" class="hide-sm">Full task</a>
-        <a href="#on-premise" class="hide-sm">On-premise</a>
         <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-solid btn-sm" data-cta="nav-demo">Book a demo</a>
       </div>
     </div>
@@ -105,21 +114,25 @@
             <span class="solution-kicker">Transactions</span>
             <h3>Due diligence</h3>
             <p>Review a defined request list across agreements or a data room, with every conclusion tied to its source.</p>
+            <a class="solution-card-link" href="/use-cases/#due-diligence">Explore due diligence workflows &rarr;</a>
           </article>
           <article class="solution-card">
             <span class="solution-kicker">Closings</span>
             <h3>Closing and condition-precedent review</h3>
             <p>Determine whether each closing requirement is supported, incomplete, or absent from the transaction documents.</p>
+            <a class="solution-card-link" href="/use-cases/#closing-review">Explore closing and CP review &rarr;</a>
           </article>
           <article class="solution-card">
             <span class="solution-kicker">Regulatory</span>
             <h3>Regulatory questionnaires and filings</h3>
             <p>Populate CSSF questionnaires, AIFMD forms, SFDR annexes, and similar structured outputs from the underlying documents.</p>
+            <a class="solution-card-link" href="/use-cases/#regulatory-questionnaires">Explore regulatory workflows &rarr;</a>
           </article>
           <article class="solution-card">
             <span class="solution-kicker">Compliance</span>
             <h3>Contract compliance review</h3>
             <p>Test agreements against DORA, NIS2, an internal playbook, or another defined set of legal requirements.</p>
+            <a class="solution-card-link" href="/use-cases/#contract-compliance">Explore contract compliance review &rarr;</a>
           </article>
         </div>
       </div>
@@ -134,11 +147,13 @@
             <span class="solution-kicker">The Librarian</span>
             <h3>Legal knowledge and precedent search</h3>
             <p>Retrieve answers, precedents, and their source context from the firm's own document collection.</p>
+            <a class="solution-card-link" href="/products/#librarian">Explore the Librarian &rarr;</a>
           </article>
           <article class="solution-card">
             <span class="solution-kicker">The Clerk</span>
             <h3>Counterparty intelligence</h3>
             <p>Build structured records of signing authority, ownership, and obligations from documents and registry data.</p>
+            <a class="solution-card-link" href="/products/#clerk">Explore the Clerk &rarr;</a>
           </article>
         </div>
       </div>
@@ -739,26 +754,29 @@
         </p>
       </div>
       <div class="grid g3">
-        <div class="card" style="border-color:var(--blue);border-width:2px">
+        <div class="card" id="associate" style="border-color:var(--blue);border-width:2px">
           <span class="tag tag-dim" style="background:var(--ok-wash);color:var(--ok)">The one task</span>
           <h3>The AssociAte</h3>
           <p>Takes your checklist, form, survey or template and fills it from the documents.
           Every answer carries its page and its exact words; every question the documents do not
           answer comes back marked absent, with nothing invented to cover it. 25 hours becomes 4.</p>
           <p class="meta">Verified at a Global 10 law firm · Configurable per matter type · Runs on your hardware</p>
+          <a class="text-link" href="/products/#associate">AssociAte product overview</a>
         </div>
-        <div class="card">
+        <div class="card" id="librarian">
           <span class="tag tag-free">Free to install</span>
           <h3>The Librarian</h3>
           <p>Turns your firm's own documents into a searchable knowledge base. Answers questions,
           retrieves precedents, surfaces context, from files that never leave your network.</p>
           <p class="meta">On-premises · No IT integration · Free for law firms with 20+ fee-earners, and for fund and in-house legal teams of the same size</p>
+          <a class="text-link" href="/products/#librarian">Librarian product overview</a>
         </div>
-        <div class="card">
+        <div class="card" id="clerk">
           <h3>The Clerk</h3>
           <p>Builds a structured entity card for every counterparty in your documents: signing
           authority, UBO chain and obligations, combined with live registry data.</p>
           <p class="meta">RCS · GLEIF · Companies House · AMLD6-ready · No data leaves your network</p>
+          <a class="text-link" href="/products/#clerk">Clerk product overview</a>
         </div>
       </div>
       <p class="cmp-note" style="margin-top:26px">
@@ -854,15 +872,13 @@
           documents. Every answer sourced. Every gap reported. Nothing leaves your premises.</p>
         </div>
         <div class="footer-col">
-          <h4>Product</h4>
-          <a href="#task">What we do</a>
-          <a href="#agents">The AssociAte</a>
-          <a href="#agents">The Librarian</a>
-          <a href="#agents">The Clerk</a>
-          <a href="#on-premise">On-premise</a>
-          <a href="#calculator">ROI calculator</a>
-          <a href="verification-standard.html">Verification Standard</a>
-          <a href="privacy.html">Privacy &amp; Cookie Policy</a>
+          <h4>Explore</h4>
+          <a href="/products/">Products</a>
+          <a href="/solutions/">Solutions</a>
+          <a href="/use-cases/">Use cases</a>
+          <a href="/research/">Research</a>
+          <a href="/research/verification-standard/">Verification Standard</a>
+          <a href="/about/">About Enidia</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
