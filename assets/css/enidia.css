@@ -313,6 +313,8 @@ footer{background:var(--paper);border-top:1px solid var(--rule);padding:72px 0 3
 .doc-cta p{margin-bottom:0}
 .doc-back{margin-top:28px}
 .doc-back a{color:var(--blue);font-weight:600}
+.doc-photo{margin:0 0 28px}
+.doc-photo img{width:100%;height:auto;border-radius:16px;display:block}
 
 /* ------------------------------------------------------------- press entries */
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
@@ -320,7 +322,7 @@ footer{background:var(--paper);border-top:1px solid var(--rule);padding:72px 0 3
 @media(max-width:700px){.posts{grid-template-columns:1fr}}
 .post{background:var(--card);border:1px solid var(--rule);border-radius:16px;overflow:hidden;
       box-shadow:var(--shadow);display:flex;flex-direction:column}
-.post img{width:100%;height:190px;object-fit:cover;background:var(--paper)}
+.post img{width:100%;height:190px;object-fit:cover;object-position:center 30%;background:var(--paper)}
 .post .body{padding:24px;display:flex;flex-direction:column;flex:1}
 .post .date{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
             color:var(--orange);margin-bottom:12px}
