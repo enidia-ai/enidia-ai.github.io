@@ -33,7 +33,7 @@
     el.setAttribute('aria-label', 'Cookie choice');
     el.innerHTML =
       '<p>We use analytics cookies only if you agree to them. Nothing is loaded until you decide. ' +
-      '<a href="privacy.html">Privacy &amp; Cookie Policy</a></p>' +
+      '<a href="/privacy.html">Privacy &amp; Cookie Policy</a></p>' +
       '<div class="cookie-actions">' +
       '<button type="button" data-consent="denied" class="cookie-btn cookie-btn-ghost">Decline</button>' +
       '<button type="button" data-consent="granted" class="cookie-btn cookie-btn-solid">Accept</button>' +
