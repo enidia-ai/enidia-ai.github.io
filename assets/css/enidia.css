@@ -302,6 +302,7 @@ footer{background:var(--paper);border-top:1px solid var(--rule);padding:72px 0 3
 .abstract{background:var(--paper);border:1px solid var(--rule);border-radius:16px;
           padding:28px 30px;margin-bottom:8px}
 .abstract p{margin-bottom:0;font-size:16px}
+.abstract p+p{margin-top:12px}
 .doc-footer-note{border-top:1px solid var(--rule);margin-top:56px;padding-top:22px;
                  color:var(--ink-faint);font-size:13.5px;line-height:1.8;font-style:italic}
 .doc-footer-note a{color:var(--blue);font-weight:600}
