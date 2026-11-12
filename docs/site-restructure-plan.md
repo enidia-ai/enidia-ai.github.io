@@ -1,5 +1,9 @@
 # Site restructure for search
 
+Status: built on branch `site-restructure-for-search` (12 November 2026). New pages are
+made by copying an existing topic page; keep the FAQ structured data identical to the
+visible FAQ text, and add the page to `sitemap.xml`.
+
 Plan agreed on 12 November 2026 between Adam and Claude. Tomer has not confirmed it yet.
 
 ## Goal
