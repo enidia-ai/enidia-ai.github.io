@@ -24,10 +24,10 @@
   <meta property="og:image" content="https://enidia.ai/assets/img/blog/article-ai-cost-caps-1200x630.png" />
   <meta property="article:published_time" content="2026-11-06" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="../assets/img/favicon.png" />
-  <link rel="stylesheet" href="../assets/css/fonts.css">
-  <link rel="stylesheet" href="../assets/css/enidia.css">
-  <script src="../assets/js/consent.js" defer></script>
+  <link rel="icon" href="/assets/img/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/enidia.css">
+  <script src="/assets/js/consent.js" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -58,16 +58,24 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="../index.html"><img src="../assets/img/logo.png" alt="Enidia" style="height:42px" /></a>
+      <a href="/" class="nav-logo"><img src="/assets/img/logo.png" alt="Enidia" style="height:42px" /></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></label>
       <div class="nav-links">
-        <a href="../index.html#task" class="hide-sm">What we do</a>
-        <a href="../index.html#see" class="hide-sm">See it work</a>
-        <a href="../index.html#start" class="hide-sm">Getting started</a>
-        <a href="../index.html#on-premise" class="hide-sm">On-premise</a>
-        <a href="../index.html#calculator" class="hide-sm">ROI</a>
-        <a href="../index.html#contact" class="hide-sm">Contact</a>
-        <a href="../blog/index.html">Blog</a>
-        <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Book a demo</a>
+        <a href="/product/">Product</a>
+        <details class="nav-sub">
+          <summary>Who it's for</summary>
+          <div class="nav-sub-links">
+            <a href="/for-law-firms/">Law firms</a>
+            <a href="/for-funds/">Funds and AIFMs</a>
+            <a href="/for-in-house-and-compliance/">In-house and compliance</a>
+          </div>
+        </details>
+        <a href="/on-premise-legal-ai/">On-premise</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/about/">About</a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" class="btn btn-solid btn-sm" data-cta="nav-demo">Book a demo</a>
       </div>
     </div>
   </nav>
@@ -82,7 +90,7 @@
       November 6, 2026
     </div>
 
-    <figure class="doc-photo"><img src="../assets/img/blog/article-ai-cost-caps-1200x630.png" alt="A flat cost line for AI run on a firm’s own hardware, against a rising line for per-seat and metered cloud pricing." width="1200" height="630" /></figure>
+    <figure class="doc-photo"><img src="/assets/img/blog/article-ai-cost-caps-1200x630.png" alt="A flat cost line for AI run on a firm’s own hardware, against a rising line for per-seat and metered cloud pricing." width="1200" height="630" /></figure>
 
     <div class="abstract">
       <p>On 5 November, our CTO sat on a panel on innovation, regulation and technological sovereignty. His argument: Europe’s constraint is capital and compute, not the AI Act, and one way forward is to use models small enough to run on your own hardware. For a law firm or a fund administrator, that argument arrives as a procurement question.</p>
@@ -115,14 +123,14 @@
 
     <h2>The short version</h2>
     <p>Europe is behind in the cloud race and will stay behind. That is why open-weight models running on hardware you own can be a position of strength rather than a consolation prize. It also happens to be the only position from which a law firm can use AI on a client matter and still answer the confidentiality question in one sentence.</p>
-    <p>If you want to see what that looks like on your own documents, we run a <a href="../index.html#start">one-month pilot</a> on non-confidential material. You can also explore <a href="../index.html#agents">the three agents</a> and our <a href="../verification-standard.html">Legal AI Verification Standard</a>. To see what flat-rate costs could mean for your workload, try the <a href="../index.html#calculator">cost calculator</a>.</p>
+    <p>If you want to see what that looks like on your own documents, we run a <a href="/product/#start">one-month pilot</a> on non-confidential material. You can also explore <a href="/product/#agents">the three agents</a> and our <a href="/verification-standard.html">Legal AI Verification Standard</a>. To see what flat-rate costs could mean for your workload, try the <a href="/pricing/#calculator">cost calculator</a>.</p>
 
     <div class="doc-cta">
       <p><strong>Try Enidia AI for free</strong> with your Google login.</p>
       <a href="https://app.enidia.ai" target="_blank" rel="noopener" class="btn btn-solid">Open app.enidia.ai</a>
     </div>
 
-    <p class="doc-back"><a href="index.html">← All blog posts</a></p>
+    <p class="doc-back"><a href="/blog/">← All blog posts</a></p>
 
   </article>
 
@@ -131,34 +139,39 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="../assets/img/logo.png" alt="Enidia" />
+          <img src="/assets/img/logo.png" alt="Enidia" />
           <p>One task, done properly: your checklists, forms and templates filled from your own
           documents. Every answer sourced. Every gap reported. Nothing leaves your premises.</p>
         </div>
         <div class="footer-col">
           <h4>Product</h4>
-          <a href="../index.html#task">What we do</a>
-          <a href="../index.html#agents">The AssociAte</a>
-          <a href="../index.html#agents">The Librarian</a>
-          <a href="../index.html#agents">The Clerk</a>
-          <a href="../index.html#on-premise">On-premise</a>
-          <a href="../index.html#calculator">ROI calculator</a>
-          <a href="../verification-standard.html">Verification Standard</a>
-          <a href="../blog/index.html">Blog</a>
+          <a href="/product/">The AssociAte</a>
+          <a href="/on-premise-legal-ai/">On-premise</a>
+          <a href="/pricing/">Pricing</a>
+          <a href="/why-not-a-general-legal-ai/">Why not a general legal AI</a>
+          <a href="/verification-standard.html">Verification Standard</a>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
-          <p>Questions or trial requests</p>
+          <h4>Who it's for</h4>
+          <a href="/for-law-firms/">Law firms</a>
+          <a href="/legal-ai-for-small-law-firms/">Small law firms</a>
+          <a href="/for-funds/">Funds and AIFMs</a>
+          <a href="/for-in-house-and-compliance/">In-house and compliance</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about/">About</a>
+          <a href="/about/#press">Press</a>
+          <a href="/blog/">Blog</a>
           <a href="mailto:info@enidia.ai">info@enidia.ai</a>
-          <a href="../index.html#contact">Send us a message</a>
-          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener">Book a demo</a>
-          <a href="../index.html#get-started">Request a free trial</a>
+          <a href="https://calendar.app.google/hoHXa9XJ3oYqrxmn7" target="_blank" rel="noopener" data-cta="footer-demo">Book a demo</a>
+          <a href="/?intent=trial&amp;src=footer-trial#contact" data-cta="footer-trial">Request a free trial</a>
           <a href="https://www.linkedin.com/company/enidia-ai" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>© 2026 Enidia AI, S.à r.l.-S · Esch-sur-Alzette, Luxembourg · RCS B277442</p>
-        <p><a href="../privacy.html">Privacy &amp; Cookie Policy</a> · <a href="#" onclick="EnidiaConsent.reopen();return false;">Cookie settings</a> · <a href="mailto:info@enidia.ai">info@enidia.ai</a></p>
+        <p><a href="/privacy.html">Privacy &amp; Cookie Policy</a> · <a href="#" onclick="EnidiaConsent.reopen();return false;">Cookie settings</a> · <a href="mailto:info@enidia.ai">info@enidia.ai</a></p>
       </div>
     </div>
   </footer>
