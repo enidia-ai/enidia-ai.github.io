@@ -35,7 +35,7 @@ section with a link, so it still scrolls through the whole story.
 | `/for-law-firms/` | LPA closing film, due diligence, closing review | legal AI for law firms Luxembourg |
 | `/for-funds/` | CSSF film, regulatory questionnaires, new copy on the peak and the auditor | CSSF self-assessment questionnaire |
 | `/for-in-house-and-compliance/` | DORA film, contract compliance review | DORA Article 30 contract review |
-| `/pricing/` | Two ways to pay, EUR 5,000 machine, calculator, seat price once decided | legal AI pricing, flat fee |
+| `/pricing/` | Two ways to pay, EUR 5,000 machine, calculator, pricing as it is today | legal AI pricing, flat fee |
 | `/legal-ai-for-small-law-firms/` | New, from the strategy's A1 line | legal AI small law firm |
 | `/why-not-a-general-legal-ai/` | The existing section | general legal AI limits |
 | `/about/` | New, see below | company, founders, press |
@@ -44,9 +44,9 @@ section with a link, so it still scrolls through the whole story.
 Nav becomes: Product, Who it's for (three), On-premise, Pricing, About, Blog, Book a demo.
 It must work on mobile.
 
-First three pages: on-premise, funds, product. They need no new decisions.
-Pricing and small-firm pages wait for the price unit decision and a checked source for
-competitor prices.
+First three pages: on-premise, funds, product.
+Pricing stays as it is today for small and large firms alike; the pricing and small-firm
+pages present the current model and do not introduce new numbers.
 
 ## About page
 
@@ -83,10 +83,3 @@ Linked from the nav, the footer, and a "read the story" link under the proof sec
   figures stay off.
 - Nothing from the strategy's "Future" list is presented as available.
 - Each page has one demo button in the same place with the same wording.
-
-## Open
-
-- An unmerged branch from September, `issue-15-site-information-architecture`, split the
-  site by Products, Solutions, Use cases, Research and About. Ask Tomer why it stopped
-  before building this one.
-- Tomer's confirmation of the strategy document and of this plan.
