@@ -494,3 +494,5 @@ footer{background:var(--paper);border-top:1px solid var(--rule);padding:72px 0 3
 .cta-back a{color:rgba(255,255,255,.72);font-weight:600;border-bottom:1px solid rgba(255,255,255,.3)}
 .cta-back a:hover{color:#fff}
 .cmp-note .more-link{font-size:14px}
+.longs .film{display:flex;flex-direction:column}
+.longs .film-cap{flex:1}
