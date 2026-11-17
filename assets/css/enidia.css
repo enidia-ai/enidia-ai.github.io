@@ -480,3 +480,17 @@ footer{background:var(--paper);border-top:1px solid var(--rule);padding:72px 0 3
 .person .role{color:var(--orange);font-weight:600;font-size:14px;margin-bottom:12px}
 .head + .more-link{margin-top:-28px}
 .solution-card .more-link{align-self:flex-start;margin-top:auto;padding-top:14px;font-size:15px}
+.map-note{margin-top:14px;font-size:15px;color:var(--blue);font-weight:600;max-width:62ch}
+.head.mid .map-note{margin-left:auto;margin-right:auto}
+.section-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.section-ctas.mid{justify-content:center}
+.cmp-note.mid{text-align:center;margin:14px auto 36px}
+.film-go{padding:0 20px 18px;background:var(--card)}
+.section.deep .map-note{color:rgba(255,255,255,.8)}
+.crumb{font-size:14px;color:var(--ink-faint);margin-bottom:14px}
+.crumb a{color:var(--navy);font-weight:600}
+.crumb span{margin:0 6px}
+.cta-back{margin-top:26px}
+.cta-back a{color:rgba(255,255,255,.72);font-weight:600;border-bottom:1px solid rgba(255,255,255,.3)}
+.cta-back a:hover{color:#fff}
+.cmp-note .more-link{font-size:14px}
