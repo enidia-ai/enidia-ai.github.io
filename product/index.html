@@ -30,12 +30,14 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Self-hosted server",
       "url": "https://enidia.ai/product/",
-      "description": "Fills a checklist, regulatory form, survey or template from source documents. Every answer carries its page and passage; every unanswered question is reported as absent.",
+      "description": "Fills a checklist, regulatory form, survey or template from source documents. Every answer is proven, uncertain or not found, and opens on the passage that proves it; every missing item is reported with the reason.",
       "featureList": [
-        "Answers marked found, inferred or absent",
-        "Source passage framed on its page",
+        "Answers marked proven, uncertain or not found",
+        "Source passage opens in one click",
+        "Pages searched and pages used shown per item",
         "Certificate per run",
-        "Learns firm vocabulary and corrections",
+        "Word in, Word out",
+        "Learns from comments, corrected drafts and the firm's archive",
         "Runs on hardware the client owns"
       ],
       "publisher": {
@@ -58,7 +60,7 @@
           "name": "What happens when the documents do not answer a question?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The question comes back marked absent, with nothing invented to cover it. From there the tool helps you settle whether the answer is missing from the documents or the AI failed to find it."
+            "text": "The item comes back marked not found, with the reason: not present in the documents, not yet extracted, or evidence that could not be confirmed. Nothing is filled with a guess, and nothing is left silently blank."
           }
         },
         {
@@ -66,7 +68,7 @@
           "name": "How do I check an answer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In one click. The passage an answer rests on is framed on its page, so you check it by looking rather than by re-reading."
+            "text": "In one click. A proven answer opens on the passage that proves it, so the check is reading one quote next to the answer rather than re-reading the document. For each item you also see which pages were searched and which gave evidence."
           }
         },
         {
@@ -74,7 +76,23 @@
           "name": "Does it learn our vocabulary and corrections?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. When your documents use a different word, you tell it once and it finds the same field in the next document. Each agent can be taught your firm's standards through a plain conversation, and remembers what it was told."
+            "text": "Yes, in four ways: the explanations in your checklist become each field's starting definition, a reviewer's comment on a field goes into the definition once a senior approves it, a corrected Word draft can be uploaded so the tool closes the gap itself, and the checklists your firm has already completed can be run as batch training overnight. What it learns is plain-language field definitions that stay on your server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it show about what it did not find?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every item without an answer is marked in place with the reason. For each item you see which pages were searched and which gave evidence. An answer the tool generated but could not tie to a passage word for word is discarded and shown as unconfirmed evidence, never as a confident guess."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do our lawyers have to learn a new tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very little. The checklist goes in as a Word file and comes out as a filled Word form, ready to sign. In between there is one review screen: each answer, its status and its quoted passage side by side. Setting up a new questionnaire takes an afternoon."
           }
         },
         {
@@ -172,7 +190,7 @@
             <article class="solution-card">
               <span class="solution-kicker">Closings</span>
               <h3>Closing and condition-precedent review</h3>
-              <p>Determine whether each closing requirement is supported, incomplete, or absent from the transaction documents.</p>
+              <p>Determine whether each closing requirement is proven, uncertain or not found in the transaction documents.</p>
               <a class="more-link" href="/for-law-firms/">For law firms</a>
             </article>
             <article class="solution-card">
@@ -195,20 +213,20 @@
       <div class="wrap">
         <div class="head">
           <p class="eyebrow">Verification</p>
-          <h2>Three answers, and you can tell them apart</h2>
-          <p class="lede">The whole product is that these are three different things, and you can see which is which at a glance.</p>
+          <h2>Three statuses, and you can tell them apart</h2>
+          <p class="lede">Each field gets one of three statuses. The lawyer sees at a glance where to spend attention, and the proof for a green row is one click away.</p>
         </div>
         <div class="states">
-          <div class="state ok"><div class="dot"></div><h3>Found</h3>
-            <p>The document answers the question. The answer carries the page, and the passage it rests on is framed where it sits, so you check it by looking rather than by re-reading.</p></div>
-          <div class="state warn"><div class="dot"></div><h3>Inferred</h3>
-            <p>The document says the thing, but not in the form's vocabulary. You get the answer, both supporting passages framed on their pages, and a label saying this is a mapping rather than something the document states.</p></div>
-          <div class="state none"><div class="dot"></div><h3>Absent</h3>
-            <p>We could not find an answer in the documents. That is reported as a finding, never
-            left blank and never filled with something plausible. From there the tool helps you
-            settle the question that actually matters: is it missing from the documents, or did
-            the AI fail to find it?</p></div>
+          <div class="state ok"><div class="dot"></div><h3>Proven</h3>
+            <p>The answer and the passage that proves it. Click, and the document opens on that passage. The check is reading one quote, not re-reading the document.</p></div>
+          <div class="state warn"><div class="dot"></div><h3>Uncertain</h3>
+            <p>The system checked its own answer against the passage and the field's requirements and found a problem. It says so and hands the field to the lawyer, instead of hiding the doubt in fluent prose.</p></div>
+          <div class="state none"><div class="dot"></div><h3>Not found</h3>
+            <p>A required item the documents do not answer. It is reported as missing, with the
+            reason, and never filled with a guess. For a regulatory filing, a missing item is the
+            finding that matters most.</p></div>
         </div>
+        <p class="cmp-note" style="margin-top:22px">No evidence, no answer. A field with no passage found in the documents gets no answer, only not found. The lawyer starts with the orange and the grey; green rows need only the one-click check.</p>
         <div class="grid g1" style="margin-top:24px">
           <div class="card"><h3>What comes out: a certificate you can hand over</h3>
             <p>Every run produces a certificate: each element, its state, its verbatim source and its locator. It goes into the matter file, to the client, or in front of a regulator. The workflow is the same every time: the list arrives, it gets filled, you check it, you argue with it, you correct it, and a certificate comes out.</p></div>
@@ -216,6 +234,95 @@
       </div>
     </section>
   
+    <section class="section tint" id="transparency">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Transparency</p>
+          <h2>What is missing is reported, with the reason.</h2>
+          <p class="lede">Most tools show you what they found. The AssociAte also shows what it did not find and why, and which searched pages gave no evidence, so the reviewer sees the gaps as clearly as the answers.</p>
+        </div>
+        <div class="grid g3">
+          <div class="card"><h3>Not found, with the reason</h3>
+            <p>Every item without an answer is marked in place, with why: not present in the document, not yet extracted, or evidence that could not be confirmed. Nothing is left silently blank.</p></div>
+          <div class="card"><h3>Pages searched, pages used</h3>
+            <p>For each item, the tool shows which pages it searched, out of the document's total, and which of them gave evidence, instead of leaving the reviewer to trust a model's silence.</p></div>
+          <div class="card"><h3>Dropped answers</h3>
+            <p>Answers the tool generated but could not tie to a passage word for word are discarded. The reviewer sees "unconfirmed evidence" and the reason, instead of a confident guess.</p></div>
+        </div>
+        <p class="cmp-note" style="margin-top:26px">The text, or the page itself. Each source shows the text the tool read or an image of the original page. Hidden text, such as invisible instructions aimed at AI, shows up when the two differ.</p>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">The workflow</p>
+          <h2>A fixed workflow, not a chat that improvises.</h2>
+          <p class="lede">A general assistant decides each time how to do the task, so two runs give two different results. A questionnaire here runs as a fixed pipeline with verification built in: the same steps on every item, every document, every year.</p>
+        </div>
+        <div class="grid g3">
+          <div class="card"><span class="tag tag-dim">1</span><h3>Your questionnaire, from Word</h3>
+            <p>The regulator's form or your own checklist, imported once. It becomes a template you reuse on every later document.</p></div>
+          <div class="card"><span class="tag tag-dim">2</span><h3>Your documents</h3>
+            <p>The prospectus, the agreements, the fund's file. English, French or German, one document or a set. They stay on your computer.</p></div>
+          <div class="card"><span class="tag tag-dim">3</span><h3>Answer and verify, per item</h3>
+            <p>For each field: find the passages, answer, then check the answer against its passage. The same steps for every item and every document.</p></div>
+          <div class="card"><span class="tag tag-dim">4</span><h3>Status and flags</h3>
+            <p>Proven, uncertain or not found. Possible omissions and the pages the tool did not use are flagged, so the reviewer sees what is missing too.</p></div>
+          <div class="card"><span class="tag tag-dim">5</span><h3>The lawyer signs</h3>
+            <p>Reviews every answer with its evidence one click away, corrects where needed, exports the filled form to Word and signs. Corrections are kept with the template.</p></div>
+          <div class="card"><span class="tag tag-free">Why it works on small models</span><h3>Narrow questions, evidence in front</h3>
+            <p>The pipeline asks the model one narrow question at a time with the passages in front of it. That is what lets open models on one server in the firm answer reliably.</p></div>
+        </div>
+        <p class="cmp-note" style="margin-top:26px">Repeatable, so the same questionnaire gives the same kind of result on every fund and every year. Defensible, so the work can be shown to a partner, an auditor or the regulator, field by field.</p>
+      </div>
+    </section>
+
+    <section class="section tint" id="learning">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Knowledge transfer</p>
+          <h2>It learns from your lawyers, and what it learns stays in the firm.</h2>
+          <p class="lede">A firm's knowledge sits in the checklists it writes, in reviewers' comments and in the checklists it has already completed. The AssociAte takes that knowledge in four ways and uses it on the next run.</p>
+        </div>
+        <div class="grid g4">
+          <div class="card"><span class="tag tag-dim">0</span><h3>Give it your checklist</h3>
+            <p>Import the checklist as the firm uses it. Its explanations, sample answers and reviewers' notes become each field's starting definition, which a senior reviews before the first run.</p></div>
+          <div class="card"><span class="tag tag-dim">1</span><h3>Comment on a field</h3>
+            <p>While reviewing, the associate comments on an answer, where the work is done. A senior approves the comment and it goes into the field's definition. No comment changes the system on its own.</p></div>
+          <div class="card"><span class="tag tag-dim">2</span><h3>Hand it a solved checklist</h3>
+            <p>Export the draft, correct it in Word, upload the corrected version and click improve. The tool compares every field against the lawyer's answer and writes the commentary that closes the gap.</p></div>
+          <div class="card"><span class="tag tag-dim">3</span><h3>Batch training on your archive</h3>
+            <p>Upload the checklists the firm has already filled in, with their documents, and run it overnight. Years of completed work become the template's knowledge; an editor then approves what was learned.</p></div>
+        </div>
+        <div class="grid g1" style="margin-top:24px">
+          <div class="card"><h3>Where the knowledge lives</h3>
+            <p>On the firm's server: definitions, comments and completed checklists stay inside the firm's network and serve the firm alone. What it learns is plain-language field definitions a senior can read, edit and approve, not a black box. Nothing the firm teaches it reaches another firm or a vendor, and it is never used to train a shared model. A partner's approved comment shapes the template every associate runs.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="word">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">Fits how lawyers work</p>
+          <h2>Word in, Word out. One review screen, nothing else to learn.</h2>
+          <p class="lede">Lawyers work in Word and email. The AssociAte takes the checklist and the documents the way they already exist and gives back the filled form the way it is filed.</p>
+        </div>
+        <div class="grid g4">
+          <div class="card"><h3>In: your Word checklist</h3>
+            <p>The regulator's questionnaire or the firm's own checklist, as a Word file. No re-typing into a tool. Imported once, reused as a template.</p></div>
+          <div class="card"><h3>In: your documents</h3>
+            <p>PDF or Word, hundreds of pages, in English, French or German. One document or a set.</p></div>
+          <div class="card"><h3>Review with evidence</h3>
+            <p>Each answer, its status and its quoted passage side by side. Click to open the source. Correct or comment in place.</p></div>
+          <div class="card"><h3>Out: the filled Word form</h3>
+            <p>The questionnaire as it will be filed, with the answers and, where wanted, the evidence. Ready to sign and send.</p></div>
+        </div>
+        <p class="cmp-note" style="margin-top:26px">A new questionnaire in an afternoon: import the form, run it on one document, correct the first answers, and the template is ready for the next fund. Beyond the form, a lawyer can ask free questions over the same documents and get the same evidence-backed answers.</p>
+      </div>
+    </section>
+
     <section class="section tint" id="agents">
       <div class="wrap">
         <div class="head">
@@ -228,8 +335,8 @@
             <span class="tag tag-dim" style="background:var(--ok-wash);color:var(--ok)">The one task</span>
             <h3>The AssociAte</h3>
             <p>Takes your checklist, form, survey or template and fills it from the documents.
-            Every answer carries its page and its exact words; every question the documents do not
-            answer comes back marked absent, with nothing invented to cover it. <a href="/pricing/#calculator" style="color:var(--blue);font-weight:600">In our own timed run, 25 hours became 4.</a></p>
+            Every answer is proven, uncertain or not found and opens on its passage; every item the
+            documents do not answer comes back marked not found, with nothing invented to cover it. <a href="/pricing/#calculator" style="color:var(--blue);font-weight:600">In our own timed run, 25 hours became 4.</a></p>
             <p class="meta">Verified at a Global 10 law firm · Configurable per matter type · Runs on your hardware</p>
           </div>
           <div class="card">
@@ -308,9 +415,11 @@
         </div>
         <div class="faq">
           <details><summary>What does the AssociAte do with a checklist?</summary><p>It takes your checklist, form, survey or template and fills it from the documents. Every answer carries its page and its exact words.</p></details>
-          <details><summary>What happens when the documents do not answer a question?</summary><p>The question comes back marked absent, with nothing invented to cover it. From there the tool helps you settle whether the answer is missing from the documents or the AI failed to find it.</p></details>
-          <details><summary>How do I check an answer?</summary><p>In one click. The passage an answer rests on is framed on its page, so you check it by looking rather than by re-reading.</p></details>
-          <details><summary>Does it learn our vocabulary and corrections?</summary><p>Yes. When your documents use a different word, you tell it once and it finds the same field in the next document. Each agent can be taught your firm's standards through a plain conversation, and remembers what it was told.</p></details>
+          <details><summary>What happens when the documents do not answer a question?</summary><p>The item comes back marked not found, with the reason: not present in the documents, not yet extracted, or evidence that could not be confirmed. Nothing is filled with a guess, and nothing is left silently blank.</p></details>
+          <details><summary>How do I check an answer?</summary><p>In one click. A proven answer opens on the passage that proves it, so the check is reading one quote next to the answer rather than re-reading the document. For each item you also see which pages were searched and which gave evidence.</p></details>
+          <details><summary>Does it learn our vocabulary and corrections?</summary><p>Yes, in four ways: the explanations in your checklist become each field's starting definition, a reviewer's comment on a field goes into the definition once a senior approves it, a corrected Word draft can be uploaded so the tool closes the gap itself, and the checklists your firm has already completed can be run as batch training overnight. What it learns is plain-language field definitions that stay on your server.</p></details>
+          <details><summary>What does it show about what it did not find?</summary><p>Every item without an answer is marked in place with the reason. For each item you see which pages were searched and which gave evidence. An answer the tool generated but could not tie to a passage word for word is discarded and shown as unconfirmed evidence, never as a confident guess.</p></details>
+          <details><summary>Do our lawyers have to learn a new tool?</summary><p>Very little. The checklist goes in as a Word file and comes out as a filled Word form, ready to sign. In between there is one review screen: each answer, its status and its quoted passage side by side. Setting up a new questionnaire takes an afternoon.</p></details>
           <details><summary>Can we try it without installing anything?</summary><p>Yes. The trial runs in our cloud on your own checklist and a document you are free to share. Nothing you send is used to train anything, and it is deleted when the trial ends.</p></details>
         </div>
       </div>
