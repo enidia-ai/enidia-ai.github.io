@@ -4,6 +4,9 @@ Status: built on branch `site-restructure-for-search` (12 November 2026). New pa
 made by copying an existing topic page; keep the FAQ structured data identical to the
 visible FAQ text, and add the page to `sitemap.xml`.
 
+Map of the result, with every section of the home page and every subpage and the links
+between them: `docs/site-map.html` (23 November 2026).
+
 Plan agreed on 12 November 2026 between Adam and Claude. Tomer has not confirmed it yet.
 
 ## Goal
