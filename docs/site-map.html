@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Map of enidia.ai</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#f7f8fb; --card:#ffffff; --fg:#141a33; --muted:#5b6380; --line:#d9dde8;
+  --navy:#000078; --navy-ink:#ffffff; --blue:#0050b4; --orange:#e67300; --wash:#eef1f8;
+  --text:"Inter",system-ui,sans-serif; --display:"Space Grotesk","Inter",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f1220; --card:#181c2e; --fg:#e8eaf3; --muted:#9aa2c0; --line:#2b3150;
+  --navy:#3a4bd8; --navy-ink:#ffffff; --blue:#7fa6ff; --orange:#ff9a3c; --wash:#1d2238; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f1220; --card:#181c2e; --fg:#e8eaf3; --muted:#9aa2c0; --line:#2b3150;
+  --navy:#3a4bd8; --navy-ink:#ffffff; --blue:#7fa6ff; --orange:#ff9a3c; --wash:#1d2238; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--text);font-size:15px;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding-block:36px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h1{font-size:30px;font-weight:600;letter-spacing:-.01em}
+.sub{color:var(--muted);max-width:68ch;margin:8px 0 28px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13px;color:var(--muted);margin-bottom:14px}
+.legend i{display:inline-block;width:26px;height:0;border-top:2px solid currentColor;vertical-align:middle;margin-right:8px}
+.legend .in i{border-top-style:dashed;color:var(--orange)}
+.legend .bk i{border-top-style:dotted;color:var(--blue)}
+.node.home rect.bar.cut{fill:rgba(255,255,255,.42)}
+.node.home rect.bar.add{fill:#5fd39a}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 12px 8px;overflow-x:auto}
+figure svg{display:block;min-width:760px;max-width:100%;height:auto;margin:0 auto;font-family:var(--text)}
+figcaption{font-size:13px;color:var(--muted);padding:10px 6px 4px;max-width:80ch}
+.spine{stroke:var(--line);stroke-width:2}
+.node rect{fill:var(--card);stroke:var(--line);stroke-width:1.5;transition:stroke .15s}
+.node.home rect{fill:var(--navy);stroke:var(--navy)}
+.node.home text{fill:var(--navy-ink)}
+.node.sub rect{fill:var(--wash)}
+.node.sub text{fill:var(--fg)}
+.nshort{font-size:13px;font-weight:600}
+.nsub{font-size:11px;opacity:.78}
+.colhead{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;fill:var(--muted)}
+.link{fill:none;stroke:var(--fg);stroke-width:1.4;opacity:.32;transition:opacity .15s,stroke-width .15s}
+.inlink{fill:none;stroke:var(--orange);stroke-width:1.3;stroke-dasharray:4 4;opacity:.7}
+.back{fill:none;stroke:var(--blue);stroke-width:1.3;stroke-dasharray:1.5 4;opacity:.8}
+svg a{cursor:pointer}
+svg.focus .link{opacity:.07}
+svg.focus .inlink{opacity:.15}
+svg.focus .link.lit{opacity:.95;stroke:var(--orange);stroke-width:2.2}
+svg.focus .inlink.lit{opacity:1;stroke-width:2}
+svg.focus .node.dim rect{opacity:.35}
+svg.focus .node.dim text{opacity:.35}
+.node.lit rect{stroke:var(--orange);stroke-width:2.5}
+h2{font-size:21px;font-weight:600;margin:44px 0 6px}
+.lead{color:var(--muted);margin:0 0 18px;max-width:70ch}
+ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+li{display:grid;grid-template-columns:52px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;scroll-margin-top:16px}
+li:target{border-color:var(--orange);box-shadow:0 0 0 3px color-mix(in srgb,var(--orange) 25%,transparent)}
+li > div{min-width:0}
+.num{font-family:var(--display);font-weight:600;font-size:22px;color:var(--navy);line-height:1;padding-top:3px;font-variant-numeric:tabular-nums}
+.num.sub{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:var(--muted);word-break:break-all;padding-top:6px}
+li h3{font-size:16px;font-weight:600}
+li h3 .h2{font-family:var(--text);font-weight:400;color:var(--muted);font-size:14px;margin-left:6px}
+li p{margin:4px 0 0}
+.to{font-size:13px;color:var(--muted)}
+.to span{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-right:10px;color:var(--blue)}
+.to.in span{color:var(--orange)}
+.to a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line)}
+.to a:hover,.to a:focus-visible{border-color:var(--orange);outline:none}
+@media (max-width:640px){ li{grid-template-columns:1fr} .num{padding-top:0} .num.sub{word-break:normal} }
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <h1>Map of enidia.ai</h1>
+  <p class="sub">State of the site on branch site-restructure-for-search, 23 November 2026. The home page is a single scrolling story. Each section ends in a link to the page that tells that part in full. Hover a node to see only its links. Click it to jump to its description.</p>
+
+  <div class="legend">
+    <span><i></i>link from a home section to a subpage</span>
+    <span class="in"><i></i>link inside the home page</span>
+    <span class="bk"><i></i>every subpage: Home in the menu, a breadcrumb, &ldquo;Back to the overview&rdquo;, and a trial button that lands on the contact form</span>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 1000 860" role="img" aria-label="Map of the enidia.ai home page: twelve sections in order on the left, the ten subpages on the right, with the links between them." xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+<text x="170" y="24" class="colhead">Home, top to bottom</text>
+<text x="690" y="24" class="colhead">Subpages</text>
+<text x="20" y="24" class="colhead muted">in-page</text>
+<line x1="330.0" y1="86" x2="330.0" y2="754.0" class="spine"/>
+<path class="link" data-from="solutions" data-to="product" d="M490 127.9090909090909 C 600 127.9090909090909, 580 63.0, 690 63.0" marker-end="url(#ar)"><title>How the AssociAte works</title></path>
+<path class="link" data-from="solutions" data-to="product" d="M490 127.9090909090909 C 600 127.9090909090909, 580 63.0, 690 63.0" marker-end="url(#ar)"><title>The three agents → #agents</title></path>
+<path class="link" data-from="solutions" data-to="whynot" d="M490 127.9090909090909 C 600 127.9090909090909, 580 459.66666666666663, 690 459.66666666666663" marker-end="url(#ar)"><title>Why not a general legal AI</title></path>
+<path class="link" data-from="solutions" data-to="lawfirms" d="M490 127.9090909090909 C 600 127.9090909090909, 580 142.33333333333331, 690 142.33333333333331" marker-end="url(#ar)"><title>See it for law firms</title></path>
+<path class="link" data-from="solutions" data-to="funds" d="M490 127.9090909090909 C 600 127.9090909090909, 580 221.66666666666666, 690 221.66666666666666" marker-end="url(#ar)"><title>See it for funds and AIFMs</title></path>
+<path class="link" data-from="solutions" data-to="inhouse" d="M490 127.9090909090909 C 600 127.9090909090909, 580 301.0, 690 301.0" marker-end="url(#ar)"><title>See it for in-house and compliance</title></path>
+<path class="link" data-from="answers" data-to="product" d="M490 257.72727272727275 C 600 257.72727272727275, 580 63.0, 690 63.0" marker-end="url(#ar)"><title>How the AssociAte works → #states</title></path>
+<path class="link" data-from="start" data-to="onprem" d="M490 322.6363636363636 C 600 322.6363636363636, 580 539.0, 690 539.0" marker-end="url(#ar)"><title>What on-premise means</title></path>
+<path class="link" data-from="start" data-to="product" d="M490 322.6363636363636 C 600 322.6363636363636, 580 63.0, 690 63.0" marker-end="url(#ar)"><title>Meet the three agents → #agents</title></path>
+<path class="link" data-from="who" data-to="funds" d="M490 517.3636363636364 C 600 517.3636363636364, 580 221.66666666666666, 690 221.66666666666666" marker-end="url(#ar)"><title>For funds and AIFMs</title></path>
+<path class="link" data-from="who" data-to="lawfirms" d="M490 517.3636363636364 C 600 517.3636363636364, 580 142.33333333333331, 690 142.33333333333331" marker-end="url(#ar)"><title>For law firms</title></path>
+<path class="link" data-from="who" data-to="inhouse" d="M490 517.3636363636364 C 600 517.3636363636364, 580 301.0, 690 301.0" marker-end="url(#ar)"><title>For in-house and compliance</title></path>
+<path class="link" data-from="onprem-h" data-to="onprem" d="M490 582.2727272727273 C 600 582.2727272727273, 580 539.0, 690 539.0" marker-end="url(#ar)"><title>What on-premise means, in full</title></path>
+<path class="link" data-from="onprem-h" data-to="pricing" d="M490 582.2727272727273 C 600 582.2727272727273, 580 618.3333333333333, 690 618.3333333333333" marker-end="url(#ar)"><title>Two ways to pay → #two-ways</title></path>
+<path class="link" data-from="pricing-h" data-to="pricing" d="M490 647.1818181818181 C 600 647.1818181818181, 580 618.3333333333333, 690 618.3333333333333" marker-end="url(#ar)"><title>See how pricing works</title></path>
+<path class="link" data-from="pricing-h" data-to="smallfirms" d="M490 647.1818181818181 C 600 647.1818181818181, 580 380.3333333333333, 690 380.3333333333333" marker-end="url(#ar)"><title>Legal AI for a small law firm</title></path>
+<path class="link" data-from="proof" data-to="about" d="M490 712.090909090909 C 600 712.090909090909, 580 697.6666666666666, 690 697.6666666666666" marker-end="url(#ar)"><title>Read the story / The founders’ papers → #research / Fit 4 Start → #deployment</title></path>
+<path class="inlink" data-from="hero" data-to="see" d="M170 63.0 C 121.22909090909091 63.0, 121.22909090909091 192.8181818181818, 170 192.8181818181818" marker-end="url(#ar)"/>
+<path class="inlink" data-from="hero" data-to="contact" d="M170 63.0 C 79.68727272727273 63.0, 79.68727272727273 452.45454545454544, 170 452.45454545454544" marker-end="url(#ar)"/>
+<path class="inlink" data-from="hero" data-to="calculator" d="M170 63.0 C 90.07272727272728 63.0, 90.07272727272728 387.5454545454545, 170 387.5454545454545" marker-end="url(#ar)"/>
+<path class="inlink" data-from="solutions" data-to="calculator" d="M170 127.9090909090909 C 100.45818181818183 127.9090909090909, 100.45818181818183 387.5454545454545, 170 387.5454545454545" marker-end="url(#ar)"/>
+<path class="inlink" data-from="solutions" data-to="proof" d="M170 127.9090909090909 C 48.53090909090909 127.9090909090909, 48.53090909090909 712.090909090909, 170 712.090909090909" marker-end="url(#ar)"/>
+<path class="inlink" data-from="solutions" data-to="get-started" d="M170 127.9090909090909 C 38.14545454545453 127.9090909090909, 38.14545454545453 777.0, 170 777.0" marker-end="url(#ar)"/>
+<path class="inlink" data-from="answers" data-to="see" d="M170 257.72727272727275 C 131.61454545454546 257.72727272727275, 131.61454545454546 192.8181818181818, 170 192.8181818181818" marker-end="url(#ar)"/>
+<path class="inlink" data-from="start" data-to="see" d="M170 322.6363636363636 C 121.22909090909091 322.6363636363636, 121.22909090909091 192.8181818181818, 170 192.8181818181818" marker-end="url(#ar)"/>
+<path class="inlink" data-from="start" data-to="contact" d="M170 322.6363636363636 C 121.22909090909091 322.6363636363636, 121.22909090909091 452.45454545454544, 170 452.45454545454544" marker-end="url(#ar)"/>
+<path class="inlink" data-from="calculator" data-to="contact" d="M170 387.5454545454545 C 131.61454545454546 387.5454545454545, 131.61454545454546 452.45454545454544, 170 452.45454545454544" marker-end="url(#ar)"/>
+<path class="inlink" data-from="pricing-h" data-to="calculator" d="M170 647.1818181818181 C 100.45818181818183 647.1818181818181, 100.45818181818183 387.5454545454545, 170 387.5454545454545" marker-end="url(#ar)"/>
+<path class="inlink" data-from="get-started" data-to="contact" d="M170 777.0 C 90.07272727272726 777.0, 90.07272727272726 452.45454545454544, 170 452.45454545454544" marker-end="url(#ar)"/>
+<path class="back" d="M980 777.0 L 992 777.0 L 992 63.0 L 980 63.0"/>
+<path class="back" d="M992 63.0 C 992 -10, 530 -10, 490 63.0" marker-end="url(#ar)"/>
+<path class="back" d="M992 777.0 C 992 856, 530 856, 490 452.45454545454544" marker-end="url(#ar)"/>
+<text x="988" y="24" class="small" text-anchor="end"></text>
+<a href="#n-hero"><g class="node home" data-id="hero"><rect x="170" y="40.0" width="320" height="46" rx="8"/><text x="184" y="59.0" class="nshort">1. Hero</text><text x="184" y="76.0" class="nsub">Give it the work you’d never give AI.</text></g></a>
+<a href="#n-solutions"><g class="node home" data-id="solutions"><rect x="170" y="104.9090909090909" width="320" height="46" rx="8"/><text x="184" y="123.9090909090909" class="nshort">2. Solutions</text><text x="184" y="140.9090909090909" class="nsub">Verification-first legal document review.</text></g></a>
+<a href="#n-see"><g class="node home" data-id="see"><rect x="170" y="169.8181818181818" width="320" height="46" rx="8"/><text x="184" y="188.8181818181818" class="nshort">3. Films</text><text x="184" y="205.8181818181818" class="nsub">Short films, no narrator, nothing staged.</text></g></a>
+<a href="#n-answers"><g class="node home" data-id="answers"><rect x="170" y="234.72727272727272" width="320" height="46" rx="8"/><text x="184" y="253.72727272727272" class="nshort">4. Three answers</text><text x="184" y="270.72727272727275" class="nsub">One task. Three answers you can tell apart.</text></g></a>
+<a href="#n-start"><g class="node home" data-id="start"><rect x="170" y="299.6363636363636" width="320" height="46" rx="8"/><text x="184" y="318.6363636363636" class="nshort">5. How you get there</text><text x="184" y="335.6363636363636" class="nsub">Watch it. Try it on your own work. Then deci…</text></g></a>
+<a href="#n-calculator"><g class="node home" data-id="calculator"><rect x="170" y="364.5454545454545" width="320" height="46" rx="8"/><text x="184" y="383.5454545454545" class="nshort">6. Calculator</text><text x="184" y="400.5454545454545" class="nsub">The numbers speak for themselves.</text></g></a>
+<a href="#n-contact"><g class="node home" data-id="contact"><rect x="170" y="429.45454545454544" width="320" height="46" rx="8"/><text x="184" y="448.45454545454544" class="nshort">7. Contact</text><text x="184" y="465.45454545454544" class="nsub">Talk to us</text></g></a>
+<a href="#n-who"><g class="node home" data-id="who"><rect x="170" y="494.3636363636364" width="320" height="46" rx="8"/><text x="184" y="513.3636363636364" class="nshort">8. Who it’s for</text><text x="184" y="530.3636363636364" class="nsub">One task, done properly, in three markets.</text></g></a>
+<a href="#n-onprem-h"><g class="node home" data-id="onprem-h"><rect x="170" y="559.2727272727273" width="320" height="46" rx="8"/><text x="184" y="578.2727272727273" class="nshort">9. On-premise</text><text x="184" y="595.2727272727273" class="nsub">The work stays in the building. So does the …</text></g></a>
+<a href="#n-pricing-h"><g class="node home" data-id="pricing-h"><rect x="170" y="624.1818181818181" width="320" height="46" rx="8"/><text x="184" y="643.1818181818181" class="nshort">10. Pricing</text><text x="184" y="660.1818181818181" class="nsub">A licence per lawyer and a computer you …</text></g></a>
+<a href="#n-proof"><g class="node home" data-id="proof"><rect x="170" y="689.090909090909" width="320" height="46" rx="8"/><text x="184" y="708.090909090909" class="nshort">11. Proof</text><text x="184" y="725.090909090909" class="nsub">Founded by researchers, tested on real files.</text></g></a>
+<a href="#n-get-started"><g class="node home" data-id="get-started"><rect x="170" y="754.0" width="320" height="46" rx="8"/><text x="184" y="773.0" class="nshort">12. Get started</text><text x="184" y="790.0" class="nsub">Start where it costs you nothing.</text></g></a>
+<a href="#s-product"><g class="node sub" data-id="product"><rect x="690" y="40.0" width="290" height="46" rx="8"/><text x="704" y="59.0" class="nshort">Product</text><text x="704" y="76.0" class="nsub">/product/</text></g></a>
+<a href="#s-lawfirms"><g class="node sub" data-id="lawfirms"><rect x="690" y="119.33333333333333" width="290" height="46" rx="8"/><text x="704" y="138.33333333333331" class="nshort">Law firms</text><text x="704" y="155.33333333333331" class="nsub">/for-law-firms/</text></g></a>
+<a href="#s-funds"><g class="node sub" data-id="funds"><rect x="690" y="198.66666666666666" width="290" height="46" rx="8"/><text x="704" y="217.66666666666666" class="nshort">Funds and AIFMs</text><text x="704" y="234.66666666666666" class="nsub">/for-funds/</text></g></a>
+<a href="#s-inhouse"><g class="node sub" data-id="inhouse"><rect x="690" y="278.0" width="290" height="46" rx="8"/><text x="704" y="297.0" class="nshort">In-house and compliance</text><text x="704" y="314.0" class="nsub">/for-in-house-and-compliance/</text></g></a>
+<a href="#s-smallfirms"><g class="node sub" data-id="smallfirms"><rect x="690" y="357.3333333333333" width="290" height="46" rx="8"/><text x="704" y="376.3333333333333" class="nshort">Small law firms</text><text x="704" y="393.3333333333333" class="nsub">/legal-ai-for-small-law-firms/</text></g></a>
+<a href="#s-whynot"><g class="node sub" data-id="whynot"><rect x="690" y="436.66666666666663" width="290" height="46" rx="8"/><text x="704" y="455.66666666666663" class="nshort">Why not a general legal AI</text><text x="704" y="472.66666666666663" class="nsub">/why-not-a-general-legal-ai/</text></g></a>
+<a href="#s-onprem"><g class="node sub" data-id="onprem"><rect x="690" y="516.0" width="290" height="46" rx="8"/><text x="704" y="535.0" class="nshort">On-premise</text><text x="704" y="552.0" class="nsub">/on-premise-legal-ai/</text></g></a>
+<a href="#s-pricing"><g class="node sub" data-id="pricing"><rect x="690" y="595.3333333333333" width="290" height="46" rx="8"/><text x="704" y="614.3333333333333" class="nshort">Pricing</text><text x="704" y="631.3333333333333" class="nsub">/pricing/</text></g></a>
+<a href="#s-about"><g class="node sub" data-id="about"><rect x="690" y="674.6666666666666" width="290" height="46" rx="8"/><text x="704" y="693.6666666666666" class="nshort">About</text><text x="704" y="710.6666666666666" class="nsub">/about/</text></g></a>
+<a href="#s-blog"><g class="node sub" data-id="blog"><rect x="690" y="754.0" width="290" height="46" rx="8"/><text x="704" y="773.0" class="nshort">Blog</text><text x="704" y="790.0" class="nsub">/blog/</text></g></a>
+</svg>
+    <figcaption>Twelve home sections in reading order on the left, the ten subpages on the right. Every subpage also carries the same menu and footer, which reach every other page; those edges are left out so the story&rsquo;s own links stay visible. Only the Blog has no link from the story.</figcaption>
+  </figure>
+
+
+  <h2>The home page, section by section</h2>
+  <p class="lead">What each section holds, and where its links go.</p>
+  <ol>
+<li id="n-hero"><div class="num">1</div><div><h3>Hero <span class="h2">Give it the work you’d never give AI.</span></h3><p>Slogan, the long lede, the three desks, two buttons (watch, free trial), the autoplay validation film.</p><p class="to in"><span>In page</span><a href="#n-see">#see</a> · <a href="#n-contact">#contact</a> · <a href="#n-calculator">#calculator</a></p></div></li>
+<li id="n-solutions"><div class="num">2</div><div><h3>Solutions <span class="h2">Verification-first legal document review.</span></h3><p>Four workflow cards (due diligence, closing, regulatory, compliance), each ending in a link to its market. Then the two complementary cards, the Librarian and the Clerk. Two buttons, the 70–95% and Global 10 tiles.</p><p class="to"><span>To subpages</span><a href="#s-product">How the AssociAte works</a> · <a href="#s-product">The three agents → #agents</a> · <a href="#s-whynot">Why not a general legal AI</a> · <a href="#s-lawfirms">See it for law firms</a> · <a href="#s-funds">See it for funds and AIFMs</a> · <a href="#s-inhouse">See it for in-house and compliance</a></p><p class="to in"><span>In page</span><a href="#n-calculator">#calculator</a> · <a href="#n-proof">#proof</a> · <a href="#n-get-started">#get-started</a></p></div></li>
+<li id="n-see"><div class="num">3</div><div><h3>Films <span class="h2">Short films, no narrator, nothing staged.</span></h3><p>The five short films: Verify, Not found, Uncertain, Learn, Deploy. No links out; the story’s proof.</p><p class="to none">No links out</p></div></li>
+<li id="n-answers"><div class="num">4</div><div><h3>Three answers <span class="h2">One task. Three answers you can tell apart.</span></h3><p>What the tool fills, then Proven / Uncertain / Not found in the deck wording, one line each.</p><p class="to"><span>To subpages</span><a href="#s-product">How the AssociAte works → #states</a></p><p class="to in"><span>In page</span><a href="#n-see">#see</a></p></div></li>
+<li id="n-start"><div class="num">5</div><div><h3>How you get there <span class="h2">Watch it. Try it on your own work. Then decide.</span></h3><p>Watch / Try / Own as the three timed steps from the old page (rail, numbered steps, cost pills), each with a button. A centred note on the three agents (AssociAte, Librarian, Clerk) ends in a "Meet the three agents" button.</p><p class="to"><span>To subpages</span><a href="#s-onprem">What on-premise means</a> · <a href="#s-product">Meet the three agents → #agents</a></p><p class="to in"><span>In page</span><a href="#n-see">#see</a> · <a href="#n-contact">#contact</a></p></div></li>
+<li id="n-calculator"><div class="num">6</div><div><h3>Calculator <span class="h2">The numbers speak for themselves.</span></h3><p>The ROI calculator, identical to the one on the pricing page, with its script. “Send us these numbers” preselects the form.</p><p class="to in"><span>In page</span><a href="#n-contact">#contact</a></p></div></li>
+<li id="n-contact"><div class="num">7</div><div><h3>Contact <span class="h2">Talk to us</span></h3><p>The form, after the calculator as on the old page. Reads ?intent= and src= from the URL, so every trial button on a subpage lands here preselected.</p><p class="to none">No links out</p></div></li>
+<li id="n-who"><div class="num">8</div><div><h3>Who it’s for <span class="h2">One task, done properly, in three markets.</span></h3><p>The three long films (CSSF, LPA closing, DORA), each with a button to its market page.</p><p class="to"><span>To subpages</span><a href="#s-funds">For funds and AIFMs</a> · <a href="#s-lawfirms">For law firms</a> · <a href="#s-inhouse">For in-house and compliance</a></p></div></li>
+<li id="n-onprem-h"><div class="num">9</div><div><h3>On-premise <span class="h2">The work stays in the building. So does the bill.</span></h3><p>Three of the eight cards: privilege, fixed cost, a machine not a data centre. Two buttons.</p><p class="to"><span>To subpages</span><a href="#s-onprem">What on-premise means, in full</a> · <a href="#s-pricing">Two ways to pay → #two-ways</a></p></div></li>
+<li id="n-pricing-h"><div class="num">10</div><div><h3>Pricing <span class="h2">A licence per lawyer and a computer you own, not a meter.</span></h3><p>Three price tiles (€125 a lawyer a month, €7,500 a year for five, the computer from €4,000 to €8,700) and one paragraph on nothing being metered. Two buttons, then a line on small firms with its own link.</p><p class="to"><span>To subpages</span><a href="#s-pricing">See how pricing works</a> · <a href="#s-smallfirms">Legal AI for a small law firm</a></p><p class="to in"><span>In page</span><a href="#n-calculator">#calculator</a></p></div></li>
+<li id="n-proof"><div class="num">11</div><div><h3>Proof <span class="h2">Founded by researchers, tested on real files.</span></h3><p>Fit 4 Start, the founders’ LexisNexis award, Eurostart, Global 10. “Read the story” button.</p><p class="to"><span>To subpages</span><a href="#s-about">Read the story / The founders’ papers → #research / Fit 4 Start → #deployment</a></p></div></li>
+<li id="n-get-started"><div class="num">12</div><div><h3>Get started <span class="h2">Start where it costs you nothing.</span></h3><p>Three cards: install the Librarian (opens the modal), free trial, book a demo.</p><p class="to in"><span>In page</span><a href="#n-contact">#contact</a></p></div></li>
+  </ol>
+
+  <h2>The subpages</h2>
+  <p class="lead">Each one has a query-shaped title, the slogan as subtitle, an FAQ with matching structured data, and the same closing block: Book a demo, Request a free trial, Back to the overview.</p>
+  <ol>
+<li id="s-product"><div class="num sub">/product/</div><div><h3>Product</h3><p>What it fills, four workflows, Proven / Uncertain / Not found and the evidence behind each answer, what is missing and why (pages searched, dropped answers), the five-step workflow, how it learns from the firm, Word in and out, the three agents, Watch / Try / Own, FAQ.</p><p class="to"><span>Reached from</span><a href="#n-solutions">Solutions</a> · <a href="#n-answers">Three answers</a> · <a href="#n-start">How you get there</a> · menu · footer</p></div></li>
+<li id="s-lawfirms"><div class="num sub">/for-law-firms/</div><div><h3>Law firms</h3><p>Luxembourg in the title. The Wednesday-deadline LPA and the partner's three questions, the checklists, the partner’s test and the five steps, Global 10 with fifteen lawyers in daily use, how it learns from the firm, privilege, FAQ.</p><p class="to"><span>Reached from</span><a href="#n-solutions">Solutions</a> · <a href="#n-who">Who it’s for</a> · menu · footer</p></div></li>
+<li id="s-funds"><div class="num sub">/for-funds/</div><div><h3>Funds and AIFMs</h3><p>CSSF self-assessment: yearly filing, the January–April peak, the auditor. The 54-field new sub-fund questionnaire as a run, the same steps every fund and year, the three statuses, Annex IV, SFDR, FAQ.</p><p class="to"><span>Reached from</span><a href="#n-solutions">Solutions</a> · <a href="#n-who">Who it’s for</a> · menu · footer</p></div></li>
+<li id="s-inhouse"><div class="num sub">/for-in-house-and-compliance/</div><div><h3>In-house and compliance</h3><p>DORA Article 30 review: gaps as the deliverable, not found with the reason, pages searched, what the auditor checks, the Clerk, privilege and purpose limitation, FAQ.</p><p class="to"><span>Reached from</span><a href="#n-solutions">Solutions</a> · <a href="#n-who">Who it’s for</a> · menu · footer</p></div></li>
+<li id="s-smallfirms"><div class="num sub">/legal-ai-for-small-law-firms/</div><div><h3>Small law firms</h3><p>Linked from the pricing teaser. One computer, from three lawyers, build-versus-buy outside the top 50, an afternoon to set up, Word in and out, Watch / Try / Own, FAQ.</p><p class="to"><span>Reached from</span><a href="#n-pricing-h">Pricing</a> · menu · footer</p></div></li>
+<li id="s-whynot"><div class="num sub">/why-not-a-general-legal-ai/</div><div><h3>Why not a general legal AI</h3><p>The Wednesday-deadline story and the partner's three questions, six structural reasons, “Where did you take this from?” with the court-decision count and ABA Opinion 512, a side-by-side table, FAQ.</p><p class="to"><span>Reached from</span><a href="#n-solutions">Solutions</a> · menu · footer</p></div></li>
+<li id="s-onprem"><div class="num sub">/on-premise-legal-ai/</div><div><h3>On-premise</h3><p>All eight cards, inside the building and outside it (CLOUD Act, no token provider, purpose limitation), why one server is enough, try-then-own, the Deploy film, FAQ.</p><p class="to"><span>Reached from</span><a href="#n-start">How you get there</a> · <a href="#n-onprem-h">On-premise</a> · menu · footer</p></div></li>
+<li id="s-pricing"><div class="num sub">/pricing/</div><div><h3>Pricing</h3><p>€125 a lawyer a month from three lawyers, the computer from €4,000 (Mac) to €8,700 (server), two ways to pay side by side, the calculator with the full explanation, FAQ.</p><p class="to"><span>Reached from</span><a href="#n-onprem-h">On-premise</a> · <a href="#n-pricing-h">Pricing</a> · menu · footer</p></div></li>
+<li id="s-about"><div class="num sub">/about/</div><div><h3>About</h3><p>Three founders, FNR grants, LexisNexis award, six papers, Global 10, the online pilot, Fit 4 Start and Eurostart, press (absorbs the old media page).</p><p class="to"><span>Reached from</span><a href="#n-proof">Proof</a> · menu · footer</p></div></li>
+<li id="s-blog"><div class="num sub">/blog/</div><div><h3>Blog</h3><p>Three posts; linked from the menu and footer only.</p><p class="to"><span>Reached from</span>menu and footer only</p></div></li>
+  </ol>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('figure svg').forEach(wire);
+  function wire(svg){
+  var nodes=svg.querySelectorAll('.node'), edges=svg.querySelectorAll('.link,.inlink');
+  function focus(id){
+    svg.classList.add('focus');
+    var keep={}; keep[id]=1;
+    edges.forEach(function(e){
+      var on=e.dataset.from===id||e.dataset.to===id;
+      e.classList.toggle('lit',on);
+      if(on){keep[e.dataset.from]=1;keep[e.dataset.to]=1;}
+    });
+    nodes.forEach(function(n){n.classList.toggle('dim',!keep[n.dataset.id]);n.classList.toggle('lit',n.dataset.id===id);});
+  }
+  function clear(){
+    svg.classList.remove('focus');
+    edges.forEach(function(e){e.classList.remove('lit');});
+    nodes.forEach(function(n){n.classList.remove('dim','lit');});
+  }
+  nodes.forEach(function(n){
+    n.addEventListener('mouseenter',function(){focus(n.dataset.id);});
+    n.addEventListener('mouseleave',clear);
+    if(n.parentNode.tagName!=='a') return; n.parentNode.addEventListener('focus',function(){focus(n.dataset.id);});
+    n.parentNode.addEventListener('blur',clear);
+  });
+  }
+})();
+</script>
+</body>
+</html>
+

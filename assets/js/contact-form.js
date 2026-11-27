@@ -20,6 +20,11 @@
     var form = document.getElementById('contact-form');
     if (!form) return;
 
+    // Calls to action on other pages link here as /?intent=trial&src=<cta>#contact.
+    var query = new URLSearchParams(location.search);
+    if (INTENT_SUBJECT[query.get('intent')]) document.getElementById('c-intent').value = query.get('intent');
+    if (query.get('src')) document.getElementById('c-source').value = query.get('src');
+
     var button = document.getElementById('c-submit');
     var status = document.getElementById('c-status');
     var buttonLabel = button.textContent;
